@@ -1,0 +1,168 @@
+.globalContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+
+
+    .content {
+      width: 50%;
+      text-align: left;
+      position: relative;
+      
+      h3 {
+        position: relative;
+        right: 5px;
+        font: normal normal normal 120px/196px Herbarium;
+        color: #0F494D; 
+        opacity: 0.1;
+      }
+      .title {
+        position: absolute;
+        top: 70px;
+        left: 50px;
+
+        h2 { 
+        color: #0F494D; 
+        font: normal normal bold 40px Hauora;
+        }
+
+        .subtitle {
+          color: #ff6c00; 
+          font: normal normal normal 25px Herbarium;
+          font-weight: bold;
+        }
+      }
+      
+      .txBtn {
+        position: relative;
+        left: 50px;
+
+      .description {
+        font-size: 16px;
+        color: #353535;
+        line-height: 1.8;
+        max-width: 80%;
+      }
+      .btn {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        top: 22px; 
+      }
+      }
+    }
+
+.picGlobal {
+  width: 50%;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  }
+}
+
+@media (max-width: 992px) {
+
+
+  .globalContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    width: 100%;
+
+    .content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      h3 {
+        right: 0;
+      }
+
+      .subtitle {
+        font-size: 22px;
+      }
+
+      .title {
+        font-size: 30px;
+        line-height: 40px;
+        left: 0;
+        right: 0;
+      }
+      .txBtn {
+        left: 0;
+        .description {
+          font-size: 18px;
+          line-height: 1.6;
+          max-width: 100%;
+        }
+
+      .btn {
+        justify-content: center;
+        top: 10px;
+      }
+    }
+    }
+
+    .picGlobal {
+      width: 70%;
+    .img {
+      width: 100%;
+      
+    }
+  }
+  }
+}
+
+
+@media (max-width: 768px) {
+
+
+  .globalContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      text-align: center;
+
+      h3 {
+        right: 0;
+      }
+
+      .title {
+        place-items: center;
+        left: 0px;
+        
+        .subtitle {
+          font-size: 22px;
+        }
+      }
+      .txBtn {
+        left: 0;
+        .description {
+          font-size: 15px;
+          line-height: 1.6;
+          text-align: center;
+        }
+
+      .btn {
+        justify-content: center;
+        top: 10px;
+      }
+    }
+    }
+
+    .picGlobal {
+      width: 80%;
+    .img {
+      width: 100%;
+    }
+  }
+  }
+}

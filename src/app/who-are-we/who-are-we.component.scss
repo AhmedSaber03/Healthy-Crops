@@ -1,0 +1,198 @@
+.whoAreWeContainer {
+    .fstSection {
+      display: flex;
+      align-items: center;
+      // flex-direction: row-reverse;
+      gap: 50px;
+
+      .scatchContainer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+
+        .pppic {
+          position: relative;
+          max-width: 100%;
+          height: 467px;
+          border-radius: 50%;
+          top: 50%; 
+          left: 50%;
+          transform: translate(-50%,0%);
+        }
+      }
+      
+      .text {
+        flex: 1;
+        position: relative;
+        width: 60%;
+
+        .overLayText {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        .bkWord {
+            font: normal normal normal 120px Herbarium;
+            letter-spacing: 0;
+            color: #0F494D;
+            opacity: 0.1;
+            margin-bottom: 40px;
+            }
+            .aboutUsHolder{
+              position: absolute;
+              margin-top: 40px;
+              margin-left: 85px;
+              p {
+                font: normal normal normal 25px Herbarium;
+                letter-spacing: 0;
+                color: #FF8A44;
+    
+              }
+              h1 {
+                font: normal normal bold 40px Hauora;
+                letter-spacing: 0;
+                color: #0F494D;
+    
+              }
+            }
+
+        }
+        .txbtn {
+          padding-left: 20px;
+          align-items: flex-start;
+          margin-left: 70px;
+
+        h4 {
+          font: normal normal normal 15px Hauora;
+          letter-spacing: 0;
+          color: #353535;
+          line-height: 1.5;
+          margin-bottom: 35px;
+        }
+      }
+      }
+      
+    }
+  
+    .sndSection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      p {
+        font: normal normal normal 80px/1.8 Herbarium;
+        color: #0F494D;
+        width: 60%;
+        position: relative;
+        
+      }
+  
+      img {
+        max-width: 100%;
+        height: 380px;
+        
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .whoAreWeContainer {
+      position: relative;
+      align-items: center;
+      gap: 40px;
+      
+  
+      .fstSection {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 40px;
+  
+        .scatchContainer {
+          width: 70%;
+  
+          .pppic {
+            width: 100%;
+            height: auto;
+          }
+        }
+  
+        .text {
+          flex: none;
+          padding: 20px;
+          text-align: center;
+          width: 100%;
+
+          .overLayText {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+          .bkWord {
+            font-size: 100px;
+          }
+          .aboutUsHolder {
+              font-size: 24px;
+              margin: 0;
+            }
+
+            h1 {
+              font-size: 36px;
+            }
+  
+            h4 {
+              font-size: 16px;
+              text-align: left;
+            }
+          }
+          .txbtn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+
+            h4 {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+  
+      .sndSection {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 40px;
+        gap: 30px;
+
+        p {
+          font-size: 50px;
+          display: contents;
+          max-width: 100%;
+        }
+  
+        img {
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .whoAreWeContainer {  
+      .fstSection {
+        .text {
+          .txbtn {
+            h4 {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+  }
+}
+    

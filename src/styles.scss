@@ -1,0 +1,27 @@
+@import url(./assets/Css/common.scss); 
+@import url(./assets/Css/button.scss);
+@import url(./assets/Css/reset.scss);
+// @import url(./assets/Css/Mixin.scss);
+
+*,
+* ::before,
+* ::after {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+  }
+
+
+html.cdk-global-scrollblock {
+    position: static !important; /* Remove fixed position */
+    overflow: visible !important; /* Ensure scrolling remains enabled */
+    top: auto !important; /* Reset top offset */
+    left: auto !important; /* Reset left offset */
+  }
+
+
+  .ant-tabs-motion {
+    animation: none !important;
+  }

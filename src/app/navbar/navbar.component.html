@@ -1,0 +1,74 @@
+<nav class="navbar mainPadding">
+    <div class="logo">
+      <img src="../../assets/pic/1.png" alt="Description" />
+    </div>
+    <div class="rightNav">
+    <ul class="nav-links">
+        <li>
+      <a routerLink="/" routerLinkActive="active">{{ 'HOME' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/about-us" routerLinkActive="active">{{ 'ABOUT_US' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/products" routerLinkActive="active">{{ 'PRODUCTS' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/contact-us" routerLinkActive="active">{{ 'CONTACT_US' | translate }}</a>
+    </li>
+    </ul>
+    <div class="language-selector">
+      <nz-select 
+      [(ngModel)]="selectedLanguage" 
+      (ngModelChange)="switchLanguage($event)" 
+      [nzPlacement]="'bottomRight'" 
+      [nzDropdownMatchSelectWidth]="true"
+      [nzShowArrow]="true">
+        <nz-option nzValue="en" [nzLabel]="'ENGLISH' | translate"></nz-option>
+        <nz-option nzValue="ar" [nzLabel]="'العربية' | translate"></nz-option>
+      </nz-select>
+    </div>    
+    </div>
+</nav>
+
+<!-- responsive tag  -->
+
+<div class="navReposive mainPadding">
+  <div class="logo">
+    <img src="../../assets/pic/1.png" alt="Description" />
+  </div>
+  <div class="rightNavR">
+    <div class="language-selector"  >
+      <img src="../../assets/pic/egy ico.svg" alt=""/>
+      <span>EN</span>
+    </div>
+  <span class="nzDrawer" nz-button nzType="primary" (click)="open()">&#9776;</span>
+    <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      [nzMask]="true"
+      nzPlacement="left"
+      nzTitle=""
+      (nzOnClose)="close()"
+      nzWrapClassName="drawerConent">
+      <ng-container *nzDrawerContent>
+        <span class="closeIcon" (click)="close()">&#10006;</span>
+        <ul class="nav-links">
+        <li>
+          <a routerLink="" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a routerLink="/about-us" routerLinkActive="active">About us</a>
+        </li>
+        <li>
+          <a routerLink="/products" routerLinkActive="active">Products</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us" routerLinkActive="active">Contact us</a>
+        </li>
+      </ul>
+      </ng-container>
+    </nz-drawer>
+  </div>
+</div>
+  
