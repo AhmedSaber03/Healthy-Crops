@@ -1,0 +1,299 @@
+@import '../../../assets/Css/Mixin.scss';
+@import '../../../assets/Css/common.scss';
+@import '../../../assets/Css/variables.scss';
+
+
+.sliderContainer {
+  position: relative;
+  text-align: left;
+  align-items: center;
+
+  body.rtl & {
+    text-align: right;
+    direction: rtl;
+    transform: scaleX(-1);
+  }
+
+    .ant-carousel .slick-slider .slick-list, .ant-carousel .slick-slider .slick-track
+    { 
+        height: auto !important; 
+    }
+
+    .ant-carousel .slick-dots li.slick-active button {
+        background: $primaryColor; 
+        border-color: $primaryColor;
+        border: 2px solid $primaryColor; 
+      }
+      .ant-carousel .slick-dots-bottom {
+        bottom: 87px;
+    }
+      
+      .ant-carousel .slick-dots li button {
+        position: absolute;
+        display: block; 
+        margin-top: 10px;
+        width: 12px;
+        height: 12px; 
+        border-radius: 50%; 
+        background: $whiteColor; 
+        cursor: pointer;
+        opacity: 1;
+        transition: all 0.3ms;
+
+        @include mq("tablet-wide") {
+          width: 10px;
+          height: 10px; 
+        }
+      
+        &::before {
+          content: '';
+          position: absolute;
+          top: -7px; 
+          left: -6.3px;
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          transition: all 0.0ms;
+
+          @include mq("tablet-wide") {
+            width: 20px;
+            height: 20px;
+          }
+
+          @include mq("ipad"){
+            top: -6.3px;
+          }
+          
+          @include mq("ipad"){
+            top: -6.3px;
+          }
+        }
+      }
+      
+      .ant-carousel .slick-dots li.slick-active button::before {
+        border-color: $primaryColor;
+        border: 2px solid $primaryColor; 
+      }
+      
+  .homeSlider
+  {
+    height: calc(100vh - 49px) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+
+    @include mq("ipad") {
+      height: 450px !important;
+    }
+    
+  }
+    
+    .text { 
+      margin-bottom: 70px;
+
+      @include mq("ipad") {
+        text-align: left;
+
+      }
+
+      
+  body.rtl & {
+    transform: scaleX(-1);
+    direction: rtl;
+    text-align: right;
+  }
+  .overlay-text 
+    {
+    font-family: "Herbarium-Regular";
+    font-size: 37px;
+    color: $primaryColor;
+
+    body.rtl & {
+      font-size: 37px;  
+      font-family: "Neo-Regular";
+      
+      @include mq("tablet-wide") {
+        font-size: 30px;
+  
+      }
+      @include mq("tablet"){
+        font-size: 25px;
+      }
+      @include mq("phablet") {
+        font-size: 20px;
+      }   
+    }
+
+    @include mq("tablet-wide") {
+      font-size: 30px;
+
+    }
+    @include mq("tablet"){
+      font-size: 25px;
+    }
+    @include mq("phablet") {
+      font-size: 20px;
+    }
+    }
+
+  .Mtext {
+    font-family: "Hauora-Bold";
+    font-size: 45px;
+    letter-spacing: 0px;
+    color: $blackColor;
+    opacity: 1;
+
+    body.rtl & {
+      font-family: "Neo-Regular";
+      font-size: 35px;
+      @include mq("tablet-wide") {
+        font-size: 30px;
+  
+      }
+      @include mq("tablet"){
+        font-size: 25px;
+      }
+      @include mq("phablet") {
+        font-size: 20px;
+      } 
+    }
+
+    @include mq("tablet-wide") {
+      font-size: 30px;
+
+    }
+    @include mq("tablet"){
+      font-size: 25px;
+    }
+    @include mq("phablet") {
+      font-size: 20px;
+    }
+    }
+
+    .Stext {
+      font-family: "Hauora-regular";
+      font-size: 15px;
+      letter-spacing: 0;
+      color: $subTextColor;
+      padding-top: 5px;
+      width: 50%;
+      opacity: 1;
+
+      body.rtl & {
+        font-family: "Neo-Regular";
+        width: 99%;
+    
+        @include mq("tablet-wide") {
+          font-size: 20px;
+          width: 48%;
+        }
+    
+        @include mq("tablet") {
+          font-size: 15px;
+          width: 50%;
+        }
+    
+        @include mq("phablet") {
+          font-size: 12px; 
+       
+        }
+      }
+    
+      @include mq("tablet-wide") {
+        font-size: 20px;
+      }
+    
+      @include mq("tablet") {
+        font-size: 15px;
+      }
+    
+      @include mq("phablet") {
+        font-size: 12px;
+      }
+    }
+    
+    .button-container {
+      display: flex;
+      position: relative;
+      padding-top: 49px;
+      justify-content: flex-start;
+      gap: 20px;
+      direction: ltr;
+
+      @include mq("tablet-small") {
+        flex-direction: column;
+      }
+
+      body.rtl & {
+        direction: rtl;
+      }
+    }
+  
+    .SecondaryButton {
+      position: relative;
+      display: flex; 
+      align-items: center; 
+      justify-content: flex-end; 
+      padding: 10px 20px;
+      background-color: $whiteColor;
+      border: 2px solid $secondaryColor;
+      color: $secondaryColor;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      border-radius: 22px;
+      width: 184px;
+      height: 44px;
+      text-decoration: none;
+      overflow: hidden; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s; 
+      
+      body.rtl & {
+        justify-content: start;
+        font-family: "Neo-Regular";
+      }
+
+      @include mq("ipad"){
+        width: 150px;
+        height: 40px;
+        font-size: 12px;
+        border-radius: 20px;
+      }
+
+      @include mq("tablet") {
+        width: 140px;
+        height: 35px;
+        padding: 10px 13px;
+      }
+
+    
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .oArrow {
+      position: absolute; 
+      width: 33px;
+      left: 5px; 
+
+      @include mq("ipad") {
+        width: 30px;
+        height: 30px;
+      }
+
+      @include mq("tablet") {
+          width: 23px;
+          height: 23px;
+      }
+
+      body.rtl & {
+        transform: scaleX(-1);
+      }
+    }
+    }
+  }
+}

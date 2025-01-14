@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35.279" height="48.048" viewBox="0 0 35.279 48.048">
+  <g id="pin_1_" data-name="pin (1)" transform="translate(-511.893 -286.356)">
+    <g id="Group_15855" data-name="Group 15855">
+      <g id="FLAT">
+        <g id="Group_15851" data-name="Group 15851" transform="matrix(0.866, 0.5, -0.5, 0.866, 422.629, 756.375)">
+          <path id="Path_35052" data-name="Path 35052" d="M-132.222-411.949a1,1,0,0,1-1,1,1,1,0,0,1-1-1V-438.1a1,1,0,0,1,1-1,1,1,0,0,1,1,1Z" fill="#616161" fill-rule="evenodd"/>
+        </g>
+        <g id="Group_15854" data-name="Group 15854" transform="translate(453.84 702.317) rotate(29.995)">
+          <g id="Group_15852" data-name="Group 15852">
+            <circle id="Ellipse_179" data-name="Ellipse 179" cx="12.212" cy="12.212" r="12.212" transform="translate(-145.434 -396.335)" fill="#ff8a44"/>
+          </g>
+          <g id="Group_15853" data-name="Group 15853">
+            <path id="Path_35053" data-name="Path 35053" d="M-133.222-390.894a1,1,0,0,1-1-1,1,1,0,0,1,1-1,8.718,8.718,0,0,1,8.772,8.772,1,1,0,0,1-1,1,1,1,0,0,1-1-1A6.729,6.729,0,0,0-133.222-390.894Z" fill="#f5f5f5" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

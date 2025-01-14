@@ -1,7 +1,8 @@
-import { Routes } from '@angular/router';
+import { provideRouter, Routes, withRouterConfig } from '@angular/router';
 
 
 export const routes: Routes = [
+
   {
     path: '',
     loadComponent: () =>
@@ -12,7 +13,32 @@ export const routes: Routes = [
     path: 'about-us',
     loadComponent: () =>
       import('./about-us/about-us.component').then((m) => m.AboutUsComponent),
-    data: { animation: 'AboutUsPage' }, // Unique animation data for about-us
+    data: { animation: 'AboutUsPage' }, 
+  },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./sub-products/sub-products.component').then((m) => m.SubProductsComponent),
+    data: { animation: 'subProductsPage' }, 
+  },
+  {
+    path: 'contact-us',
+    loadComponent: () =>
+      import('./contactus/contactus.component').then((m) => m.ContactusComponent),
+    data: { animation: 'contactuspage' }, 
+  },
+
+  {
+    path: 'product-details/:id', 
+    loadComponent: () =>
+      import('./sub-products/sub-products.component').then(
+        (m) => m.SubProductsComponent
+      ),
   },
 ];
+
+export const routerConfig = provideRouter(
+  routes,
+  withRouterConfig({ onSameUrlNavigation: 'reload' }) 
+);
 

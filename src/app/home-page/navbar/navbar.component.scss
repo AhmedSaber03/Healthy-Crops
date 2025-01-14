@@ -1,0 +1,296 @@
+@import '../../../assets/Css/Mixin.scss';
+@import '../../../assets/Css/common.scss';
+@import '../../../assets/Css/variables.scss';
+
+
+.navbar {
+  background-color: $whiteColor;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.95;
+  transition: transform 0.3s ease, font-weight 0.3s ease;
+
+  .logo {
+    display: flex;
+    padding: 0;
+    opacity: 1;
+    img {
+      width: 160px;
+      height: 100%;
+    }
+    body.rtl & {
+      position: relative;
+      left: 28px;
+    }
+  }
+
+  .rightNav {
+    display: flex;
+    gap: 100px;
+    body.rtl & {
+      position: relative;
+    }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 0;
+    font-family: "Poppins-Regular";
+    font-size: 15px;
+
+    body.rtl & {
+      font-family: "Neo-Regular";
+    }
+  
+    li {
+      position: relative;
+  
+      a {
+        text-decoration: none;
+        color: $subTextColor;
+        position: relative;
+        
+  
+        &.active {
+          font-weight: bold;
+          color: $primaryColor;
+          text-decoration: none;
+
+          &::after {
+              content: '';
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              bottom: -25px; 
+              left: -8px;
+              width: 135%;
+              height: 2px;
+              background-color: $primaryColor;
+              inline-size: none;
+            }
+        }
+  
+        &:hover {
+          color: $blackColor;
+          font-weight: bold;
+          transform: scale(1.1);
+          
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -25px; 
+            left: -13px;
+            width: 135%;
+            height: 2px;
+            background-color: $hoverColor;
+            inline-size: none;
+            
+          }
+        }
+      }
+    }
+  }  
+}
+
+.language-selector {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-right: 0;
+
+  }
+  
+  span {
+    font-weight: normal;
+    margin-right: 15px;
+  }
+}
+
+div.rightNav > div > a {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+div.rightNav > div > a > p{
+  color: $blackColor;
+}
+div.rightNav > div > a > img:nth-child(1) {
+  width: 20px;
+  height: 100%;
+}
+.downArrow {
+  width: 20px;
+}
+
+nz-select {
+  margin: 0 8px 10px 0;
+  width: 120px;
+  .ant-select-arrow {
+    color: $blackColor;
+    left: 75px;
+  }
+  .ant-select-rtl.ant-select-single .ant-select-selector .ant-select-selection-item, .ant-select-rtl.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    body.rtl & {
+      right: 40px;
+      top: 2.5px;
+    }
+  }
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  box-shadow: unset;
+  border-style: none;
+
+}
+.cdk-overlay-pane {
+  .ant-select-dropdown{
+  text-align: center;
+  min-width: 90px;
+}
+}
+
+
+/* Base styles */
+.navbar {
+  display: flex;
+
+  @include mq("desktop") {
+    display: flex !important;
+  }
+}
+.navReposive {
+  display: none;
+
+  @include mq("desktop") {
+    display: none !important;
+  }
+}
+
+/* Media Query for 992px and below */
+
+@include mq("ipad"){
+  .navbar {
+    display: none !important;
+  }
+  .drawerConent{
+    
+    .closeIcon {
+      position: absolute;
+      right: 33px;
+      top: 33px;
+      font-size: 18px;
+      cursor: pointer;
+      color: $blackColor;
+      padding: 4px;
+      transition: color 0.3s ease;
+
+      body.rtl & {
+        display: flex;
+        position: relative;
+        justify-content: flex-end;
+        padding: 0 0 0 20px;
+      }
+    }
+
+    .closeIcon:hover {
+      color: red;
+    }
+    
+    ul {
+    li {
+      list-style: none;
+      line-height: 2.5;
+
+      a {
+        text-decoration: none;
+        color: $subTextColor;
+        position: relative;
+        
+        &.active {
+          font-weight: bold;
+          color: $primaryColor;
+          text-decoration: none;
+        }
+  
+        &:hover {
+          color: $blackColor;
+          font-weight: bold;
+          transform: scale(1.1);
+          
+        }
+      }
+       
+    }
+  }
+  }
+  .navReposive {
+    display: flex !important; 
+    height: 50px !important;
+    background-color: $whiteColor;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.95;
+    transition: transform 0.3s ease, font-weight 0.3s ease;  
+    margin-top: 0px;
+    
+    .logo {
+      opacity: 1;
+      position: relative;
+  
+
+      img {
+        width: 111px;
+        height: 100%;
+        }
+    }
+    .rightNavR {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+
+    .language-selector {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding-right: 0;
+
+      .downArrow {
+        width: 20px;
+      }
+      span {
+        font-weight: normal;
+        margin-left: 0;
+      }
+    }
+  }
+  }
+  div.rightNavR > div > a {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  div.rightNavR > div > a > p{
+    color: $blackColor;
+  }
+  div.rightNav > div > a > img:nth-child(1) {
+    width: 20px;
+    height: 100%;
+  }
+}
+
+
+

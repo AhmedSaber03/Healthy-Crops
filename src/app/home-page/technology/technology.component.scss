@@ -1,0 +1,123 @@
+@import "../../../assets/Css/Mixin.scss";
+@import "../../../assets/Css/common.scss";
+@import "../../../assets/Css/variables.scss";
+
+.techContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mq("tablet-wide") {
+    place-items: center;
+    flex-direction: column-reverse;
+  }
+  body.rtl & {
+    justify-content: center;
+  }
+
+  .picC {
+    position: relative;
+    left: 70px;
+
+    @include mq("desktopMore") {
+      left: 30px;
+    }
+
+    @include mq("desktop") {
+      left: 10px;
+    }
+
+    @include mq("tablet-wide") {
+      left: 0px;
+    }
+
+    body.rtl & {
+      left: 55px;
+
+      @include mq("tablet-wide") {
+        left: 0;
+      }
+    }
+    .pic {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+
+      @include mq("phablet") {
+        width: 100%;
+      }
+
+      .IQF,
+      .HPP {
+        @include mq("phablet") {
+          width: 150px;
+          height: 100%;
+        }
+      }
+      .IQF {
+        position: relative;
+        top: 30px;
+      }
+    }
+    .Freeze {
+      position: relative;
+      margin-left: 50px;
+
+      @include mq("phablet") {
+        width: 170px;
+        height: 100%;
+        margin-left: 30px;
+      }
+
+      body.rtl & {
+        right: 30px;
+      }
+    }
+    .HPP:hover,
+    .IQF:hover,
+    .Freeze:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .technologies {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 57%;
+
+    @include mq("ipad") {
+      gap: 0;
+    }
+    @include mq("tablet") {
+      width: 100%;
+    }
+
+    // .textHolder {
+    //   @include mq("tablet-wide"){
+    //     padding: 0;
+    //     text-wrap: nowrap;
+    //     text-align: center;
+    //     left: 0;
+    //   }
+
+    //   .bkText {
+    //     @include mq("tablet-wide"){
+    //       width: 100%;
+    //     }
+    //  }
+
+    //  .subTextHolder {
+
+    //   @include mq("tablet-wide") {
+    //     margin-left: 0;
+    //     width: 100%;
+    //   }
+    //   > p{
+    //     @include mq("phablet"){
+    //     margin-top: 20px;
+    //     }
+    //   }
+    // }
+    // }
+  }
+}

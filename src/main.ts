@@ -5,6 +5,9 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { appInitializerProvider } from './app/app.config'; 
+import { importProvidersFrom } from '@angular/core';
+
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));

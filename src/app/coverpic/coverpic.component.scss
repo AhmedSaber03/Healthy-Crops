@@ -1,0 +1,35 @@
+@import "../../assets/Css/Mixin.scss";
+@import "../../assets/Css/variables.scss";
+
+.CoverHolder {
+        background-size: cover;
+        background-position: center;
+        height: 313px;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mq("tablet") {
+            height: 200px;
+        }
+    .CoverHolderInner {
+        text-align: center;
+        p {
+            
+            font-family: "Bebas-Regular";
+            font-size: 48px;
+            color: #fff;
+            margin: 0;
+
+        @include mq("phablet"){
+            font-size: 30px;
+        }
+
+        body.rtl & {
+            font-family: "Neo-Bold";
+        }
+
+        }
+    }
+}

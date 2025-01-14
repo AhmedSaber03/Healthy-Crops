@@ -1,0 +1,529 @@
+@import '../../assets/Css/Mixin.scss';
+@import '../../assets/Css/common.scss';
+@import '../../assets/Css/variables.scss';
+
+@include globalTextStyles($mainFontSize, $primaryColor);
+
+.aboutContainer {
+  display: flex;
+  gap: 50px;
+  @include mq("tablet-wide") {
+    flex-direction: column;
+    gap: 110px;
+    place-items: center;
+    
+  }
+
+  .textHolder {
+    position: relative;
+    width: 100%;
+
+    @include mq("tablet-wide"){
+      place-items: center;
+      text-align: center;
+    }
+    body.rtl & {
+      @include mq("tablet-wide"){
+        text-align: center;
+      } 
+    }
+
+
+    .subTextHolder {
+      p{ 
+        @include mq("tablet-wide"){
+          margin-top:10px;
+        }
+        
+      }
+
+      body.rtl & {
+        p{ 
+          @include mq("tablet-wide"){
+          margin-top: 30px;
+          font-family: "Neo-Medium";
+          }
+        }
+      }
+    }
+
+    // @include mq("desktop") {
+    //   width: 100%;
+    // }
+  }
+
+  .picHolder {
+    position: relative;
+    width: 50%;
+    @include mq("tablet"){
+      width: 100%;
+    }
+    
+    body.rtl & {
+      @include mq("phablet"){
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+
+    .pppic {
+
+      @include mq("desktop") {
+        width: 100%;
+      }
+      @include mq("tablet"){
+        display: flex;
+        width: 60%;
+        place-self: center;
+      }
+      body.rtl & {
+      @include mq("phablet"){
+        display: grid;
+        width: 100%;
+      }
+    }
+    }
+  }
+}
+.shadowPic {
+  background: url(../../assets/pic/Group5227.png) no-repeat;
+  width: 100%;
+  height: auto;
+
+  @include mq("desktop") {
+    max-width: 100%;
+  }
+  
+}
+.techContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+
+  .textHolder {
+    justify-content: center;
+    margin-bottom: 65px;
+    .subTextHolder {
+      place-items: center;
+      margin-left: 0;
+
+      p {
+        width: 70%;
+        text-align: center;
+
+        body.rtl & {
+          margin-top: 25px;
+
+        }
+
+
+        @include mq("ipad") {
+          max-width: 100%;
+          width: 460px;
+          text-wrap: wrap;
+
+        }
+
+        @include mq("phone-wide") {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+
+    
+
+    .ant-tabs .ant-tabs-rtl .ant-tabs-top .ant-tabs-default {
+      gap: 50px;
+    }
+    .ant-tabs-tab {
+      padding: 0 10px;
+      width: fit-content;
+    }
+    nz-tabs-nav > div {
+      justify-content: center;
+    }
+
+    .ant-tabs-ink-bar {
+      background: none;
+    }
+    .ant-tabs-nav-list {
+      height: 52px;
+      overflow: hidden;
+      border-radius: 26px;
+      background-color: transparent;
+
+      @include mq("tablet"){
+        height: auto;
+      }
+
+      
+    }
+    .ant-tabs-tab + .ant-tabs-tab {
+      margin: 0;
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      background-color:$primaryColor;
+      height: 44px;
+      border-style: none;
+      border-radius: 22px;
+      color: $whiteColor;
+      @include mq("phablet") {
+        font-size: 10px;
+      }
+
+    }
+    .ant-tabs-tab-btn {
+      width: 190px;
+      height: 44px;
+      line-height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $background;
+      color: $primaryColor;
+      border-radius: 26px;
+
+      @include mq("phablet") {
+        width: 100px;
+      }
+      @include mq("phone"){
+        width: 80px;
+      }
+    }
+    .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-btn {
+      background-color: $inActiveTab;
+    }
+    .ant-tabs-top > .ant-tabs-nav::before {
+      border-bottom: none;
+      color: $primaryColor;
+    }
+
+    .ant-tabs-ink-bar,
+    .ant-tabs-content {
+      transition: none !important;
+    }
+    .conentHolder {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+
+      @include mq("tablet"){
+        display: flex;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        flex-direction: column;
+      }
+    }
+
+    img.tab-icon {
+      width: 500px;
+      height: 100%;
+      object-fit: cover;
+
+      @include mq("desktop") {
+        width: 100%;
+      }
+      @include mq("tablet") {
+        width: 80%;
+      }
+    }
+
+    .tab-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 200px;
+
+      @include mq("tablet"){
+        min-height: 0;
+      }
+
+      h3 {
+        font-family: "Hauora";
+        font-size: 22px;
+        font-weight: bold;
+        color: $blackColor;
+      }
+
+      p {
+        font-family: "Hauora";
+        font-size: 15px;
+        font-weight: normal;
+        color: $subTextColor;
+
+        body.rtl & {
+          font-family: "Neo-regular";
+        }
+      }
+    }
+  }
+}
+
+.carousel {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+
+  .textTitle {
+    font-family: "Hauora";
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: $subTextColor;
+    display: inline-block;
+    position: relative;
+
+    @include mq("desktop") {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; 
+      left: 50%;
+      height: 2px; 
+      width: 2%; 
+      transform: translateX(-50%);
+      background-color: $primaryColor; 
+      transition: width 0.3s ease-in-out; 
+    }
+  
+    &:hover::after {
+      width: 12%;
+      body.rtl & {
+        width: 7%;
+      }
+    }
+
+    body.rtl & {
+      font-family: "Neo-regular";
+    }
+  }
+
+  .slick-list {
+    width: 100% !important;
+    height: 495px !important;
+
+    @include mq("tablet-wide") {
+      height: 535px !important; 
+    }
+    @include mq("tablet") {
+      height: 475px !important; 
+    }
+
+    @include mq("phone-wide") {
+      height: 505px !important; 
+    }
+  }
+  .slideItem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+    width: 100%;
+    border-radius: 10px;
+
+    p {
+      width: 50%;
+      line-height: 21px;
+      margin-top: 20px;
+
+      body.rtl & {
+        font-size: 20px;
+      }
+
+      @include mq("tablet-wide") {
+        font-size: 16px;
+      }
+      @include mq("tablet") {
+        font-size: 15px;
+        width: 80%;
+
+        body.rtl & {
+          font-size: 15px;
+        }
+      }
+      @include mq("phone") {
+        font-size: 12px;
+        body.rtl & {
+          font-size: 14px;
+          margin-top: 13px;
+        }
+      }
+    }
+  }
+
+  .carouselImg {
+    width: 530px;
+    height: 377.46px;
+    object-fit: cover;
+    border-radius: 10px;
+
+    @include mq("phone-wide"){
+      width: 100%;
+    }
+  }
+
+  button > img{
+    @include mq("phone") {
+      width: 50PX;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50px);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 60px;
+
+    &.left {
+      left: 0%    ;
+      @include mq("ipad") {
+        left: -10px;
+      }
+    }
+
+    &.right {
+      right: 0PX;
+      @include mq("ipad") {
+        right: -10px;
+      }
+    }
+  }
+
+  .ant-carousel .slick-dots-bottom {
+    bottom: 27px;
+
+
+    @include mq("ipad") {
+      bottom: 0;
+    }
+
+    body.rtl & {
+      bottom: 0;
+      // @include mq("ipad"){
+      //   bottom: 20px;
+      // }
+
+    }
+  }
+  ant-carousel .slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ant-carousel .slick-dots li {
+    width: 12px;
+    height: 6px;
+    background: transparent;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+
+    button {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+
+      button:hover {
+        background: $carouselDotsColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $carouselDotsColor;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+    }
+    &.slick-active {
+      width: 29px;
+
+      button::after {
+        background: $primaryColor;
+      }
+    }
+  }
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  margin-top: 40px;
+  position: relative;
+
+  @include mq("phone") {
+    gap: 0;
+  }
+
+  .textHolder {
+    justify-content: center;
+    margin-bottom: 10px;
+    .subTextHolder {
+      text-align: center;
+      margin-left: 0;
+      text-wrap: nowrap;
+    }
+  }
+
+  .picHolder {
+    width: 971px;
+    height: 100%;
+
+    body.rtl & {
+      margin-top: 60px;
+
+      @include mq("ipad"){
+        margin-top: 0;
+      }
+    }
+
+  @include mq("desktop") {
+    width: 100%;
+    }
+
+    .pppic1 {
+      max-width:100%;
+    }
+  }
+
+.shadow {
+  position: absolute;
+  width: 27.1875rem;
+  top: 33.75rem;
+  right: 0px;
+
+  @include mq("tablet-small"){
+    display: none;
+  }
+}
+
+}

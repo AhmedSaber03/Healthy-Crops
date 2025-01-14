@@ -1,3 +1,101 @@
 <app-navbar></app-navbar>
-<app-who-are-we title="Healthy crop's start" [isRowReverse]="true"></app-who-are-we>
+<app-coverpic
+  [bgUrl]="'./assets/pic/Group15409.png'"
+  [pageTitle]="'ABOUTUS.TITLE'"></app-coverpic>
+<div class="aboutContainer mainPadding globalDivMargin">
+  <div class="textHolder">
+    <p class="bkText">{{ "ABOUTUS.TITLE" | translate }}</p>
+    <div class="subTextHolder">
+      <h4>{{ "ABOUTUS.TITLE" | translate }}</h4>
+      <h2>{{ "ABOUTUS.subTitle" | translate }}</h2>
+      <p>{{ "ABOUTUS.DESCRIPTION" | translate }}</p>
+    </div>
+  </div>
+  <div class="picHolder">
+    <img class="pppic" src="../../assets/pic/PPCS.png" alt="" />
+  </div>
+</div>
+<div class="shadowPic">
+  <div class="techContainer mainPadding globalDivMargin">
+    <div class="textHolder">
+      <P class="bkText">{{ "TECHNOLOGY.TITLE" | translate }}</P>
+      <div class="subTextHolder">
+        <h4>{{ "TECHNOLOGY.TITLE" | translate }}</h4>
+        <h2>{{ "SUBPRODUCTS.subTitle" | translate }}</h2>
+        <p>{{ "SUBPRODUCTS.DESCRIPTION" | translate }}</p>
+      </div>
+    </div>
+    <div class="tabs">
+      <nz-tabset
+        [(nzSelectedIndex)]="selectedTab"
+        (nzSelectedIndexChange)="onTabChange($event)"
+      >
+        <nz-tab
+          *ngFor="let tab of tabs; let i = index"
+          [nzTitle]="tab.titleKey | translate"
+          class="tabContent"
+        >
+          <div class="conentHolder">
+            <div class="tab-content">
+              <h3>{{ tab.content | translate }}</h3>
+              <p>{{ tab.description | translate }}</p>
+            </div>
+            <div class="tab-header">
+              <img
+                [src]="tab.imageUrl"
+                alt="{{ tab.titleKey }}"
+                class="tab-icon"
+              />
+            </div>
+          </div>
+        </nz-tab>
+      </nz-tabset>
+    </div>
+  </div>
+  <div class="certificates mainPadding globalDivMargin">
+    <div class="textHolder">
+      <p class="bkText">{{ "certificates.mainTitle" | translate }}</p>
+      <div class="subTextHolder">
+        <h4>{{ "certificates.mainTitle" | translate }}</h4>
+        <h2>{{ "certificates.subTitle" | translate }}</h2>
+      </div>
+    </div>
+  <div class="carousel">
+      <p class="textTitle">{{ "certificates.headTitle" | translate }}</p>
+      <nz-carousel
+        #carousel
+        [nzEffect]="effect"
+        [nzDots]="true"
+        (nzAfterChange)="onSlideChange($event)">
+        <div
+          *ngFor="let item of slides; let i = index"
+          nz-carousel-content
+          class="slideItem">
+          <img [src]="item.imgSrc" alt="Slide image" class="carouselImg" />
+          <p>{{ "SUBPRODUCTS.DESCRIPTION" | translate }}</p>
+        </div>
+      </nz-carousel>
+      <button class="arrow left" (click)="carousel.pre()">
+        <img src="assets/pic/Next1.png" alt="Previous" />
+      </button>
+      <button class="arrow right" (click)="carousel.next()">
+        <img src="assets/pic/Next.png" alt="Next" />
+      </button>
+  </div>
+</div>
+<div class="team mainPadding globalDivMargin">
+  <div class="textHolder">
+    <P class="bkText">{{ "certificates.Team.TITLE" | translate }}</P>
+    <div class="subTextHolder">
+      <h4>{{ "certificates.Team.TITLE" | translate }}</h4>
+      <h2>{{ "certificates.Team.subTitle" | translate }}</h2>
+    </div>
+  </div>
+  <div class="picHolder">
+    <img class="pppic1" src="../../assets/pic/Group15410.png" alt="teamPic" />
+  </div>
+  <div class="shadow">
+    <img src="../../assets/pic/Mask Group 67.svg" alt="shadow"/>
+  </div>
+</div>
 <app-footer></app-footer>

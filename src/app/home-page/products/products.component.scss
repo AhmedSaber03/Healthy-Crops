@@ -1,0 +1,242 @@
+@import '../../../assets/Css/Mixin.scss';
+@import '../../../assets/Css/common.scss';
+@import '../../../assets/Css/variables.scss';
+
+@include globalTextStyles($mainFontSize, $primaryColor);
+
+.products {
+
+  .productsContainer {
+
+    @include mq("tablet-wide") {
+      display: grid;
+      justify-content: center;
+    }
+
+ .textHolder {
+
+  @include mq("tablet-wide"){
+        padding: 0;
+        text-wrap: nowrap;
+        text-align: center;
+        left: 0;
+  }
+ }
+}
+
+  .tabscontainer {
+    position: relative;
+    margin-top: 20px;
+
+    @include mq("tablet-wide"){
+      place-items: center;
+
+    }
+
+    body.rtl & {
+      margin-top: 40px;
+    }
+    .tabs {
+      position: relative;
+      font-family: "Hauora-regular";
+      font-size: 14px;
+
+      body.rtl & {
+        font-family: "Neo-regular";
+      }
+
+      .ant-tabs-tab {
+        padding: 0 5px;
+        width: fit-content;
+
+        @include mq("tablet-wide"){
+          padding: 0px;
+          width: fit-content;
+      }
+
+      @include mq("phablet"){
+        padding: 0px;
+        font-size: 12px;
+          }
+      }
+      }
+      .ant-tabs-ink-bar {
+        background: none;
+      }
+      .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+        height: 52px;
+        overflow: hidden;
+        border-radius: 26px;
+        background-color: $background;
+
+        @include mq("tablet-wide") {
+          height: 44px;
+        }
+      }
+      .ant-tabs-tab + .ant-tabs-tab {
+        margin: 0;
+      }
+
+      .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        background-color: $primaryColor;
+        height: 44px;
+        border-style: none;
+        border-radius: 22px;
+        color: $whiteColor;
+      }
+      .ant-tabs-tab-btn {
+        width: 150px;
+        color: $primaryColor;
+
+        @include mq("tablet"){
+          width: 140px;
+        }
+
+        @include mq("phablet"){
+          width: 120px;
+        }
+
+        @include mq("phone"){
+          width: 90px;
+        }
+      }
+      .ant-tabs-top > .ant-tabs-nav::before {
+        border-bottom: none;
+        color: $primaryColor;
+      }
+    }
+  }
+
+  .owl-carousel .owl-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mq("ipad") {
+      margin-bottom: 10px;
+    }
+
+    .slide-item {
+      position: relative;
+      margin: 10px;
+      overflow: hidden;
+      background-color: transparent; 
+      transition: transform 0.3s ease;
+
+      p{
+        position: relative;
+        color:$whiteColor;
+        display: flex;
+        justify-content: end;
+        bottom: 35px;
+        left: 20px;
+        z-index: 20;
+        margin: 0;
+        transition: transform 0.5s ease;
+
+        body.rtl & {
+          justify-content: flex-start;
+          right: 20px;
+        }
+      }
+      .box {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: transparent linear-gradient(180deg, #00000000 0%, #0000001A 63%, #00000033 85%, #000000 100%) 0% 0% no-repeat;
+        border-radius: 8px;
+        max-width: 100%;
+        height: 97%;
+      }
+      
+    }
+    .slide-item img {
+      max-width: 100%;
+      height: 460.75px;
+      border-radius: 8px;
+      transition: transform 0.5s ease;
+    }
+    
+    .slide-item:hover {
+      pointer-events: none;
+      transform: scale(0.9);
+    }
+    .slide-item:hover * {
+    pointer-events: auto
+    }
+  }
+
+    .owl-nav {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      transform: translateY(-50%);
+      
+    }
+
+    .owl-carousel .owl-nav.disabled {
+      display: flex !important; 
+      pointer-events: auto;
+    }
+
+    .owl-nav button {
+      background-color: $primaryColor;
+      border: none;
+      border-radius: 50%;
+      color:$whiteColor;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .owl-theme .owl-nav [class*="owl-"] {
+      color: $whiteColor;
+      background: $blackColor;
+      opacity: 0.3;
+      border-radius: 0;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+
+      @include mq("ipad"){
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .owl-theme .owl-nav [class*="owl-"]:hover {
+      opacity: 0.5;
+    }
+
+    .owl-prev {
+      transform: rotate(0 deg);
+
+      body.rtl & {
+        transform: rotate(0deg);
+      }
+    }
+
+    .owl-next {
+      transform: rotate(180deg);
+      body.rtl & {
+        transform: rotate(180deg);
+      }
+    }
+    .owl-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+  .btn {
+    place-items: center;
+    margin-top: 10px; 
+
+    @include mq("tablet"){
+      margin-top: 0;
+    }
+}

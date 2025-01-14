@@ -1,7 +1,153 @@
 {
-  "HOME": "Home",
-  "ABOUT_US": "About us",
-  "PRODUCTS": "Products",
-  "CONTACT_US": "Contact us",
-  "What_We_Do": "What We Do"
+  "NAVBAR": {
+    "HOME": "Home",
+    "ABOUT_US": "About Us",
+    "PRODUCTS": "Products",
+    "CONTACT_US": "Contact Us"
+  },
+
+  "SLIDER": {
+    "SLIDE_1": {
+      "TITLE": "What We Do",
+      "SUBTITLE": "Premium Quality",
+      "DESCRIPTION": "Commodities from the roots is our foundation and with generations of experience we have completed our journey into added value of our commodities.",
+      "BUTTON_1": "Our Products",
+      "BUTTON_2": "Know About Us"
+    },
+    "SLIDE_2": {
+      "TITLE": "How We Do It",
+      "SUBTITLE": "Hard Work",
+      "DESCRIPTION": "Our hard work is built on the foundation of experience and innovation.",
+      "BUTTON_1": "Explore More",
+      "BUTTON_2": "Get in Touch"
+    },
+    "SLIDE_3": {
+      "TITLE": "Our Mission",
+      "SUBTITLE": "Excellence Always",
+      "DESCRIPTION": "Our mission is to provide the best quality products to our customers.",
+      "BUTTON_1": "Discover",
+      "BUTTON_2": "Learn More"
+    }
+  },
+  "WHO_ARE_WE": {
+    "TITLE": "About Us",
+    "SUBTITLE": "Who Are We",
+    "DESCRIPTION": "We are pioneers in the agriculture industry with a focus on innovation and sustainability.",
+    "Button": "View More",
+    "SSTEXT": "We are obsessed with quality and you should too"
+    },
+
+    "PRODUCTS": {
+      "Hedar": {
+           "TITLE": "Products",
+           "SUBTITLE": "Premium Products"
+      },
+      "TABS": {
+            "FROZEN": "Frozen",
+            "FRESH": "Fresh",
+            "DEHYDRATED": "Dehydrated"
+      },
+      "SLIDES": {
+            "GINGER": "Ginger",
+            "TOMATO": "Tomato",
+            "CUCUMBER": "Cucumber",
+            "ONION": "Onion",
+            "CHILI": "Chili",
+            "colorpepper": "color pepper"
+       },
+       "BUTTON": {
+            "VIEW_MORE": "View More"
+       }
+    },
+    "TECHNOLOGY": {
+    "TITLE": "Technology",
+    "SUBTITLE": "Our Technologies",
+    "DESCRIPTION": "We utilize cutting-edge technology to enhance agricultural practices worldwide.",
+    "BUTTON": "View More"
+  },
+
+    "GLOBAL": {
+      "TITLE": "Global",
+      "SUBTITLE": "No Borders, no boundries",
+      "DESCRIPTION": "Our impact extends across continents, delivering quality and trust.",
+      "BUTTON": "View More"
+    },
+
+    "FOOTER": {
+      "GREENAREA": {
+      "QUESTION": "Want To Request A Product?",
+      "BUTTON": "Contact Us"
+    },
+    "LINKS": { 
+      "QuickLinks": "Quick links",
+      "AboutUs": "About us",
+      "Ourservices": "Our services",
+      "Productslist": "Products list",
+      "Customerportal": "Customer portal",
+      "Contactsus": "Contacts us",
+      "Ourproducts": "Our products",
+      "WatermelonSeeds": "Watermelon Seeds",
+      "SesameSeeds": "Sesame Seeds",
+      "HibiscusFlower": "Hibiscus Flower",
+      "DriedGingerflakes": "Dried Ginger flakes",
+      "Chickpeas": "Chickpeas",
+      "Contact": "Contact us",
+      "MainOffice": "Main Office",
+      "Email": "Email:",
+      "EMAILHERF": "info@healthycrops.com",
+      "Phone": "Phone",
+      "NUMBER": "+20 123 456 7896",
+      "Address": "Address: United Arab Emirates",
+      "AjmanFreeZone": "Ajman Free Zone"
+    },
+
+    "BOTTOM": {
+      "TERMS": "Terms & Conditions",
+      "Privacy": "Privacy Policy",
+      "COPYRIGHT": "© HEALTHY CROPS 2022, All Rights Reserved, Developed by",
+      "LINK": "Innovitcs Inc."
+    }
+  },    
+
+  "ABOUTUS": {
+    "TITLE": "About us",
+    "mainTitle": "About us",
+    "subTitle": "Healthy crop's start",
+    "DESCRIPTION":"New on the scene, but rooted in quality — delivering the fresh, healthy fruits and veggies you can count on. Trust us to bring nature’s best to your table!"
+  },
+
+
+
+
+
+  "SUBPRODUCTS": {
+      "TITLE": "products",
+      "subTitle": "How we do this",
+      "DESCRIPTION": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.Lorem .",
+      "HPP": "HPP Technology",
+      "IQF": "IQF Technology",
+      "Freeze": "Freeze Drying",
+      "content1": "High Pressure Processing Technology",
+      "description1":"High Pressure Processing (HPP) technology enhances food safety and extends shelf life without heat.",
+      "content2": "Individual Quick Freezing Technology",
+      "description2":"Individual Quick Freezing (IQF) preserves food quality by freezing it quickly at very low temperatures.",
+      "content3": "Freeze Drying Technology",
+      "description3":"Freeze Drying technology removes water from food while preserving its nutrients and flavor."
+
+    },
+
+    "certificates": {
+      "mainTitle": "Certificates",
+      "subTitle": "Our Certificates",
+      "headTitle": "Rutgers Certificate",
+      "TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.",
+      "Team.TITLE": "Our Team",
+      "Team.subTitle": "The Team Behind The Success"
+
+    },
+   
+  "CONTACTUS": {
+      "TITLE": "CONTACT US"
+  }
 }
+

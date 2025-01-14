@@ -1,0 +1,151 @@
+$boxShadowColor: #00000012;
+$whiteColor: white;
+$blackColor: black;
+$mainColor: #01284f;
+$greenColor: #00a777;
+$blueColor: linear-gradient(90deg, #00a4e4, #00b6b5);
+$headerLabel: #191e39;
+$orangeColor: #FF8A44;
+$background: #e6eced;
+$inActiveTab: #f5f5f5;
+$subTextColor: #353535;
+$carouselDotsColor: #0000004f;
+$border_radius: 3px;
+$borderColor: #d9d9d9;
+$btnBkColor: #DEE6E7;
+$hrLineColor: #2e3036;
+$checkedBox: black;
+$radioChecked: black;
+$inputsHeight: 45px;
+$placeholder: blue;
+$hoverColor: #39B54A;
+//primary color 
+$primaryColor:#0F494D; //done
+$secondaryColor:#FF8A44;
+$mainFontSize: 16px;
+
+
+// English fonts
+@font-face {
+  font-family: "Hauora-Bold";
+  src: url("../Fonts/Hauora-Bold.ttf") format("opentype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hauora-regular";
+  src: url("../Fonts/Hauora-Regular.ttf") format("opentype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Herbarium-Regular";
+  src: url("../Fonts/Herbarium-Regular-Alt.otf") format("opentype");
+  font-display: swap;
+}
+
+
+// fonts
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../Fonts/Poppins-Regular.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("../Fonts/Poppins-Bold.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: url("../Fonts/Poppins-ExtraBold.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("../Fonts/Poppins-SemiBold.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-BoldItalic";
+  src: url("../Fonts/Poppins-BoldItalic.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Italic";
+  src: url("../Fonts/Poppins-Italic.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-MediumItalic";
+  src: url("../Fonts/Poppins-MediumItalic.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("../Fonts/Poppins-Medium.ttf") format("opentype");
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: "PlaylistCaps";
+//   src: url("./../fonts/FontsFree-Net-PlaylistCaps.ttf") format("opentype");
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: "Herbarium";
+  src: url("../Fonts/Herbarium.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neo-Regular";
+  src: url("../Fonts/Neo_Sans_Regular.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neo-Bold";
+  src: url("../Fonts/NeoSansArabicBold.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neo-Medium";
+  src: url("../Fonts/Neo_Sans_Medium.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bebas-Regular";
+  src: url("../Fonts/Bebas-Regular.ttf") format("opentype");
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: "FFTaweel-BoldStamp";
+//   src: url("../Fonts/") format("opentype");
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: "FFYaseer-Regular";
+//   src: url("./../fonts/FFYaseer-Regular.otf") format("opentype");
+//   font-display: swap;
+// }
+
+$HerbariumRegular:"Herbarium-Regular";
+$HauoraBold:"Hauora-Bold";
+$HauoraRegular:"Hauora-regular";
+$PoppinsRegular:"Poppins-Regular";
+$PoppinsMedium:"Poppins-Medium";
+$PoppinsSemiBold:"Poppins-SemiBold";
+$NeoRegular: "Neo-Regular";
+$NeoBold: "Neo-Bold";
+$NeoMedium: "Neo-Medium";

@@ -1,0 +1,109 @@
+<nav class="navbar mainPadding">
+    <div class="logo">
+      <a href="/">
+      <img src="../../assets/pic/1.1.png" alt="Healthy Crops" herf="#" />
+    </a>
+    </div>
+    <div class="rightNav">
+    <ul class="nav-links">
+        <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.HOME' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/about-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.ABOUT_US' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.PRODUCTS' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.CONTACT_US' | translate }}</a>
+    </li>
+    </ul>
+    <div class="language-selector">
+      <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+        <img 
+          [src]="currentLanguage === 'en' ? './assets/pic/circle.png' : './assets/pic/egypt.png'" 
+          alt="{{ currentLanguage }} Flag" 
+          width="18px" 
+        />
+        <p>{{ currentLanguage | uppercase }}</p>
+        <img class="downArrow"  src="../../assets/pic/down-arrow.png" alt="down arrow">
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li
+            nz-menu-item
+            (click)="switchLanguage(lang.code)"
+            *ngFor="let lang of language"
+          >
+            <img [src]="lang.flag" alt="{{ lang.label }} Flag" width="18px" />
+            {{ lang.label }}
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>    
+    
+    </div>
+</nav>
+
+<!-- responsive tag  -->
+
+<div class="navReposive mainPadding">
+  <div class="logo">
+    <a href="/">
+    <img src="../../assets/pic/1.png" alt="Description" />
+    </a>
+  </div>
+  <div class="rightNavR">
+    <div class="language-selector"  >
+      <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+        <img 
+          [src]="currentLanguage === 'en' ? './assets/pic/circle.png' : './assets/pic/egypt.png'" 
+          alt="{{ currentLanguage }} Flag" 
+          width="18px" 
+        />
+        <p>{{ currentLanguage | uppercase }}</p>
+        <img class="downArrow"  src="../../assets/pic/down-arrow.png" alt="down arrow">
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li
+            nz-menu-item
+            (click)="switchLanguage(lang.code)"
+            *ngFor="let lang of language"
+          >
+            <img [src]="lang.flag" alt="{{ lang.label }} Flag" width="18px" />
+            {{ lang.label }}
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+  <span class="nzDrawer" nz-button nzType="primary" (click)="open()">&#9776;</span>
+    <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      [nzMask]="true"
+      nzPlacement="left"
+      nzTitle=""
+      (nzOnClose)="close()"
+      nzWrapClassName="drawerConent">
+      <ng-container *nzDrawerContent>
+        <span class="closeIcon" (click)="close()">&#10006;</span>
+        <ul class="nav-links">
+        <li>
+          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.HOME' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/about-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.ABOUT_US' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.PRODUCTS' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.CONTACT_US' | translate }}</a>
+        </li>
+      </ul>
+      </ng-container>
+    </nz-drawer>
+  </div>
+</div>
+  

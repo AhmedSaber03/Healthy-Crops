@@ -1,0 +1,24 @@
+@import '../../assets/Css/Mixin.scss';
+@import '../../assets/Css/common.scss';
+@import '../../assets/Css/variables.scss';
+
+@include globalTextStyles($mainFontSize, $primaryColor);
+
+
+.globalDivMargin {
+    margin-top: 40px;
+  }
+
+  .pageContant {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .contactFormHolder {
+      width: 50%;
+    }
+    .getInTouchHolder {
+      width: 50%;
+    }
+  }
+
+  

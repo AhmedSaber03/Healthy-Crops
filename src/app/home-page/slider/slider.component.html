@@ -1,0 +1,29 @@
+<div class="sliderContainer">
+    <nz-carousel nzAutoPlay = false>
+      <div
+      class="homeSlider mainPadding"
+        *ngFor="let item of slides" 
+        nz-carousel-content
+        [ngStyle]="{ 'background-image': 'url(' + item.imgSrc + ')' }">
+        <div class="text">  
+          <p class="overlay-text">{{item.titleKey | translate }}</p>
+          <h1 class="Mtext">{{item.subtitleKey | translate}}</h1>
+          <p class="Stext">
+            {{ item.descriptionKey | translate }}
+          </p>
+          <div class="button-container">
+            <a href="#" class="primaryButton">
+              <span>{{ item.button1Key | translate }}</span>
+              <div class="icon-container">
+                <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
+              </div>
+            </a>        
+            <a href="#" class="SecondaryButton">
+              <span>{{ item.button2Key | translate }}</span>
+              <img  class="oArrow" src="../../assets/pic/orange-play arrwo.svg" alt="" >
+            </a>
+          </div>
+        </div>
+      </div>
+    </nz-carousel>
+  </div>

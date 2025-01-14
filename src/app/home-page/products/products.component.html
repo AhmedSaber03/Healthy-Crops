@@ -1,0 +1,41 @@
+<div class="products mainPadding globalDivMargin">
+  <div class="productsContainer">
+    <div class="textHolder">
+      <P class="bkText">{{ "PRODUCTS.Hedar.TITLE" | translate }}</P>
+      <div class="subTextHolder">
+        <h4>{{ "PRODUCTS.Hedar.TITLE" | translate }}</h4>
+        <h2>{{ "PRODUCTS.Hedar.SUBTITLE" | translate }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="tabscontainer">
+    <div class="tabs">
+      <nz-tabset
+        [(nzSelectedIndex)]="selectedTab"
+        (nzSelectedIndexChange)="onTabChange($event)">
+        <nz-tab
+          *ngFor="let tab of tabs; let i = index"
+          [nzTitle]="tab.titleKey | translate"></nz-tab>
+      </nz-tabset>
+    </div>
+  </div>
+  <owl-carousel-o [options]="sliderOptions">
+    <ng-container *ngFor="let slide of tabs[selectedTab]?.slides">
+      <ng-template carouselSlide>
+        <div class="slide-item">
+          <div class="box"></div>
+          <img [src]="slide.image" [alt]="slide.titleKey | translate" />
+          <p>{{ slide.titleKey | translate }}</p>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  <div class="btn">
+    <a href="#" class="primaryButton">
+      <span>{{ 'PRODUCTS.BUTTON.VIEW_MORE' | translate }}</span>
+      <div class="icon-container">
+        <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
+      </div>
+    </a>
+  </div>
+</div>

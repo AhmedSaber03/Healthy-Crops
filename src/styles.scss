@@ -1,7 +1,10 @@
 @import url(./assets/Css/common.scss); 
 @import url(./assets/Css/button.scss);
 @import url(./assets/Css/reset.scss);
-// @import url(./assets/Css/Mixin.scss);
+@import url(./assets/Css/Mixin.scss);
+@import url(./assets/css/variables.scss);
+@import url(../src/assets/Css/Mixin.scss);
+
 
 *,
 * ::before,
@@ -24,4 +27,10 @@ html.cdk-global-scrollblock {
 
   .ant-tabs-motion {
     animation: none !important;
+  }
+
+  body.rtl {
+    direction: rtl;
+    text-align: right;
+    font-family: "Neo-Regular";
   }

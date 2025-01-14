@@ -1,12 +1,16 @@
+@import '../Css/Mixin.scss';
+@import '../Css/common.scss';
+@import '../Css/variables.scss';
+
 .primaryButton {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 20px; 
-  background-color: #0F494D; 
-  color: white; 
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  justify-content: space-between; /* Ensures space between text and icon */
+  padding: 0 10px; 
+  background-color: $primaryColor; 
+  color: $whiteColor; 
+  font-family: "Hauora-regular";
+  font-size: $mainFontSize;
   border-radius: 22px;
   height: 44px;
   width: 184px;
@@ -15,57 +19,123 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
 
-  &:hover {
-    color: #0F494D;
-    background-color: #DEE6E7;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+  @include mq("ipad") {
+    height: 40px;
+    width: 150px;
+    font-size: 12px;
+    border-radius: 20px;
   }
 
-  
-  span {
+  @include mq("tablet") {
+    height: 35px;
+    width: 135px;
+    border-radius: 18px;
+  }
+
+  @include mq("phone-wide") {
+    height: 30px;
+    width: 125px;
+    border-radius: 15px;
+    
+  }
+
+  body.rtl & {
+    font-family: "Neo-Regular";
+  }
+
+ 
+  >span {
+    flex-grow: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
+    align-items: center;
+    z-index: 2;
+
+    body.rtl & {
+      margin-right: 10px; 
+      justify-content: start;
+    }
   }
+
   .icon-container {
     display: flex;
-    position: relative;
-    left: 17PX;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    background-color: $whiteColor;
+    border-radius: 50%; /* Makes the white circle */
+    width: 33px;
+    height: 33px;
+    z-index: 2;
+
+    @include mq("ipad") {
+      width: 30px;
+      height: 30px;
+    }
+
+    @include mq("tablet") {
+      width: 23px;      
+      height: 23px;
+    }
+    @include mq("phone-wide") {
+      width: 20px;      
+      height: 20px;
+    }
+
+    body.rtl & {
+      margin-right: 0; /* Reset margin in RTL */
+      transform: scaleX(-1); /* Flip icon direction in RTL */
+    }
 
     img {
       display: block;
       width: 17px; 
       height: 12px;
-      fill: #0F494D;
+      fill: $primaryColor; /* Icon color */
+
+      @include mq("ipad") {
+        width: 15px; 
+        height: 10px;
+      }
+
+      @include mq("tablet") {
+        width: 14px;
+        height: 9px;
+      }
+      @include mq("phone-wide") {
+        width: 10px;      
+      }
+    }
+  }
+   &::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    bottom: 11px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.12); 
+    border-radius: 50%; 
+    z-index: 1; 
+    transition: background-color 0.4s ease, transform 0.4s ease; 
+
+    body.rtl & {
+      left: 0;
+      right: -4px;
+    }
+  }
+  &:hover {
+    background-color: $btnBkColor;
+    color: $primaryColor;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+
+    &::before {
+      transform: translate(50%, 50%) scale(4);
+      background-color: $btnBkColor;
+      opacity: 0;
     }
   }
 }
 
-
-@media (max-width: 992px) { 
-
-  .primaryButton {
-      width: 150px;
-      height: 40px;
-      font-size: 12px;
-      border-radius: 20px;
-  
-  .icon-container {
-    width: 30px;
-    height: 30px;
-
-    img {
-      display: block;
-      width: 15px; 
-      height: 10px;
-      fill: #0F494D;
-    }
-  }
-}
-}

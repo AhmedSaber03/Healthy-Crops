@@ -1,0 +1,74 @@
+@import "../../../assets/Css/Mixin.scss";
+@import "../../../assets/Css/common.scss";
+@import "../../../assets/Css/variables.scss";
+
+@include globalTextStyles($mainFontSize, $primaryColor);
+
+.globalContainer {
+  display: flex;
+  justify-content: space-between;
+
+  @include mq("tablet-wide") {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  @include mq("tablet"){
+    body.rtl &{
+    gap: 150px;
+  }
+  }
+  .content {
+    width: 50%;
+    text-align: left;
+    position: relative;
+
+    @include mq("tablet-wide") {
+      width: 100%;
+      text-align: center;
+    }
+
+    body.rtl & {
+      width: 40%;
+      text-align: right;
+      place-items: flex-start;
+
+      @include mq("phone-wide"){
+        width: 100%;
+      }
+    }
+  }
+}
+
+.picGlobal {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+
+  @include mq("tablet-wide") {
+    width: 70%;
+  }
+
+  body.rtl & {
+    margin-left: 50px;
+  
+  @include mq("ipad"){
+    margin-left: 0;
+  }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+
+    @include mq("phone-wide") {
+      width: 400px;
+      height: 100%;
+    }
+    @include mq("phone") {
+      width: 340px;
+    }
+  }
+}
