@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<app-coverpic [bgUrl]="productBgUrl"  [pageTitle]="pageTitle | translate"></app-coverpic>
+<div class="productDetailsContent mainPadding">
+  <img class="mainImage" src="../../../assets/pic/Group 5261@2x.png" />
+  <p>{{ product?.titleKey | translate }}</p>
+  <!-- <img class="productImage" [src]="product?.image" alt="{{ product?.titleKey | translate }}"> -->
+  <!-- <p>{{ product?.description  | translate }}</p> -->
+  <ul>
+    <li *ngFor="let p of paragraphs">
+      <img [src]="p.img" alt="Icon" class="list-icon" />
+      <span>{{ p.text | translate }}</span>
+    </li>
+  </ul>
+  <button class="primaryButton" (click)="backToProducts()">{{ 'SubProducts.BUTTONBK' | translate }}</button>
+</div>
+<app-footer></app-footer>

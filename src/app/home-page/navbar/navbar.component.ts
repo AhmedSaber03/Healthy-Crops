@@ -4,7 +4,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';  
 import { NzSelectModule } from 'ng-zorro-antd/select';  
@@ -49,6 +49,12 @@ export class NavbarComponent implements OnInit {
     { code: 'ar', label: 'عربي', flag: './assets/pic/egypt.png' },
   ];
 
+  isProductsActive(): boolean {
+    return (
+      this.router.url.startsWith('/products') ||
+      this.router.url.startsWith('/product-details')
+    );
+  }
   open(): void {
     this.visible = true;
   }
@@ -57,7 +63,7 @@ export class NavbarComponent implements OnInit {
     this.visible = false;
   }
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
     this.currentLanguage = localStorage.getItem('language') || 'en'; 
     this.translate.use(this.currentLanguage);
   }
@@ -67,7 +73,6 @@ export class NavbarComponent implements OnInit {
     console.log('Initial language:', this.currentLanguage)
     document.body.classList.remove('rtl','ltr')
     document.body.classList.add(this.currentLanguage === 'ar' ? 'rtl' : 'ltr')
-    
     }
 
   switchLanguage(language: string): void {
@@ -82,9 +87,8 @@ export class NavbarComponent implements OnInit {
     this.currentLanguage = language;  
     window.location.reload();
   }
-
   // Added a new method to handle language change event
   onLanguageChange(language: string): void {
     this.switchLanguage(language);
-  }
+  }  
 } 

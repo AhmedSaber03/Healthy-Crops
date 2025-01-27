@@ -14,24 +14,24 @@
   </div>
   <div class="tabContent">
     <div
-      *ngFor="let slide of tabs[selectedTab]?.slides"
-      class="slideItem"
-      [routerLink]="'/product-details'"
-      [queryParams]="{ id: slide.id }">
-      <img [src]="slide.image" alt="Image">
-      <div class="overlay">
-        <p>{{ slide.titleKey | translate }}</p>
+    *ngFor="let product of filteredProducts"
+    class="slideItem"
+    [routerLink]="['/product-details']"
+    [queryParams]="{ id: product.id }"
+    (click)="logClick(product)">
+    <img [src]="product.image" alt="{{ product.titleKey | translate }}">
+    <div class="overlay">
+        <p>{{ product.titleKey | translate }}</p>
       </div>
     </div>
   </div>
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="50" *ngIf="totalProducts > pageSize" globalDivMargin
+  [nzPageIndex]="currentPage"
+    [nzPageSize]="pageSize"
+    [nzTotal]="totalProducts"
+    (nzPageIndexChange)="onPageChange($event)"></nz-pagination>
 </div>
-<div *ngIf="product">
-    <p *ngIf="!product">Sorry, the product you are looking for does not exist.</p>
-    <h1>{{ product.name }}</h1>
-    <img [src]="product.img" alt="{{ product.name }}" />
-    <ul>
-      <li *ngFor="let desc of product.description">{{ desc }}</li>
-    </ul>
-    <button [routerLink]="['/products']">Back to Products</button>
-  </div>
 <app-footer></app-footer>
+
+
+

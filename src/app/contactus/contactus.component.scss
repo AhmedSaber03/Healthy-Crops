@@ -1,24 +1,359 @@
-@import '../../assets/Css/Mixin.scss';
-@import '../../assets/Css/common.scss';
-@import '../../assets/Css/variables.scss';
+@import "../../assets/Css/Mixin.scss";
+@import "../../assets/Css/common.scss";
+@import "../../assets/Css/variables.scss";
 
 @include globalTextStyles($mainFontSize, $primaryColor);
 
+.pageContant {
+  display: flex;
+  gap: 7.9rem;
+  font-family: "Hauora-regular";
+  text-align: left;
+  padding-bottom: 2.75rem;
+  width: 100%;
+    body.rtl & {
+        font-family: "Neo-regular" !important;
+      }
 
-.globalDivMargin {
-    margin-top: 40px;
+
+  @include mq("ipad") {
+    flex-direction: column;
+    place-items: center;
+    gap: 3.9rem;
   }
 
-  .pageContant {
+  .textHolder {
+    margin-bottom: 2.5rem;
+    margin-right: 3.5rem;
+
+    @include mq("ipad"){
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+    body.rtl & {
+      margin-bottom: 3.5rem;
+      margin-right: 0;
+    }
+
+    .bkText {
+      @include mq("desktop-wide"){font-size: 110px;}
+      @include mq("desktopMore"){font-size: 80px;}
+      @include mq("tablet-wide"){font-size: 75px;}
+      @include mq("phone"){font-size: 55px;}
+      body.rtl & {
+        font-size: 70px;
+        @include mq("tablet-small"){
+          font-size: 50px;
+        }
+      }
+    }
+
+    .subTextHolder {
+      @include mq("desktop"){
+        margin-top: 10px;
+      }
+      body.rtl & {
+        margin-top: 1.25rem;
+        margin-right: 1.25rem;
+        @include mq("tablet-wide"){
+          margin-top: 0;
+        }
+        @include mq("ipad"){
+          margin-right: 0;
+        }
+        @include mq("tablet-small"){
+          margin-top: 0.5rem;
+        }
+      }
+      h2{
+
+          @include mq("desktop"){font-size: 35px;}
+        }
+    }
+  }
+
+  .formContent {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    .contactFormHolder {
-      width: 50%;
+    flex-direction: column;
+    width: 50%;
+    @include mq("ipad") {
+      width: 100%;
     }
-    .getInTouchHolder {
-      width: 50%;
+    .customForm {
+      width: 100%;  
+
+      nz-form-item {
+        font-family: "Hauora-regular";
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .massage {
+        gap: 7rem;
+        textarea {
+          resize: none;
+          height: 22.36%;
+          width: 100%;
+        }
+
+      }
+      .requestType {
+        body.rtl & {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .primaryButton {
+      width: 16.75rem;
+      place-self: center;
+      margin-top: 1.688rem;
+      
+      @include mq("ipad"){
+        margin-top: 0;
+      }
+      @include mq("phablet"){
+        width: 10.75rem;
+      }
+
+
+      .textOfBtn {
+        left: 0.75rem;
+        position: relative;
+
+          body.rtl & {
+          right: 0.75rem;
+          left: 0;
+          margin-left: 0;
+          justify-content: center;
+          @include mq("phablet"){
+            right: unset;
+          }
+        }
+      }
     }
   }
 
+  .mapContact {
+    place-items: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    @include mq("ipad") {
+      width: 100%;
+    }
+
+    body.rtl & {
+      align-items: flex-start;
+     @include mq("ipad") {
+      align-items: center;
+     }
+    }
+
+    .textHolder .subTextHolder{
+      body.rtl & {
+        margin-right: 2.25rem;
+      }
+    }
+
+    .iconContainer {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-bottom: 3rem;
+      margin-right: 15.5rem;
+
+      @include mq("ipad"){
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+
+      body.rtl & {
+        margin-right: 2.25rem;
+        @include mq("phablet"){
+          margin-bottom: 30px;
+        }
+      }
+
+      .mailIcon,
+      .phoneIcon,
+      .locationIcon {
+        display: flex;
+        align-items: center;
+      }
+
+      a {
+        color: $blackColor;
+      }
+    }
+
+    .mapContainer {
+      width: 100%;
+      height: 27rem;
+      iframe {
+        border: 0;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  ///over ride zorro for inquery filed
+  .ant-row {
+    display: flex;
+    gap: 0 2%;
+
+    @include mq("tablet-small"){
+      flex-direction: column;
+      // place-items: center;
+    }
+
+    .ant-col-12 {
+      display: flex;
+      flex: 1;
+      width: 17.154rem;
+      font-family: "Hauora-regular";
+      body.rtl & {
+        font-family: "Neo-regular";
+      } 
+
+      @include mq("tablet-small"){
+        max-width: 100%;
+        width: 100%;
+
+      }
+
+      @include mq("phablet"){
+        display: unset;
+      }
+    }
+    
+    .ant-select-item {
+      font-family: "Hauora-regular";
+    }
+    .ant-form-item-label > label {
+      font-family: "Hauora-regular";
+      text-align: left;
+      body.rtl & {
+        font-family: "Neo-regular";
+      } 
+    }
+
+    .ant-input {
+      background-color: #f3f3f7;
+      width: 100%;
+    }
+  }
+  .ant-form-item-explain-error{
+    body.rtl & {
+      text-align: right;
+    }
+  }
+  .ant-form-item-control {
+    width: 100%;
+    body.rtl & { 
+      text-align: right;
+    }
+  }
+  .span.ant-radio + * {
+    @include mq("lapTop"){
+      padding-right: 0px;
+      padding-left: 5px;
+    }
+  }
+  .ant-select-single .ant-select-selector .ant-select-selection-item {
+    padding-right: unset;
+    line-height: 42px;
+  }
+  .ant-select-selection-placeholder {
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .ant-input:focus,
+  .ant-input-focused {
+    border-color: $primaryColor;
+    box-shadow: 0 0 0 2px rgba(15, 73, 77, 0.2);
+  }
+  .ant-radio-wrapper:hover .ant-radio,
+  ant-radio-inner,
+  .ant-radio-input:focus + .ant-radio-inne,
+  .ant-radio-input:focus + .ant-radio-inner,
+  .ant-radio:hover .ant-radio-inner {
+    border-color: $primaryColor;
+  }
+  .ant-radio-inner::after {
+    background-color: #39b54a;
+  }
+  .ant-radio-checked .ant-radio-inner {
+    border-color: #39b54a;
+  }
+  .ant-radio-checked::after {
+    border: 1px solid #39b54a;
+  }
+  .anticon anticon-down {
+    position: absolute;
+    right: 33px;
+  }
+
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: 1px solid #d9d9d9;
+    background-color: #f3f3f7;
+    height: 44px;
+    align-items: center;
+  }
+  .ant-input {
+    height: 44px;
+    width: 17.154rem;
+  }
+  .ant-input:hover {
+    border-color: $primaryColor;
+  }
+  .ant-select .ant-select-arrow {
+    left: unset;
+    body.rtl & {
+      left: 4px !important;
+
+    }
+  }
+  .ant-form label{
+    font-family: "Hauora-regular";
+    body.rtl & {
+      font-family: "Neo-regular" !important;
+    }
+  }
+  .ant-form-vertical .ant-form-item-label, .ant-col-24.ant-form-item-label, .ant-col-xl-24.ant-form-item-label{
+    padding: 0 0 7px;
+  }
+  .ant-select-arrow > *:not(:last-child){
+    margin-inline-end: 2px;
+  }
+  .ant-radio-group {
+    display: flex;
+    gap: 11.25rem;
+    @include mq("desktop"){gap: 6.25rem;}
+    @include mq("phone"){ display: unset;}
+  }
+  .ant-btn-primary:active,
+  .ant-btn-primary:focus{
+    color: white;
+    background-color: #0F494D;
+  }
+
+  nz-form-item-feedback-icon.ant-input-suffix {
+    body.rtl & {
+    left: 0;
+    right: unset;
+  }
+  }
+  .ant-select-item  {
+    div{
+      font-family: "Hauora-regular";
+    }
   
+  }
+  
+}

@@ -1,5 +1,5 @@
-<div class="sliderContainer">
-    <nz-carousel nzAutoPlay = false>
+<div class="sliderContainer globalDivMargin">
+    <nz-carousel nzAutoPlay = true>
       <div
       class="homeSlider mainPadding"
         *ngFor="let item of slides" 
@@ -12,13 +12,13 @@
             {{ item.descriptionKey | translate }}
           </p>
           <div class="button-container">
-            <a href="#" class="primaryButton">
+            <a routerLink="/products" class="primaryButton">
               <span>{{ item.button1Key | translate }}</span>
               <div class="icon-container">
                 <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
               </div>
             </a>        
-            <a href="#" class="SecondaryButton">
+            <a routerLink="/about-us" class="SecondaryButton">
               <span>{{ item.button2Key | translate }}</span>
               <img  class="oArrow" src="../../assets/pic/orange-play arrwo.svg" alt="" >
             </a>

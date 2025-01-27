@@ -4,12 +4,15 @@ import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';  
+import { FormsModule } from '@angular/forms'; 
+import { RouterModule, Routes } from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, TranslateModule ],
+  imports: [RouterOutlet, CommonModule, TranslateModule, HttpClientModule, FormsModule, RouterModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

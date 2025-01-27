@@ -1,6 +1,10 @@
 <footer class="Footer">
   <div class="greenArea">
     <div class="bkArea">
+      <div class="circle">
+        <img src="../../../assets/pic/W-CIRCLE.png" alt="wcircle">
+      </div>
+      <div class="inCircle"></div>
       <div class="center">
         <div class="rCenter">
         <img class="papperPlane"src="assets/pic/DSA.png" alt="papperPlane"/>
@@ -8,7 +12,7 @@
         <div class="btnx">
           <p>{{ 'FOOTER.GREENAREA.QUESTION' | translate }}</p>
           <div class="btn">
-            <a href="#" class="secbtn">
+            <a routerLink="/contact-us" class="secbtn">
               <span>{{ 'FOOTER.GREENAREA.BUTTON' | translate }}</span>
               <div class="icon-container">
                 <img src="../../assets/pic/Arrow.svg" alt="Arrow"/>
@@ -39,19 +43,22 @@
       </div>
       <div class="midLeft">
         <h4>{{ 'FOOTER.LINKS.QuickLinks' | translate }}</h4>
-          <P><a href="#">{{ 'FOOTER.LINKS.AboutUs' | translate }}</a></P>
+          <P><a routerLink="/about-us">{{ 'FOOTER.LINKS.AboutUs' | translate }}</a></P>
           <p><a href="#">{{ 'FOOTER.LINKS.Ourservices' | translate }}</a></p>
-          <p><a href="#">{{ 'FOOTER.LINKS.Productslist' | translate }}</a></p>
+          <p><a routerLink="/products">{{ 'FOOTER.LINKS.Productslist' | translate }}</a></p>
           <p><a href="#">{{ 'FOOTER.LINKS.Customerportal' | translate }}</a></p>
-          <p><a href="#">{{ 'FOOTER.LINKS.Contactsus' | translate }}</a></p>
+          <p><a routerLink="/contact-us">{{ 'FOOTER.LINKS.Contactsus' | translate }}</a></p>
       </div>
       <div class="midRight">
         <h4>{{ 'FOOTER.LINKS.Ourproducts' | translate }}</h4>
-          <p><a href="#">{{ 'FOOTER.LINKS.WatermelonSeeds' | translate }}</a></p>
-          <p><a href="#">{{ 'FOOTER.LINKS.SesameSeeds' | translate }}</a></p>
-          <p><a href="#">{{ 'FOOTER.LINKS.HibiscusFlower' | translate }}</a></p>
-          <p><a href="#">{{ 'FOOTER.LINKS.DriedGingerflakes' | translate }}</a></p>
-          <p><a href="#">{{ 'FOOTER.LINKS.Chickpeas' | translate }}</a></p>
+          <div *ngFor="let tab of tabs">        
+          <p><a [routerLink]="['/products', tab.type]">{{ tab.titleKey | translate }}</a></p>
+        </div>
+          <!-- <p><a [routerLink]="['/product-details', 40]" >{{ 'FOOTER.LINKS.WatermelonSeeds' | translate }}</a></p>
+          <p><a [routerLink]="['/product-details', 41]" >{{ 'FOOTER.LINKS.SesameSeeds' | translate }}</a></p>
+          <p><a [routerLink]="['/product-details', 42]" >{{ 'FOOTER.LINKS.HibiscusFlower' | translate }}</a></p>
+          <p><a [routerLink]="['/product-details', 43]" >{{ 'FOOTER.LINKS.DriedGingerflakes' | translate }}</a></p>
+          <p><a [routerLink]="['/product-details', 44]" >{{ 'FOOTER.LINKS.Chickpeas' | translate }}</a></p> -->
       </div>
         <div class="right">
           <h4>{{ 'FOOTER.LINKS.Contact' | translate }}</h4>

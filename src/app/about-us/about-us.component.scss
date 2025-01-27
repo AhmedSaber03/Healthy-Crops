@@ -1,88 +1,94 @@
-@import '../../assets/Css/Mixin.scss';
-@import '../../assets/Css/common.scss';
-@import '../../assets/Css/variables.scss';
+@import "../../assets/Css/Mixin.scss";
+@import "../../assets/Css/common.scss";
+@import "../../assets/Css/variables.scss";
 
 @include globalTextStyles($mainFontSize, $primaryColor);
 
 .aboutContainer {
   display: flex;
-  gap: 50px;
+  gap: 3.125rem;
+
   @include mq("tablet-wide") {
     flex-direction: column;
-    gap: 110px;
     place-items: center;
-    
+    gap: 1.875rem;
+  }
+  @include mq("phablet"){
+    gap: 0.875rem;
   }
 
   .textHolder {
     position: relative;
     width: 100%;
 
-    @include mq("tablet-wide"){
+    @include mq("tablet-wide") {
       place-items: center;
       text-align: center;
     }
     body.rtl & {
-      @include mq("tablet-wide"){
+      @include mq("tablet-wide") {
         text-align: center;
-      } 
+      }
     }
 
-
     .subTextHolder {
-      p{ 
-        @include mq("tablet-wide"){
-          margin-top:10px;
+      h2 {
+        direction: ltr;
+      }
+      p {
+        @include mq("tablet-wide") {
+          margin-top: 10px;
         }
-        
       }
 
       body.rtl & {
-        p{ 
-          @include mq("tablet-wide"){
-          margin-top: 30px;
-          font-family: "Neo-Medium";
+        p {
+          @include mq("tablet-wide") {
+            margin-top: 30px;
+            font-family: "Neo-Medium";
           }
         }
       }
     }
-
-    // @include mq("desktop") {
-    //   width: 100%;
-    // }
   }
 
   .picHolder {
     position: relative;
     width: 50%;
-    @include mq("tablet"){
-      width: 100%;
+
+    @include mq("desktop") {
+      width: 80%;
     }
-    
-    body.rtl & {
-      @include mq("phablet"){
-        display: flex;
-        justify-content: center;
-      }
+    @include mq("tablet-wide") {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
+    // body.rtl & {
+    //   @include mq("phablet") {
+    //     display: flex;
+    //     justify-content: center;
+    //   }
+    // }
 
     .pppic {
-
       @include mq("desktop") {
         width: 100%;
       }
-      @include mq("tablet"){
-        display: flex;
+      @include mq("tablet-wide"){
         width: 60%;
-        place-self: center;
+      }
+      @include mq("tablet") {
+        display: flex;
+        width: 70%;
       }
       body.rtl & {
-      @include mq("phablet"){
-        display: grid;
-        width: 100%;
+        @include mq("phablet") {
+          display: grid;
+          width: 100%;
+        }
       }
-    }
     }
   }
 }
@@ -91,52 +97,54 @@
   width: 100%;
   height: auto;
 
-  @include mq("desktop") {
-    max-width: 100%;
+  @include mq("tablet") {
+    background: unset;
   }
-  
 }
 .techContainer {
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  gap: 50px;
+
+  @include mq("phablet") {
+    gap: 30px;
+  }
+  @include mq("phone-wide") {
+    gap: 25px;
+  }
 
   .textHolder {
-    justify-content: center;
-    margin-bottom: 65px;
-    .subTextHolder {
-      place-items: center;
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+    place-items: center;
+    .subTextHolder{
+     margin-top: 30px;
+     margin-left: 0;
+
+     body.rtl & {
+      text-align: center;
+     }
+
+     @include mq("phablet"){
+       margin-top: 10px;
+     }
+    }
+    .bottomSec {
       margin-left: 0;
-
-      p {
-        width: 70%;
-        text-align: center;
-
+      P {
+        margin-top: 20px;
         body.rtl & {
-          margin-top: 25px;
-
-        }
-
-
-        @include mq("ipad") {
-          max-width: 100%;
-          width: 460px;
-          text-wrap: wrap;
-
-        }
-
-        @include mq("phone-wide") {
-          width: 100%;
+          margin-top: 40px;
         }
       }
     }
+
   }
 
   .tabs {
     display: flex;
     justify-content: center;
-
-    
 
     .ant-tabs .ant-tabs-rtl .ant-tabs-top .ant-tabs-default {
       gap: 50px;
@@ -158,43 +166,47 @@
       border-radius: 26px;
       background-color: transparent;
 
-      @include mq("tablet"){
+      @include mq("tablet") {
         height: auto;
       }
-
-      
     }
     .ant-tabs-tab + .ant-tabs-tab {
       margin: 0;
     }
-
     .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-      background-color:$primaryColor;
+      background-color: $primaryColor;
       height: 44px;
       border-style: none;
       border-radius: 22px;
       color: $whiteColor;
       @include mq("phablet") {
-        font-size: 10px;
+        font-size: 9px;
       }
-
     }
     .ant-tabs-tab-btn {
-      width: 190px;
-      height: 44px;
-      line-height: 44px;
+      width: 11.875rem;
+      height: 2.75rem;
+      line-height: 2.75rem;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: $background;
       color: $primaryColor;
       border-radius: 26px;
+      
 
-      @include mq("phablet") {
-        width: 100px;
+      @include mq("tablet"){
+        width: 9.375rem;
       }
-      @include mq("phone"){
-        width: 80px;
+      @include mq("tablet"){
+        width: 9.375rem;
+      }
+      @include mq("phablet") {
+        width: 8.125rem;
+      }
+      @include mq("phone-wide") {
+        width: 6.375rem;
+        font-size: 10px;
       }
     }
     .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-btn {
@@ -212,14 +224,21 @@
     .conentHolder {
       display: flex;
       align-items: center;
-      gap: 80px;
+      gap: 230px;
 
-      @include mq("tablet"){
+      @include mq("tablet-wide") {
         display: flex;
         align-items: center;
         text-align: center;
         gap: 30px;
         flex-direction: column;
+      }
+
+      body.rtl & {
+        gap: 270px; 
+        @include mq("tablet-wide"){
+          gap: 30px;
+        }
       }
     }
 
@@ -242,7 +261,7 @@
       gap: 20px;
       min-height: 200px;
 
-      @include mq("tablet"){
+      @include mq("tablet-wide") {
         min-height: 0;
       }
 
@@ -251,6 +270,10 @@
         font-size: 22px;
         font-weight: bold;
         color: $blackColor;
+
+        @include mq("phone-wide") {
+          font-size: 17px;
+        }
       }
 
       p {
@@ -258,6 +281,9 @@
         font-size: 15px;
         font-weight: normal;
         color: $subTextColor;
+        @include mq("phone-wide") {
+          font-size: 13px;
+        }
 
         body.rtl & {
           font-family: "Neo-regular";
@@ -271,34 +297,40 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   position: relative;
 
   .textTitle {
     font-family: "Hauora";
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
     color: $subTextColor;
     display: inline-block;
     position: relative;
 
     @include mq("desktop") {
       font-size: 20px;
-      margin-top: 30px;
+      margin-top: 1.875rem;
       margin-bottom: 0;
     }
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -8px; 
-      left: 50%;
-      height: 2px; 
-      width: 2%; 
-      transform: translateX(-50%);
-      background-color: $primaryColor; 
-      transition: width 0.3s ease-in-out; 
+
+    @include mq("phone-wide") {
+      margin-top: 1.625rem;
+      font-size: 15px;
     }
-  
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      height: 2px;
+      width: 2%;
+      transform: translateX(-50%);
+      background-color: $primaryColor;
+      transition: width 0.3s ease-in-out;
+    }
+
     &:hover::after {
       width: 12%;
       body.rtl & {
@@ -313,18 +345,8 @@
 
   .slick-list {
     width: 100% !important;
-    height: 495px !important;
+    height: 30.938rem;
 
-    @include mq("tablet-wide") {
-      height: 535px !important; 
-    }
-    @include mq("tablet") {
-      height: 475px !important; 
-    }
-
-    @include mq("phone-wide") {
-      height: 505px !important; 
-    }
   }
   .slideItem {
     position: relative;
@@ -336,7 +358,8 @@
     border-radius: 10px;
 
     p {
-      width: 50%;
+      width: 100%;
+      text-align: center;
       line-height: 21px;
       margin-top: 20px;
 
@@ -346,46 +369,50 @@
 
       @include mq("tablet-wide") {
         font-size: 16px;
+        width: 100%;
       }
       @include mq("tablet") {
         font-size: 15px;
-        width: 80%;
-
+        margin-top: 10px;
         body.rtl & {
           font-size: 15px;
         }
       }
-      @include mq("phone") {
+      @include mq("phablet") {
         font-size: 12px;
+        margin-top: 15px;
         body.rtl & {
           font-size: 14px;
           margin-top: 13px;
         }
       }
+      @include mq("phone") {
+        margin-top: 7px;
+      }
     }
   }
 
   .carouselImg {
-    width: 530px;
-    height: 377.46px;
+    width: 33.125rem;
+    height: 23.591rem;
     object-fit: cover;
     border-radius: 10px;
 
-    @include mq("phone-wide"){
+    @include mq("phone-wide") {
       width: 100%;
     }
   }
 
-  button > img{
+  button > img {
     @include mq("phone") {
-      width: 50PX;
+      width: 50px;
     }
   }
 
   .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50px);
+    transform: translateY(-62px);
     background: transparent;
     border: none;
     cursor: pointer;
@@ -397,14 +424,14 @@
     height: 60px;
 
     &.left {
-      left: 0%    ;
+      left: 0%;
       @include mq("ipad") {
         left: -10px;
       }
     }
 
     &.right {
-      right: 0PX;
+      right: 0px;
       @include mq("ipad") {
         right: -10px;
       }
@@ -412,22 +439,49 @@
   }
 
   .ant-carousel .slick-dots-bottom {
-    bottom: 27px;
-
-
-    @include mq("ipad") {
-      bottom: 0;
-    }
-
+    bottom: 13%;
     body.rtl & {
-      bottom: 0;
-      // @include mq("ipad"){
-      //   bottom: 20px;
-      // }
-
+      bottom: 11%;
+    }
+    @include mq("desktop-wide"){
+      bottom:7%;
+    }
+    @include mq("ipad"){
+      bottom:4%;
+      body.rtl & {
+        bottom: 7%;
+      }
+    }
+    @include mq("tablet"){
+      bottom: 7%;
+      body.rtl & {
+        bottom: 9%;
+      }
+    }
+    @include mq("tablet-small"){
+      bottom: 3%;
+    }
+    @include mq("phablet"){
+      bottom: 5%;
+      body.rtl & {
+        bottom: 5%;
+      }
+    }
+    @include mq("phone"){
+      bottom: 2%;
+      body.rtl & {
+        bottom: 5%;
+      }
+    }
+    @include mq("min-phone"){
+      bottom: -2%;
+      body.rtl & {
+        bottom: 1%;
+      }
     }
   }
-  ant-carousel .slick-dots {
+  
+   ant-carousel .slick-dots {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -476,17 +530,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 44px;
-  margin-top: 40px;
+  gap: 3.125rem;
   position: relative;
 
-  @include mq("phone") {
-    gap: 0;
+  @include mq("tablet-wide"){
+    gap: 2.5rem;
   }
 
   .textHolder {
-    justify-content: center;
-    margin-bottom: 10px;
+    place-items: center;
     .subTextHolder {
       text-align: center;
       margin-left: 0;
@@ -494,36 +546,36 @@
     }
   }
 
-  .picHolder {
-    width: 971px;
+  .teamPicHolder {
+    width: 60.688rem;
     height: 100%;
 
     body.rtl & {
       margin-top: 60px;
 
-      @include mq("ipad"){
+      @include mq("ipad") {
         margin-top: 0;
       }
     }
 
-  @include mq("desktop") {
-    width: 100%;
+    @include mq("desktop") {
+      width: 100%;
     }
 
     .pppic1 {
-      max-width:100%;
+      max-width: 100%;
+      width: 100%;
     }
   }
 
-.shadow {
-  position: absolute;
-  width: 27.1875rem;
-  top: 33.75rem;
-  right: 0px;
+  .shadow {
+    position: absolute;
+    width: 27.1875rem;
+    top: 33.75rem;
+    right: 0px;
 
-  @include mq("tablet-small"){
-    display: none;
+    @include mq("tablet-small") {
+      display: none;
+    }
   }
-}
-
 }

@@ -2,6 +2,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
@@ -9,7 +11,8 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     CommonModule,
     NzCarouselModule,
-    TranslateModule
+    TranslateModule,
+    RouterModule
   ],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss',

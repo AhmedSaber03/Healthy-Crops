@@ -1,3 +1,8 @@
+@import "../assets/Css/Mixin.scss";
+@import "../assets/Css/common.scss";
+@import "../assets/Css/variables.scss";
+
+@include globalTextStyles($mainFontSize, $primaryColor);
 
 .scroll-to-top {
     position: fixed;

@@ -8,8 +8,10 @@
     <div class="subTextHolder">
       <h4>{{ "ABOUTUS.TITLE" | translate }}</h4>
       <h2>{{ "ABOUTUS.subTitle" | translate }}</h2>
-      <p>{{ "ABOUTUS.DESCRIPTION" | translate }}</p>
     </div>
+    <div class="bottomSec">
+    <p>{{ "ABOUTUS.DESCRIPTION" | translate }}</p>
+  </div>
   </div>
   <div class="picHolder">
     <img class="pppic" src="../../assets/pic/PPCS.png" alt="" />
@@ -22,6 +24,8 @@
       <div class="subTextHolder">
         <h4>{{ "TECHNOLOGY.TITLE" | translate }}</h4>
         <h2>{{ "SUBPRODUCTS.subTitle" | translate }}</h2>
+      </div>
+      <div class="bottomSec">
         <p>{{ "SUBPRODUCTS.DESCRIPTION" | translate }}</p>
       </div>
     </div>
@@ -66,6 +70,7 @@
         #carousel
         [nzEffect]="effect"
         [nzDots]="true"
+        [nzAutoPlay]="true"
         (nzAfterChange)="onSlideChange($event)">
         <div
           *ngFor="let item of slides; let i = index"
@@ -91,7 +96,7 @@
       <h2>{{ "certificates.Team.subTitle" | translate }}</h2>
     </div>
   </div>
-  <div class="picHolder">
+  <div class="teamPicHolder">
     <img class="pppic1" src="../../assets/pic/Group15410.png" alt="teamPic" />
   </div>
   <div class="shadow">

@@ -83,6 +83,7 @@ summary,
 time,
 mark,
 audio,
+ant-tabs-rtl .ant-tabs-nav .ant-tabs-tab,
 video {
     margin: 0;
     padding: 0;
@@ -107,6 +108,10 @@ section {
 }
 body {
     line-height: 1;
+    font-family: "Hauora-regular";
+    body.rtl & {
+        font-family: "Neo-regular" !important;
+    }
 }
 ol,
 ul {

@@ -3,12 +3,13 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule, Routes } from '@angular/router';
 
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [NzTabsModule, CarouselModule, CommonModule, TranslateModule],
+  imports: [NzTabsModule, CarouselModule, CommonModule, TranslateModule, RouterModule],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -56,7 +57,7 @@ export class ProductsComponent {
     dots: false,
     items: 4, 
     slideBy: 1,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 3500,
     autoplayHoverPause: true,
     responsive: {

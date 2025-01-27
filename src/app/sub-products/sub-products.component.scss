@@ -6,12 +6,47 @@
   display: grid;
   place-items: center;
 
+  @include mq("phone-wide"){
+    justify-content: center;
+  }
+
+  .ant-pagination  {
+    position: relative;
+    top: 1.2rem;
+
+    @include mq("ipad") {
+      padding-bottom: 1rem;
+    }
+    @include mq("tablet"){
+      top: 0.938rem;
+    }
+    .ant-pagination-next:hover .ant-pagination-item-link,
+    .ant-pagination-item-active:hover,
+    .ant-pagination-item-active:hover a,
+    .ant-pagination-item:hover,
+    .ant-pagination-item:hover a,
+    .ant-pagination-item-active,
+    .ant-pagination-item-active a{
+      color: $primaryColor;
+      border-color: $primaryColor;
+    }
+    .ant-pagination-next,
+    .ant-pagination-prev,
+    .ant-pagination-item {
+     @include mq("tablet") {
+      min-width: 25px;
+      height: 25px;
+      line-height: 21px;
+     }
+    }
+  }
+
   .tabsContainer {
     position: relative;
     margin-top: 20px;
 
     @include mq("tablet-wide") {
-      place-items: center;
+      place-items: center;  
     }
 
     body.rtl & {
@@ -29,10 +64,10 @@
       .ant-tabs-tab {
         padding: 0 5px;
         width: fit-content;
+        margin: 0;
 
         @include mq("tablet-wide") {
           padding: 0px;
-          width: fit-content;
         }
 
         @include mq("phablet") {
@@ -45,6 +80,9 @@
         background: none;
       }
 
+      .ant-tabs > .ant-tabs-nav{
+        margin: 0;
+      }
       .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
         height: 52px;
         overflow: hidden;
@@ -58,6 +96,7 @@
 
       .ant-tabs-tab + .ant-tabs-tab {
         margin: 0;
+        border-radius: 22px;
       }
 
       .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -69,8 +108,9 @@
       }
 
       .ant-tabs-tab-btn {
-        width: 150px;
+        width: 9.375rem;
         color: $primaryColor;
+        border-radius: 22px;
 
         @include mq("tablet") {
           width: 140px;
@@ -93,24 +133,57 @@
   }
 
   .tabContent {
-    margin-top: 20px;
+    margin-top: 3.75rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 60px;
+    gap: 3.75rem;
+    width: 100%;
+    justify-content: center;
 
+    @include mq("ipad"){
+      justify-content: space-between;
+      gap: 1.875rem;
+    }
+    
+    @include mq("tablet-small"){
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    &.flex-start { // Add a modifier class for flex-start
+      justify-content: flex-start; // Align items to flex-start
+    }
 
     .slideItem {
+      cursor: pointer;
       position: relative;
-      width: calc(33.3% - 49px);
-      height: 460.75px; 
+      flex: 1 1 calc(33.3% - 49px);
+      max-width: calc(33.3% - 49px); 
+      height: 28.797rem; 
       display: flex;
       justify-content: center;
       align-items: center;
       transition: transform 0.3s ease;
+      box-sizing: border-box; 
 
       &:hover {
         transform: scale(0.9);
-        
+      }
+
+      @include mq("ipad"){
+        max-width: calc(50% - 15px);
+        height: 23rem;
+        flex: unset;
+      }
+      @include mq("tablet-small"){
+        max-width: 70%; 
+      }
+      @include mq("tablet-small"){
+        max-width: 50%; 
+      }
+      @include mq("phone-wide"){
+        max-width: 70%;
       }
 
       img {
@@ -143,14 +216,23 @@
           position: relative;
           left: 5px;
           padding: 10px;
+          font-family: "Hauora-regular";
 
           body.rtl & {
             font-family: "Neo-regular";
             right: 15px;
             left: 0px;
           }
-    
+
+          @include mq("tablet"){
+          font-size: 15px;
+          }
+          @include mq("phone-wide"){
+            font-size: 15px;
+            padding: 5px 0 0 7px;
+            }
         }
+        
       }
     }
   }

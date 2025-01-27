@@ -1,0 +1,355 @@
+[
+  "Proudcts", {
+    "id": 1,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg",
+    "type": "FROZEN"
+    },
+  {
+    "id": 2,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg",
+    "type": "FROZEN"
+  },
+  {
+    "id": 3,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg",
+    "type": "FROZEN"
+  },
+  {
+    "id": 4,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg",
+    "type": "FROZEN"
+  },
+  {
+    "id": 5,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+
+  },
+  {
+    "id": 6,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 7,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 8,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 9,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 10,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 11,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 12,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 13,
+    "titleKey": "SubProducts.GINGER",
+    "image": "/assets/pic/ginger.jpg",
+    "description": "SubProducts.DESC",
+    "productBgUrl": "/assets/pic/GINGERBGURL.jpg"
+    
+  },
+  {
+    "id": 43,
+    "titleKey": "SubProducts.DriedGingerflakes",
+    "image": "/assets/pic/products/DriedGingerflakes.jpg",
+    "description": "SubProducts.DriedGingerflakesDESC",
+    "productBgUrl": "/assets/pic/DriedGingerflakespic.jpg",
+    "type": "FROZEN"
+  },
+  {
+    "id": 14,
+    "titleKey": "SubProducts.TOMATO",
+    "image": "/assets/pic/products/TOMATOPIC.jpg",
+    "description": "SubProducts.TOMATODESC",
+    "productBgUrl": "/assets/pic/TOMATO.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 15,
+    "titleKey": "SubProducts.CUCUMBER",
+    "image": "/assets/pic/products/CUCUMBER.jpg",
+    "description": "SubProducts.CUCUMBERDESC",
+    "productBgUrl": "/assets/pic/CUCUMBER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 16,
+    "titleKey": "SubProducts.ONION",
+    "image": "/assets/pic/products/ONIONOIC.jpg",
+    "description": "SubProducts.ONIONDESC",
+    "productBgUrl": "/assets/pic/ONION.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 17,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 18,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.ONIONDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 19,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 20,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 21,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 22,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 23,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 24,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 25,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 26,
+    "titleKey": "SubProducts.COLORPEPPER",
+    "image": "/assets/pic/products/COLORPEPPER2123.jpg",
+    "description": "SubProducts.COLORPEPPERDESC",
+    "productBgUrl": "/assets/pic/COLORPEPPER.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 40,
+    "titleKey": "SubProducts.WatermelonSeeds",
+    "image": "/assets/pic/products/WatermelonSeeds.jpg",
+    "description": "SubProducts.WatermelonSeedsDESC",
+    "productBgUrl": "/assets/pic/WatermelonSeedsBG.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 41,
+    "titleKey": "SubProducts.SesameSeeds",
+    "image": "/assets/pic/products/SesameSeeds.jpg",
+    "description": "SubProducts.SesameSeedsDESC",
+    "productBgUrl": "/assets/pic/SesameSeedspic.jpg",
+     "type": "FRESH"
+  },
+  {
+    "id": 27,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 28,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 29,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 30,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 31,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 32,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 33,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 34,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 35,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 36,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 37,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 38,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 39,
+    "titleKey": "SubProducts.CHILI",
+    "image": "/assets/pic/chili.jpg",
+    "description": "SubProducts.CHILIDESC",
+    "productBgUrl": "/assets/pic/CHILIbgss.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 42,
+    "titleKey": "SubProducts.HibiscusFlower",
+    "image": "/assets/pic/products/HibiscusFlower.jpg",
+    "description": "SubProducts.HibiscusFlowerDSEC",
+    "productBgUrl": "/assets/pic/HibiscusFlowerpic.jpg",
+     "type": "DEHYDRATED"
+  },
+  {
+    "id": 44,
+    "titleKey": "SubProducts.Chickpeas",
+    "image": "/assets/pic/products/Chickpeas.jpg",
+    "description": "SubProducts.ChickpeasDESC",
+    "productBgUrl": "/assets/pic/Chickpeaspic.jpg",
+     "type": "DEHYDRATED"
+  }
+]
+  

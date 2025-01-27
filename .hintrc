@@ -5,6 +5,21 @@
   "hints": {
     "compat-api/css": "off",
     "axe/name-role-value": "off",
-    "axe/text-alternatives": "off"
+    "axe/text-alternatives": "off",
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "iframe[loading]",
+          "iframe[referrerpolicy=no-referrer-when-downgrade]"
+        ]
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ]
   }
 }

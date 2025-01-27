@@ -1,0 +1,65 @@
+@import '../../../assets/Css/common.scss';
+@import '../../../assets/Css/Mixin.scss';
+@import '../../../assets/Css/variables.scss';
+
+.productDetailsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 60px;
+    font-family: "Hauora-regular";
+    font-size: 30px;
+    color: $primaryColor;
+        body.rtl & {
+          font-family: "Neo-regular";
+        }    
+
+    .mainImage {
+      width: 60%;
+      height: 100%;
+    }
+  
+    .productImage{
+    width: 300px;
+    height: 500px;
+    border-radius: 30px;
+    }
+
+    ul {
+      list-style-type: none; 
+      padding: 0;
+    }
+
+    li {
+      display: flex; 
+      align-items: center;
+      margin-bottom: 8px; 
+      body.rtl & {
+        margin-left: 8px;
+      }
+    }
+    
+    .list-icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px; 
+
+      body.rtl & { 
+        margin-right: 0px;
+      }
+    }
+    
+    span {
+      font-size: $textFontSize; 
+      color: $subTextColor; 
+
+      body.rtl & {
+        margin-right: 8px;
+      }
+    }
+
+    button {
+        justify-content: center;
+    }
+  }

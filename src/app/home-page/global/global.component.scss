@@ -7,6 +7,7 @@
 .globalContainer {
   display: flex;
   justify-content: space-between;
+  gap: 50px;
 
   @include mq("tablet-wide") {
     flex-direction: column;
@@ -15,11 +16,6 @@
     width: 100%;
   }
 
-  @include mq("tablet"){
-    body.rtl &{
-    gap: 150px;
-  }
-  }
   .content {
     width: 50%;
     text-align: left;
@@ -39,6 +35,10 @@
         width: 100%;
       }
     }
+
+    .textHolder .subTextHolder h2 {
+      text-wrap: nowrap;
+    }
   }
 }
 
@@ -51,13 +51,13 @@
     width: 70%;
   }
 
-  body.rtl & {
-    margin-left: 50px;
+  // body.rtl & {
+  //   margin-left: 50px;
   
-  @include mq("ipad"){
-    margin-left: 0;
-  }
-  }
+  // @include mq("ipad"){
+  //   margin-left: 0;
+  // }
+  // }
 
   img {
     width: 100%;

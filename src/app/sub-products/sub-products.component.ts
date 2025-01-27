@@ -5,74 +5,100 @@ import { FooterComponent } from "../home-page/footer/footer.component";
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import products from './product-details'; 
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { ProductService } from '../services/shared.service'; 
+
 
 
 @Component({
   selector: 'app-sub-products',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, CoverpicComponent, NzTabsModule, CommonModule, TranslateModule, RouterModule],
+  imports: [NavbarComponent, FooterComponent,
+     CoverpicComponent, NzTabsModule, CommonModule,
+      TranslateModule, RouterModule, NzPaginationModule],
   templateUrl: './sub-products.component.html',
   styleUrl: './sub-products.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class SubProductsComponent implements OnInit {
-  selectedTab = 1;
+  selectedTab = 0;
+  currentPage = 1;
+  pageSize = 6;
+  totalProducts = 0;
 
   tabs = [
-    {
-      titleKey: 'PRODUCTS.TABS.FROZEN',
-      slides: [
-        { id: 1, image: '/assets/pic/ginger.jpg', titleKey: 'PRODUCTS.SLIDES.GINGER' },
-        { id: 1, image: '/assets/pic/ginger.jpg', titleKey: 'PRODUCTS.SLIDES.GINGER' },
-        { id: 1, image: '/assets/pic/ginger.jpg', titleKey: 'PRODUCTS.SLIDES.GINGER' },
-        { id: 1, image: '/assets/pic/ginger.jpg', titleKey: 'PRODUCTS.SLIDES.GINGER' },
-        { id: 1, image: '/assets/pic/ginger.jpg', titleKey: 'PRODUCTS.SLIDES.GINGER' },
-        { id: 1, image: '/assets/pic/ginger.jpg', titleKey: 'PRODUCTS.SLIDES.GINGER' },
-      ],
-    },
-    { 
-      titleKey: 'PRODUCTS.TABS.FRESH',
-      slides: [
-        {id: 2, image: '/assets/pic/products/product1.png', titleKey: 'PRODUCTS.SLIDES.TOMATO' },
-        {id: 3, image: '/assets/pic/products/product2.png', titleKey: 'PRODUCTS.SLIDES.CUCUMBER' },
-        {id: 4, image: '/assets/pic/products/product3.png', titleKey: 'PRODUCTS.SLIDES.ONION' },
-        {id: 5, image: '/assets/pic/products/product4.png', titleKey: 'PRODUCTS.SLIDES.colorpepper' },
-        {id: 6, image: '/assets/pic/products/product4.png', titleKey: 'PRODUCTS.SLIDES.colorpepper' },
-        {id: 7, image: '/assets/pic/products/product4.png', titleKey: 'PRODUCTS.SLIDES.colorpepper' },
-      ],
-    },
-    {
-      titleKey: 'PRODUCTS.TABS.DEHYDRATED',
-      slides: [
-        {id: 8, image: '/assets/pic/chili.jpg', titleKey: 'PRODUCTS.SLIDES.CHILI' },
-        {id: 8, image: '/assets/pic/chili.jpg', titleKey: 'PRODUCTS.SLIDES.CHILI' },
-        {id: 8, image: '/assets/pic/chili.jpg', titleKey: 'PRODUCTS.SLIDES.CHILI' },
-        {id: 8, image: '/assets/pic/chili.jpg', titleKey: 'PRODUCTS.SLIDES.CHILI' },
-        {id: 8, image: '/assets/pic/chili.jpg', titleKey: 'PRODUCTS.SLIDES.CHILI' },
-        {id: 8, image: '/assets/pic/chili.jpg', titleKey: 'PRODUCTS.SLIDES.CHILI' },
-      ],
-    },
+    { titleKey: 'PRODUCTS.TABS.FROZEN', type: 'FROZEN' },
+    { titleKey: 'PRODUCTS.TABS.FRESH', type: 'FRESH' },
+    { titleKey: 'PRODUCTS.TABS.DEHYDRATED', type: 'DEHYDRATED' },
   ];
-  product: any | null = null;
+  products: any[] = [];
+  filteredProducts: any[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
-      const productId = Number(params['id']);
-      this.product = products.find((p) => p.id === productId) || null;
-      this.product = products.find((prod) => prod.id === productId) || null;
+    this.route.params.subscribe((params) => {
+      const tabType = params['type'];
+      if (tabType) {
+        const tabIndex = this.tabs.findIndex((tab) => tab.type === tabType);
+        if (tabIndex !== -1) {
+          this.selectedTab = tabIndex;
+          this.filterProducts();
+        }
+      }
     });
+
+    this.productService.getProducts().subscribe(
+      (data) => {
+        this.products = data;
+        this.filterProducts();
+      },
+      (error) => console.error('Error fetching products:', error)
+    );
   }
 
+  filterProducts(): void {
+    const tabType = this.tabs[this.selectedTab]?.type;
+    const filtered = this.products.filter((product) => product.type === tabType);
+
+    this.totalProducts = filtered.length;
+
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.filteredProducts = filtered.slice(startIndex, endIndex);
+
+    const tabContent = document.querySelector('.tabContent');
+    if (tabContent) {
+      if (this.filteredProducts.length % 3 != 0) {
+        tabContent.classList.add('flex-start');
+      } else {
+        tabContent.classList.remove('flex-start');
+      }
+    }
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.filterProducts();
+    window.scrollTo({ top: 0, behavior: 'smooth'});
+  }
   onTabChange(index: number): void {
     this.selectedTab = index;
+    this.currentPage = 1;
+    this.filterProducts();
+    const selectedTabType = this.tabs[index].type;
+    this.router.navigate(['/products', selectedTabType]); 
+
+
   }
 
-  logClick(slide: any) {
-    console.log('Clicked slide:', slide);
+  logClick(product: any): void {
+    this.router.navigate(['/product-details', product.id]);
   }
 }

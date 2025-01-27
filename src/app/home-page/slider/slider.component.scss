@@ -26,6 +26,17 @@
       }
       .ant-carousel .slick-dots-bottom {
         bottom: 87px;
+
+        @include mq("phone-wide"){
+          bottom: 67px;
+        }
+    }
+    .ant-carousel .slick-dots li.slick-active{
+      width: 12px;
+    }
+
+    .ant-carousel .slick-dots li {
+      width: 10px;
     }
       
       .ant-carousel .slick-dots li button {
@@ -61,11 +72,8 @@
           }
 
           @include mq("ipad"){
-            top: -6.3px;
-          }
-          
-          @include mq("ipad"){
-            top: -6.3px;
+            top: -6.5px;
+            left: -6.4px;
           }
         }
       }
@@ -198,7 +206,7 @@
     
         @include mq("phablet") {
           font-size: 12px; 
-       
+          width: 47%;
         }
       }
     
@@ -212,13 +220,14 @@
     
       @include mq("phablet") {
         font-size: 12px;
+        width: 38%;
       }
     }
     
     .button-container {
       display: flex;
       position: relative;
-      padding-top: 49px;
+      padding-top: 37px;
       justify-content: flex-start;
       gap: 20px;
       direction: ltr;
@@ -236,8 +245,9 @@
       position: relative;
       display: flex; 
       align-items: center; 
-      justify-content: flex-end; 
-      padding: 10px 20px;
+      justify-content: space-between; 
+      flex-direction: row-reverse;
+      padding: 0px 10px;
       background-color: $whiteColor;
       border: 2px solid $secondaryColor;
       color: $secondaryColor;
@@ -252,8 +262,8 @@
       transition: transform 0.2s, box-shadow 0.2s; 
       
       body.rtl & {
-        justify-content: start;
         font-family: "Neo-Regular";
+        flex-direction: row;
       }
 
       @include mq("ipad"){
@@ -269,17 +279,32 @@
         padding: 10px 13px;
       }
 
-    
+      @include mq("phone-wide") {
+        height: 30px;
+        width: 125px;
+        font-size: 10.5px;
+        border-radius: 15px;
+      }
+
       &:hover {
-        transform: scale(1.05);
+        background-color: $orangeColor;
+        color: $whiteColor;
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.4s ease, transform 0.4s ease; 
+
+        .oArrow{
+          content: url(../../../assets/pic/orange-playarrwoW.svg);
+         }
     }
     
+    span {
+      flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    }
     .oArrow {
-      position: absolute; 
-      width: 33px;
-      left: 5px; 
-
       @include mq("ipad") {
         width: 30px;
         height: 30px;
@@ -288,6 +313,10 @@
       @include mq("tablet") {
           width: 23px;
           height: 23px;
+      }
+      @include mq("phone-wide") {
+        height: 20px;
+        width: 20px;
       }
 
       body.rtl & {

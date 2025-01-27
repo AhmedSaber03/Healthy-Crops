@@ -5,7 +5,7 @@
 
 .navbar {
   background-color: $whiteColor;
-  height: 70px;
+  height: 4.375rem;
   position: fixed;
   top: 0;
   right: 0;
@@ -21,18 +21,17 @@
     padding: 0;
     opacity: 1;
     img {
-      width: 160px;
+      width: 8rem;
       height: 100%;
     }
     body.rtl & {
       position: relative;
-      left: 28px;
     }
   }
 
   .rightNav {
     display: flex;
-    gap: 100px;
+    gap: 6.25rem;
     body.rtl & {
       position: relative;
     }
@@ -41,9 +40,9 @@
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 2.5rem;
     margin-bottom: 0;
-    font-family: "Poppins-Regular";
+    font-family: "Hauora-regular";
     font-size: 15px;
 
     body.rtl & {
@@ -75,6 +74,11 @@
               height: 2px;
               background-color: $primaryColor;
               inline-size: none;
+
+              body.rtl & {
+                bottom: -26.6px;
+                left: -6px;
+              }
             }
         }
   
@@ -93,6 +97,11 @@
             height: 2px;
             background-color: $hoverColor;
             inline-size: none;
+
+            body.rtl & {
+              bottom: -26.8px;
+              left: -7px;
+            }
             
           }
         }
@@ -197,7 +206,7 @@ nz-select {
         display: flex;
         position: relative;
         justify-content: flex-end;
-        padding: 0 0 0 20px;
+        padding: 0 0 0 30px;
       }
     }
 
@@ -206,6 +215,7 @@ nz-select {
     }
     
     ul {
+      font-family: "Hauora-regular";
     li {
       list-style: none;
       line-height: 2.5;
@@ -250,16 +260,13 @@ nz-select {
     .logo {
       opacity: 1;
       position: relative;
-  
-
       img {
-        width: 111px;
+        width: 7.875rem;
         height: 100%;
         }
     }
     .rightNavR {
       display: flex;
-      gap: 5px;
       align-items: center;
 
     .language-selector {
@@ -273,7 +280,10 @@ nz-select {
       }
       span {
         font-weight: normal;
-        margin-left: 0;
+        margin-left: 10px;
+        body.rtl & {
+          margin-left: 0;
+        }
       }
     }
   }
@@ -281,16 +291,42 @@ nz-select {
   div.rightNavR > div > a {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 1px;
+
+    @include mq("phone-wide"){
+      font-size: 15px;
+    }
+
+  body.rtl & {
+        @include mq("phone-wide"){
+        font-size: 13px;
+        }
+        @include mq("ipad"){
+        margin-left: 10px;
+        }
+      }
   }
   div.rightNavR > div > a > p{
     color: $blackColor;
+    @include mq("phablet"){
+    font-size: 13px;
+    padding-left: 4px;
+    left: 2px;
+    position: relative;
+    }
+    body.rtl & {
+      @include mq("ipad") {
+      left: unset;
+      right: 8px;
+    }
+    }
   }
   div.rightNav > div > a > img:nth-child(1) {
-    width: 20px;
     height: 100%;
   }
+    div.rightNavR > div > a > img:nth-child(1){
+    @include mq("phablet"){
+      width: 16px;
+    }
+  }
 }
-
-
-

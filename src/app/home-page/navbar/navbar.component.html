@@ -1,7 +1,7 @@
 <nav class="navbar mainPadding">
     <div class="logo">
       <a href="/">
-      <img src="../../assets/pic/1.1.png" alt="Healthy Crops" herf="#" />
+      <img src="../../assets/pic/logohealthy.svg" alt="Healthy Crops" herf="#" />
     </a>
     </div>
     <div class="rightNav">
@@ -13,7 +13,7 @@
       <a routerLink="/about-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.ABOUT_US' | translate }}</a>
     </li>
     <li>
-      <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.PRODUCTS' | translate }}</a>
+      <a routerLink="/products" [class.active]="isProductsActive()">{{ 'NAVBAR.PRODUCTS' | translate }}</a>
     </li>
     <li>
       <a routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.CONTACT_US' | translate }}</a>
@@ -51,7 +51,7 @@
 <div class="navReposive mainPadding">
   <div class="logo">
     <a href="/">
-    <img src="../../assets/pic/1.png" alt="Description" />
+    <img src="../../assets/pic/logohealthy.svg" alt="Description" />
     </a>
   </div>
   <div class="rightNavR">

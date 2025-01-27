@@ -6,38 +6,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 50px;
 
   @include mq("tablet-wide") {
     place-items: center;
     flex-direction: column-reverse;
   }
-  body.rtl & {
-    justify-content: center;
-  }
 
   .picC {
     position: relative;
-    left: 70px;
 
-    @include mq("desktopMore") {
-      left: 30px;
-    }
-
-    @include mq("desktop") {
-      left: 10px;
-    }
-
-    @include mq("tablet-wide") {
-      left: 0px;
-    }
-
-    body.rtl & {
-      left: 55px;
-
-      @include mq("tablet-wide") {
-        left: 0;
-      }
-    }
     .pic {
       display: flex;
       transition: transform 0.3s ease-in-out;
@@ -49,7 +27,7 @@
       .IQF,
       .HPP {
         @include mq("phablet") {
-          width: 150px;
+          width: 9.375rem;
           height: 100%;
         }
       }
@@ -63,7 +41,7 @@
       margin-left: 50px;
 
       @include mq("phablet") {
-        width: 170px;
+        width: 10.625rem;
         height: 100%;
         margin-left: 30px;
       }

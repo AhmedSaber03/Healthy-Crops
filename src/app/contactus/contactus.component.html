@@ -1,26 +1,209 @@
 <app-navbar></app-navbar>
-<app-coverpic [bgUrl]="'./assets/pic/contactUsHero.webp'" [pageTitle]="'CONTACTUS.TITLE'"></app-coverpic>
+<app-coverpic
+  [bgUrl]="'./assets/pic/contactUsHero.webp'"
+  [pageTitle]="'CONTACTUS.TITLE'"
+></app-coverpic>
 <div class="pageContant mainPadding globalDivMargin">
-<div class="contactFormHolder ">
-    <div class="contactForm">
-        <div class="textHolder">
-            <p class="bkText">{{ "ABOUTUS.TITLE" | translate }}</p>
-            <div class="subTextHolder">
-              <h4>{{ "ABOUTUS.TITLE" | translate }}</h4>
-              <h2>{{ "ABOUTUS.subTitle" | translate }}</h2>
-              <p>{{ "ABOUTUS.DESCRIPTION" | translate }}</p>
-            </div>
-          </div>
+  <div class="formContent">
+    <div class="textHolder">
+      <p class="bkText">{{ "CONTACTUS.TTITLE" | translate }}</p>
+      <div class="subTextHolder">
+        <h4>{{ "CONTACTUS.TTITLE" | translate }}</h4>
+        <h2>{{ "CONTACTUS.subTitle" | translate }}</h2>
+      </div>
     </div>
-</div>
-<div class="getInTouchHolder">
-  <div class="textHolder">
-    <p class="bkText">{{ "certificates.mainTitle" | translate }}</p>
-    <div class="subTextHolder">
-      <h4>{{ "certificates.mainTitle" | translate }}</h4>
-      <h2>{{ "certificates.subTitle" | translate }}</h2>
+    <div class="customForm">
+      <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" nzLayout="vertical">
+        <nz-row>
+          <nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label
+                [nzFor]="'fullName'"
+                [nzNoColon]="true"
+                >{{ "CONTACTUS.FORM.FULLNAME" | translate }}</nz-form-label>
+              <nz-form-control
+                [nzHasFeedback]="true"
+                [nzErrorTip]="validateForm.get('fullname')?.hasError('name') ? ('CONTACTUS.ERRORS.REQUIREDNAMENumbers' | translate) : ('CONTACTUS.ERRORS.REQUIRED_NAME' | translate)">
+                <input  
+                  nz-input
+                  type="text"
+                  [placeholder]="
+                    'CONTACTUS.FORM.FULLNAMEPLAECHOLDER' | translate"
+                  aria-describedby="fullNameHelp"
+                  formControlName="fullname"/>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+          <nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label
+                [nzFor]="'email'"
+                [nzNoColon]="true"
+                >{{ "CONTACTUS.FORM.EMAIL" | translate }}</nz-form-label>
+              <nz-form-control
+                [nzHasFeedback]="true"
+                [nzErrorTip]="validateForm.get('email')?.hasError('mailtype') ? ('CONTACTUS.ERRORS.INVALID_EMAIL_TYPE' | translate)  : ('CONTACTUS.ERRORS.VALID_EMAIL' | translate)">
+                <input nz-input
+                  type="email"
+                  placeholder="john.doe@example.com"
+                  formControlName="email"/>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+        <nz-row>
+          <nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label
+                [nzFor]="'phone'"
+                [nzNoColon]="true"
+                >{{ "CONTACTUS.FORM.PHONENUMBER" | translate }}</nz-form-label>
+              <nz-form-control
+                [nzHasFeedback]="true"
+                [nzErrorTip]="validateForm.get('phone')?.hasError('numeric') ? ('CONTACTUS.ERRORS.INVALID_PHONE' | translate) : ('CONTACTUS.ERRORS.REQUIRED_PHONE' | translate)">
+                <input
+                  nz-input
+                  placeholder="+(XX) XXX XXX XXXX"
+                  formControlName="phone"/>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+          <nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label
+                [nzFor]="'companyName'"
+                [nzNoColon]="true"
+                >{{ "CONTACTUS.FORM.COMPANY" | translate }}</nz-form-label>
+              <nz-form-control
+                [nzHasFeedback]="true"
+                [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_COMPANY' | translate">
+                <input
+                  nz-input
+                  type="companyName"
+                  [placeholder]="
+                    'CONTACTUS.FORM.COMPANYPLAECHOLDER' | translate"
+                  formControlName="companyName"/>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+        <nz-row class="companySubjectContainer">
+          <nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label
+                [nzFor]="'companyType'"
+                [nzNoColon]="true"
+                >{{ "CONTACTUS.FORM.COMPANYTYPE" | translate }}</nz-form-label>
+              <nz-form-control
+                [nzHasFeedback]="true"
+                [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_COMPANY_TYPE' | translate">
+                <nz-select
+                  id="companyType"
+                  [(ngModel)]="selectedCompanyType"
+                  [nzPlaceHolder]="
+                    'CONTACTUS.FORM.COMPANYTYPEPLAECHOLDER' | translate"
+                  [nzAllowClear]="true"
+                  formControlName="companyType">
+                  <nz-option
+                    nzValue="factory"
+                    [nzLabel]="'CONTACTUS.FORM.FACTORY' | translate"></nz-option>
+                  <nz-option
+                    nzValue="trader"
+                    [nzLabel]="'CONTACTUS.FORM.TRADER' | translate"></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+          <nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label
+                class="subject1"
+                [nzFor]="'subject'"
+                [nzNoColon]="true"
+                >{{ "CONTACTUS.FORM.SUBJECT" | translate }}</nz-form-label>
+              <nz-form-control
+                [nzHasFeedback]="true"
+                [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_SUBJECT' | translate">
+                <input
+                  nz-input
+                  [placeholder]="
+                    'CONTACTUS.FORM.SUBJECTPLAECHOLDER' | translate"
+                  formControlName="subject"/>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+        <nz-col class="requestType">
+          <nz-form-label
+            [nzNoColon]="true"
+            formControlName="requestType">{{ "CONTACTUS.FORM.RQUESTTYPE" | translate }}</nz-form-label>
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_REQUEST_TYPE' | translate">
+              <nz-radio-group formControlName="requestType">
+                <label nz-radio nzValue="requestProduct">{{
+                  "CONTACTUS.FORM.RQUESTTYPE1" | translate}}</label>
+                <label nz-radio nzValue="inquiry">{{
+                  "CONTACTUS.FORM.RQUESTTYPE2" | translate}}</label>
+              </nz-radio-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+        <nz-row class="massage">
+          <nz-form-item>
+            <nz-form-label 
+              [nzFor]="'message'"
+              [nzNoColon]="true"
+              >{{ "CONTACTUS.FORM.MASSAGE" | translate }}</nz-form-label>
+            <nz-form-control
+            [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_MESSAGE' | translate">
+              <textarea
+              formControlName="message"
+                nz-input
+                rows="4"
+                [placeholder]="'CONTACTUS.FORM.MASSAGEPLAECHOLDER' | translate"></textarea>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-row>
+      </form>
+      <button  nz-button nzType="primary" type="submit" class="primaryButton" (click)="submitForm()">
+        <span class="textOfBtn">{{ "CONTACTUS.BUTTON" | translate }}</span>
+        <div class="icon-container">
+          <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
+        </div>
+      </button>
     </div>
   </div>
-</div>
+  <div class="mapContact">
+    <div class="textHolder">
+      <p class="bkText">{{ "CONTACTUS.TITLE" | translate }}</p>
+      <div class="subTextHolder">
+        <h4>{{ "CONTACTUS.TITLE" | translate }}</h4>
+        <h2>{{ "CONTACTUS.SUBTITLE" | translate }}</h2>
+      </div>
+    </div>
+    <div class="iconContainer">
+      <div class="mailIcon">
+        <img src="../../assets/pic/ICON/Mail.png" alt="Mail" />
+        <p><a href="mailto:info@healthycrops.com">info&#64;healthycrops.com</a></p>
+      </div>
+      <div class="phoneIcon">
+        <img src="../../assets/pic/ICON/phone.png" alt="Phone" />
+        <p><a href="tel:+201234567896">{{ 'FOOTER.LINKS.NUMBER' | translate }}</a></p>
+      </div>
+      <div class="locationIcon">
+        <img src="../../assets/pic/ICON/location.png" alt="Location" />
+        <p>{{ 'FOOTER.LINKS.Location' | translate }}</p>
+      </div>
+    </div>
+    <div class="mapContainer">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1189.9816894590715!2d31.528838510305185!3d30.02100220693967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458199851cd0feb%3A0x4b160c6b121388a5!2sInnovitics%20inc.!5e0!3m2!1sen!2seg!4v1737468201128!5m2!1sen!2seg"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

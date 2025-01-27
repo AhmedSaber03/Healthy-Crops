@@ -98,7 +98,8 @@
       "Phone": "Phone",
       "NUMBER": "+20 123 456 7896",
       "Address": "Address: United Arab Emirates",
-      "AjmanFreeZone": "Ajman Free Zone"
+      "AjmanFreeZone": "Ajman Free Zone",
+      "Location": "Agora Mall, New Cairo"
     },
 
     "BOTTOM": {
@@ -115,10 +116,6 @@
     "subTitle": "Healthy crop's start",
     "DESCRIPTION":"New on the scene, but rooted in quality — delivering the fresh, healthy fruits and veggies you can count on. Trust us to bring nature’s best to your table!"
   },
-
-
-
-
 
   "SUBPRODUCTS": {
       "TITLE": "products",
@@ -147,7 +144,80 @@
     },
    
   "CONTACTUS": {
-      "TITLE": "CONTACT US"
+      "TITLE": "Contact Us",
+      "TTITLE": "Contact Form",
+      "subTitle": "Drop a massage",
+      "SUBTITLE": "Get in touch",
+      "TEXT1": "Lorem Ipsum is simply dummy text of the",
+      "TEXT2": "Lorem Ipsum is simply dummy text of the",
+      "TEXT3": "Lorem Ipsum is simply dummy text of the",
+      "TEXT4": "Lorem Ipsum is simply dummy text of the",
+      "TEXT5": "Lorem Ipsum is simply dummy text of the",
+      "TEXT6": "Lorem Ipsum is simply dummy text of the",
+      "TEXT7": "Lorem Ipsum is simply dummy text of the",
+      "BUTTON": "Submit",
+      "FORM":{
+        "FULLNAME": "Full Name",
+        "FULLNAMEPLAECHOLDER": "John Doe",
+        "EMAIL": "Email address",
+        "PHONENUMBER": "Phone number",
+        "COMPANY": "Company name",
+        "COMPANYPLAECHOLDER": "Enter company name",
+        "COMPANYTYPE": "Company type",
+        "COMPANYTYPEPLAECHOLDER": "Select type (Factory/trader)",
+        "SUBJECT": "Subject",
+        "SUBJECTPLAECHOLDER": "Write the subject",
+        "RQUESTTYPE": "Request type",
+        "RQUESTTYPE1": "Request a product",
+        "RQUESTTYPE2": "Inquiry",
+        "MASSAGE": "Message",
+        "MASSAGEPLAECHOLDER": "Write something...",
+        "FACTORY": "FACTORY",
+        "TRADER": "TRADER",
+        "SELECTTYPE": "Select type (Factory/trader)",
+        "INVALIDEMAILTYPE": "!Please enter mail only",
+        "VALIDEMAIL": "!Please enter your valid mail"
+
+      },
+      "ERRORS": {
+      "REQUIRED_NAME": "Please input your Name!",
+      "REQUIREDNAMENumbers": "Please input the Name without numbers!",
+      "INVALID_EMAIL_TYPE": "Please enter mail only!",
+      "VALID_EMAIL": "Please enter your valid mail!",
+      "REQUIRED_PHONE": "Please enter your phone number!",
+      "INVALID_PHONE": "Please enter numbers only!",
+      "REQUIRED_COMPANY": "Please enter your company name!",
+      "REQUIRED_COMPANY_TYPE": "Please choose your company type!",
+      "REQUIRED_SUBJECT": "Please enter the subject!",
+      "REQUIRED_REQUEST_TYPE": "Please select a request type!",
+      "REQUIRED_MESSAGE": "Please input your Message to better assist you!"
+      }
+  },
+
+  "SubProducts":{
+    "GINGER": "GINGER",
+    "COLORPEPPER": "COLOR PEPPER",
+    "ONION": "ONION",
+    "CUCUMBER": "CUCUMBER",
+    "TOMATO": "TOMATO",
+    "CHILI": "CHILI",
+    "WatermelonSeeds":"Watermelon Seeds",
+    "SesameSeeds":"Sesame Seeds",
+    "HibiscusFlower": "Hibiscus Flower",
+    "DriedGingerflakes":"Dried Ginger flakes",
+    "Chickpeas": "Chickpeas",
+    "DESC": "High quality Affordable price Popular choice",
+    "TOMATODESC": "High quality Affordable price Popular choice",
+    "CUCUMBERDESC": "High quality Affordable price Popular choice",
+    "ONIONDESC": "High quality Affordable price Popular choice",
+    "COLORPEPPERDESC": "High quality Affordable price Popular choice",
+    "CHILIDESC": "High quality Affordable price Popular choice",
+    "WatermelonSeedsDESC": "High quality Affordable price Popular choice",
+    "SesameSeedsDESC": "High quality Affordable price Popular choice",
+    "HibiscusFlowerDSEC": "High quality Affordable price Popular choice",
+    "DriedGingerflakesDESC": "High quality Affordable price Popular choice",
+    "ChickpeasDESC": "High quality Affordable price Popular choice",
+    "BUTTONBK": "Back to Products"
   }
 }
 

@@ -1,4 +1,7 @@
 import { provideRouter, Routes, withRouterConfig } from '@angular/router';
+import { SubProductsComponent } from './sub-products/sub-products.component';
+import { ProductDetailsComponent } from './sub-products/product-details/product-details.component';
+
 
 
 export const routes: Routes = [
@@ -22,6 +25,13 @@ export const routes: Routes = [
     data: { animation: 'subProductsPage' }, 
   },
   {
+    path: 'products/:type',
+    loadComponent: () =>
+      import('./sub-products/sub-products.component').then((m) => m.SubProductsComponent),
+    data: { animation: 'subProductsPage' }, 
+  },
+  // { path: '', redirectTo: '/products', pathMatch: 'full' },
+  {
     path: 'contact-us',
     loadComponent: () =>
       import('./contactus/contactus.component').then((m) => m.ContactusComponent),
@@ -29,12 +39,12 @@ export const routes: Routes = [
   },
 
   {
-    path: 'product-details/:id', 
+    path: 'product-details/:id',
     loadComponent: () =>
-      import('./sub-products/sub-products.component').then(
-        (m) => m.SubProductsComponent
-      ),
+      import('./sub-products/product-details/product-details.component').then((m) => m.ProductDetailsComponent),
   },
+  
+  { path: '', redirectTo: '/sub-products', pathMatch: 'full' },
 ];
 
 export const routerConfig = provideRouter(

@@ -8,7 +8,7 @@ import { GlobalComponent} from './global/global.component';
 import { FooterComponent} from './footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
-
+import { RouterModule, Routes } from '@angular/router';
  
 
 @Component({
@@ -16,8 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   standalone: true,
   imports: [
     NavbarComponent, SliderComponent, WhoAreWeComponent,
-    ProductsComponent, TechnologyComponent, GlobalComponent, FooterComponent, TranslateModule
-  ],
+    ProductsComponent, TechnologyComponent, GlobalComponent, FooterComponent, TranslateModule, RouterModule  ],
 
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'

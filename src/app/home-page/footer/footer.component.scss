@@ -5,10 +5,13 @@
 
 .Footer {
   background: $blackColor;
-  margin-top: 194px;
+  margin-top: 150px;
 
   @include mq("ipad"){
     margin-top: 90px;
+  }
+  @include mq("phone-wide"){
+    margin-top:  60px;
   }
 
   .greenArea {
@@ -34,63 +37,83 @@
       background-color: $primaryColor;
       border-radius: 100px;
       width: 100%;
-      height: 162px;
+      height: 10.125rem;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative; 
       overflow: hidden; 
+      padding: 0 10px;
 
       @include mq("ipad"){
-        height: 150px;
+        height: 9.375rem;
       }
       @include mq("tablet"){
-        height: 140px;
-      }
-      @include mq("phablet"){
-        height: 120px;
+        height: 8.75rem;
       }
       @include mq("phone-wide"){
-        height: 80px;
+        height: 5rem;
       }
       @include mq("phone"){
         display: flex;
         place-content: center;
       }
 
-      &::before {
-        content: '';
+      .circle {
         position: absolute;
-        top: 125%; 
-        left: 55.5%;
-        transform: translate(0%, -81%); 
-        width: 850px;
-        height: 610px;
-        background-color: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        z-index: 1;
-
-        @include mq("ipad"){
-          left: 57%;
-
-          body.rtl & {
-            left: 40%;  
-          }
-        }
-
-        @include mq("phone-wide"){
-          left: 63%;
-          width: 350px;
-          height: 250px;
-        }
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
 
         body.rtl & {
-          transform: translate(-100%, -50%);
-          
+          left: 0;
+          right: unset;
         }
-        
-      }
 
+        >img {
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          body.rtl & {
+            transform: rotateY(180deg);
+          }
+
+          @include mq("tablet-wide"){
+            height: 10.313rem;
+          }
+          @include mq("tablet"){
+          height: 9.063rem;
+          }
+          @include mq("phablet"){
+          height: 8.9rem;
+          }
+          @include mq("phone-wide"){
+            height: 5rem;
+          }
+        }
+      }
+      // .circle {
+      //   position: absolute;
+      //   top: 0; 
+      //   right: 0;
+      //   width: 565px;
+      //   height: 165px;
+      //   background-color: rgba(255, 255, 255, 0.3);      
+      //   z-index: 1;
+      //   background: linear-gradient(135deg, transpearent -45px, 0);
+      // }
+      // .inCircle {
+      //   position: absolute;
+      //   width: 165px;
+      //   height: 152px;
+      //   background-color: transparent;
+      //   border-top-left-radius: 150px;
+      //   border: 101px solid transparent;
+      //   border-top-color: rgba(255, 255, 255, 0.3);
+      //   border-left-color: rgba(255, 255, 255, 0.3);
+      //   transform: rotate(-73deg);
+      // }
       .center {
         display: flex;
         align-items: center;
@@ -98,6 +121,7 @@
         gap: 100px;
         position: relative;
         z-index: 2;
+        padding: 0 40px;
         
 
         @include mq("ipad"){
@@ -123,33 +147,11 @@
           overflow: hidden;
           
           .papperPlane{
-            width: 70px;
-
-            @include mq("ipad"){
-              width: 60px;
-            }
-            @include mq("phablet"){
-              width: 40px;
-            }
-            @include mq("phone-wide"){
-              width: 25px;
-            }
+            width: 10%;
           }
 
           .strawberries{
-            width: 250px;
-            @include mq("ipad"){
-              width: 230px;
-            }
-            @include mq("phablet"){
-              width: 170px;
-            }
-            @include mq("phone-wide"){
-              width: 130px;
-            }
-            @include mq("phone"){
-              width: 100px;
-            }
+            width: 35%;
           }
         }
         .lCenter{
@@ -159,7 +161,7 @@
             padding-right: 0px;
           }
           .seed{
-            width: 140px;
+            width: 100%;
             @include mq("ipad"){
               width: 120px;
             }
@@ -182,6 +184,11 @@
 
       @include mq("phone-wide"){
         gap: 9px;
+
+        body.rtl & {
+          gap: 15px;
+        }
+      
       }
 
       >p {
@@ -200,7 +207,8 @@
           font-size: 15px;
         }
         @include mq("phone-wide"){
-          font-size: 10px;
+          font-size: 8px;
+        font-weight: bold;
         }
         body.rtl & {
           font-family: "Neo-Regular";
@@ -214,6 +222,10 @@
           }
           @include mq("tablet-small"){
             font-size: 20px;
+          }
+          @include mq("phone-wide"){
+            font-size: 17px;
+            font-weight: normal;          
           }
         }
       }
@@ -252,8 +264,8 @@
           width: 135px;
         }
         @include mq("phone-wide"){
-          height: 25px;
-          width: 100px;
+          height: 20px;
+          width: 80px;
           padding: 0 13px;
         }
 
@@ -274,7 +286,11 @@
           display: flex;
 
           @include mq("phone-wide"){
-            font-size: 10px;
+            font-size: 7px;
+
+            body.rtl & {
+              font-size: 12px;
+            }
           }
         }
 
@@ -299,9 +315,17 @@
             height: 20px;
           }
 
+          @include mq("phone-wide"){
+            width: 15px;
+            height: 15px;
+          }
+
           >img {
             @include mq("phablet"){
               width: 12px;
+            }
+            @include mq("phone-wide"){
+              width: 9px;
             }
           }
 
@@ -384,10 +408,11 @@
         display: flex;
         flex-direction: column;
         gap: 9px;
-        width: 40%;
+        width: 30%;
         bottom: 8px;
+
         @include mq("ipad"){
-          width: 20%;
+          gap: 0;
         }
 
         @include mq("tablet"){
@@ -396,15 +421,32 @@
         }
 
         .Logo {
-          width: 160px;
-          height: 145px;
+          width: 40%;
+          height: 100%;
           position: relative;
-          right: 11px;
+          right: 4%;
+
 
           body.rtl &{
-            left: 25px;
+            left: 12%;
             right: unset;
+
+            @include mq("tablet-wide"){
+              left: 4%
+            }
           }
+
+          @include mq("ipad"){
+            right: 1%;
+          }
+          @include mq("tablet"){
+            width: 20%;
+          }
+          @include mq("tablet-small"){
+            
+            width: 25%;
+          }
+
         }
 
         .socialIcons {
@@ -414,16 +456,27 @@
           @include mq("ipad"){
             margin-top: 10px;
           }
+          @include mq("phone-wide"){
+            gap: 0;
+          }
           
         }
 
         .socialIcons a {
           display: inline-block;
         }
+        .socialIcons img {
+          width: 100%;
+
+          @include mq("phone-wide"){
+            width: 70%;
+          }
+        }
+
       }
 
       .midLeft {
-        width: 25%;
+        width: 20%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -483,6 +536,7 @@
       @include mq("tablet"){
         flex-direction: column;
         align-items: flex-start;
+        text-align: left;
         gap: 20px;
         margin: 0;
       }
