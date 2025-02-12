@@ -1,16 +1,25 @@
 <app-navbar></app-navbar>
-<app-coverpic [bgUrl]="productBgUrl"  [pageTitle]="pageTitle | translate"></app-coverpic>
-<div class="productDetailsContent mainPadding">
-  <img class="mainImage" src="../../../assets/pic/Group 5261@2x.png" />
-  <p>{{ product?.titleKey | translate }}</p>
-  <!-- <img class="productImage" [src]="product?.image" alt="{{ product?.titleKey | translate }}"> -->
-  <!-- <p>{{ product?.description  | translate }}</p> -->
-  <ul>
-    <li *ngFor="let p of paragraphs">
-      <img [src]="p.img" alt="Icon" class="list-icon" />
-      <span>{{ p.text | translate }}</span>
-    </li>
-  </ul>
-  <button class="primaryButton" (click)="backToProducts()">{{ 'SubProducts.BUTTONBK' | translate }}</button>
-</div>
+
+<ng-container *ngIf="isLoadingProducts; else loadedProducts">
+  <nz-skeleton-element class="bkImgSek" nzType="input" nzActive="Active"></nz-skeleton-element>
+  <div class="productDetailsContenSekl mainPadding">
+    <nz-skeleton-element class="sekImg" nzType="image" nzActive="Active"></nz-skeleton-element>
+    <nz-skeleton [nzActive]="true" nzShape="circle" nzSize="large"></nz-skeleton>
+    <nz-skeleton [nzActive]="true" [nzParagraph]="{ rows: 3 }"></nz-skeleton>
+    <nz-skeleton [nzActive]="true" nzButton></nz-skeleton>
+  </div>
+</ng-container>
+
+<ng-template #loadedProducts>
+  <app-coverpic [bgUrl]="productBgUrl" [pageTitle]="pageTitle | translate"></app-coverpic>
+  <div class="productDetailsContent mainPadding">
+    <img [src]="product.inner_image" alt="Icon" class="list-icon" />
+    <span>{{ product.name | translate }}</span>
+    <p *ngFor="let des of descriptions">{{ des | translate }}</p>
+    <button class="primaryButton" (click)="backToProducts()">
+      {{ 'SubProducts.BUTTONBK' | translate }}
+    </button>
+  </div>
+</ng-template>
+
 <app-footer></app-footer>

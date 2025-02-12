@@ -1,30 +1,31 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { HttpClientModule } from '@angular/common/http';  
+import { TranslateModule } from '@ngx-translate/core'; 
 import { FormsModule } from '@angular/forms'; 
 import { RouterModule, Routes } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, TranslateModule, HttpClientModule, FormsModule, RouterModule ],
+  imports: [RouterOutlet, CommonModule, TranslateModule, FormsModule, RouterModule, ToastrModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {  // Implement OnInit lifecycle
+export class AppComponent implements OnInit {
   title = 'Healthy_Crops';
   
   showScrollToTop = false;
+  private translate = inject(TranslateService);
 
-  constructor(private translate: TranslateService, private router: Router) {
-    // Initialize TranslateService
-    this.translate.setDefaultLang('en'); // Set the default language to English
-    this.translate.use('en'); // Set initial language (this will be overwritten in ngOnInit)
+  constructor(private router: Router) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en'); 
   }
 
   ngOnInit(): void {

@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<nz-layout class="layOutContainer mainPadding mainMargin">
+  <nz-sider class="mainContent">
+    <nz-tabset nzType="card" [(nzSelectedIndex)]="selectedTab" (nzSelectedIndexChange)="onTabChange($event)">
+      <ng-container *ngFor="let tab of tabs; let i = index">
+        <!-- Main Tabs -->
+        <nz-tab [nzTitle]="tab.name | translate" *ngIf="!tab.children">
+        </nz-tab>
+        <nz-tab [nzTitle]="tab.name | translate" *ngIf="tab.children">
+          <ng-container *ngFor="let child of tab.children">
+            <div 
+              class="nestedTabs" 
+              (click)="onTabChangeChild(child)" 
+              [class.active]="isActive(child.route)">
+              {{ child.name | translate }}
+            </div>
+          </ng-container>          
+        </nz-tab>
+      </ng-container>
+    </nz-tabset>
+  </nz-sider>
+  <nz-content class="pageContent">
+    <router-outlet></router-outlet>
+  </nz-content>
+</nz-layout>
+<app-footer></app-footer>

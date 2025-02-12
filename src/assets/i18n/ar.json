@@ -111,8 +111,6 @@
   },
 
 
-
-
 "SUBPRODUCTS": {
       "TITLE": "منتجاتنا",
       "subTitle": "كيف نقوم بذلك",
@@ -153,6 +151,8 @@
       "FORM": {
         "FULLNAME": "الاسم الكامل",
         "FULLNAMEPLAECHOLDER": "الاٍسم بالكامل",
+        "FNAMEPLAECHOLDER": "الاسم الأول",
+        "SNAMEPLAECHOLDER": "الاسم الثاني",
         "EMAIL": "عنوان البريد الإلكتروني",
         "PHONENUMBER": "رقم الهاتف",
         "COMPANY": "اسم الشركة",
@@ -182,7 +182,12 @@
       "REQUIRED_SUBJECT": "يرجى إدخال الموضوع!",
       "REQUIRED_REQUEST_TYPE": "يرجى اختيار نوع الطلب!",
       "REQUIRED_MESSAGE": "يرجى إدخال رسالتك لمساعدتك بشكل أفضل!"
-      }
+      },
+      "TOAST": {
+      "EMAIL_SUCCESS": "تم إرسال البريد الإلكتروني بنجاح!",
+      "EMAIL_ERROR": "فشل إرسال البريد الإلكتروني. يرجى المحاولة مرة أخرى لاحقًا.",
+      "FORM_INVALID": "يرجى ملء النموذج بشكل صحيح."
+     }
 
   },
   "SubProducts":{
@@ -208,7 +213,49 @@
     "HibiscusFlowerDSEC": "جودة عالية وسعر مناسب واختيار شائع",
     "DriedGingerflakesDESC": "جودة عالية وسعر مناسب واختيار شائع",
     "ChickpeasDESC": "جودة عالية وسعر مناسب واختيار شائع",
-    "BUTTONBK": "العودة للمنتجات"
+    "BUTTONBK": "العودة للمنتجات",
+    "NOPRODUCTSAVAILABLE": "لا يوجد منتجات متاحة"
+  },
+  "layout": {
+    "myProfile": {
+      "myProfile":"حسابي",
+      "fName":"الاسم الأول",
+      "sName":"اسم العائلة",
+      "Submit": "حفظ التغييرات",
+      "Delete": "حذف الحساب",
+      "EditProfile": "تعديل الملف الشخصي",
+      "ChangePhoneNumber": "تغيير رقم الهاتف",
+      "ChangePassword": "تغيير كلمة المرور",
+      "PhoneNumber": "رقم الهاتف",
+      "savebutton": "حفظ التغييرات",
+      "CurrentPassword": "كلمة المرور الحالية",
+      "CurrentPasswordPc": "أدخل كلمة المرور الخاصة بك",
+      "NewPass": "كلمة المرور الجديدة",
+      "NewPassPc": "أنشئ كلمة مرور قوية",
+      "passValidation": {
+        "con1lowcase": "يجب أن تحتوي على حرف صغير واحد على الأقل",
+        "con8char": "يجب أن تحتوي على 8 أحرف على الأقل",
+        "con1num": "يجب أن تحتوي على رقم واحد على الأقل",
+        "con1upper": "يجب أن تحتوي على حرف كبير واحد على الأقل"
+      },
+      "ConfirmPassword": "تأكيد كلمة المرور",
+      "ConfirmPasswordPc": "أدخل كلمة المرور الجديدة مرة أخرى"
+    },
+    "Wallet": {
+      "wallet": "المحفظة",
+      "AvailableBalance": "الرصيد المتاح",
+      "OrderNo": "رقم الطلب",
+      "enterOrderNo": "أدخل رقم الطلب",
+      "OrderDate": "تاريخ الطلب",
+      "Amount": "المبلغ",
+      "enteramount": "أدخل المبلغ",
+      "TransactionType": "نوع المعاملة",
+      "Transactionbutton": "إضافة معاملة",
+      "TransactionHistory": "سجل المعاملات"
+    },
+    "Cart": {
+      "Cart": "عربة التسوق"
+    }
   }
 }
  

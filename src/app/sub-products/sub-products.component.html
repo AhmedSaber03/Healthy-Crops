@@ -3,33 +3,47 @@
 <div class="productsContainer mainPadding">
   <div class="tabsContainer">
     <div class="tabs">
-      <nz-tabset
-        [(nzSelectedIndex)]="selectedTab"
-        (nzSelectedIndexChange)="onTabChange($event)">
-        <nz-tab
-          *ngFor="let tab of tabs; let i = index"
-          [nzTitle]="tab.titleKey | translate"></nz-tab>
-      </nz-tabset>
+      <ng-container *ngIf="isLoadingTabs; else loadedTabs">
+        <nz-skeleton class="tabsSkelton" *ngFor="let i of [1]" [nzActive]="true" [nzParagraph]="{ rows: 0 }"></nz-skeleton>
+      </ng-container>
+      <ng-template #loadedTabs>
+        <nz-tabset [(nzSelectedIndex)]="selectedTab" (nzSelectedIndexChange)="onTabChange($event)">
+          <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.titleKey | translate"></nz-tab>
+        </nz-tabset>
+      </ng-template>
     </div>
   </div>
-  <div class="tabContent">
-    <div
-    *ngFor="let product of filteredProducts"
-    class="slideItem"
-    [routerLink]="['/product-details']"
-    [queryParams]="{ id: product.id }"
-    (click)="logClick(product)">
-    <img [src]="product.image" alt="{{ product.titleKey | translate }}">
-    <div class="overlay">
-        <p>{{ product.titleKey | translate }}</p>
+  <div class="tabContent" [ngClass]="{'no-products-gap': products.length === 0 && !isLoadingProducts}">
+  <ng-container *ngIf="isLoadingProducts; else loadedProducts">
+    <div *ngFor="let i of [1, 2, 3]" class="slideItem">
+      <nz-skeleton [nzActive]="true" nzType="image" [nzParagraph]="{ rows: 0 }"></nz-skeleton>
+    </div>
+  </ng-container>
+  <ng-template #loadedProducts>
+    <ng-container *ngIf="products.length === 0; else showProducts">
+      <div [ngTemplateOutlet]="noProductsTemplate"></div>
+    </ng-container>
+    <ng-template #showProducts>
+      <div *ngFor="let product of products" class="slideItem" [routerLink]="['/product-details']" [queryParams]="{ id: product.id }" (click)="logClick(product)">
+        <img [src]="product.image" alt="{{ product.titleKey | translate }}">
+        <div class="overlay">
+          <p>{{ product.name | translate }}</p>
+        </div>
       </div>
-    </div>
+    </ng-template>
+  </ng-template>
+</div>
+<ng-template #noProductsTemplate>
+  <div class="noProducts">
+    <img src="../../assets/pic/No Product Image Available.png" alt="No Products Available">
+    <p>{{ 'SubProducts.NOPRODUCTSAVAILABLE' | translate }}</p>
   </div>
-  <nz-pagination [nzPageIndex]="1" [nzTotal]="50" *ngIf="totalProducts > pageSize" globalDivMargin
-  [nzPageIndex]="currentPage"
-    [nzPageSize]="pageSize"
-    [nzTotal]="totalProducts"
-    (nzPageIndexChange)="onPageChange($event)"></nz-pagination>
+</ng-template>
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="50" *ngIf="pageSize < totalProducts" globalDivMargin
+    [(nzPageIndex)]="pageIndex" 
+  [nzTotal]="totalProducts" 
+  [nzPageSize]="pageSize" 
+  (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
 </div>
 <app-footer></app-footer>
 

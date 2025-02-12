@@ -87,6 +87,7 @@ export class NavbarComponent implements OnInit {
     this.currentLanguage = language;  
     window.location.reload();
   }
+
   // Added a new method to handle language change event
   onLanguageChange(language: string): void {
     this.switchLanguage(language);

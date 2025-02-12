@@ -247,7 +247,7 @@
       align-items: center; 
       justify-content: space-between; 
       flex-direction: row-reverse;
-      padding: 0px 10px;
+      padding: 0px 4px;
       background-color: $whiteColor;
       border: 2px solid $secondaryColor;
       color: $secondaryColor;
@@ -276,7 +276,6 @@
       @include mq("tablet") {
         width: 140px;
         height: 35px;
-        padding: 10px 13px;
       }
 
       @include mq("phone-wide") {
@@ -298,25 +297,31 @@
     }
     
     span {
-      flex-grow: 1;
+    flex-grow: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     z-index: 2;
+
+    body.rtl & {
+      @include mq("phone-wide"){
+        margin-right: 10px;
+      }
+    }
     }
     .oArrow {
       @include mq("ipad") {
-        width: 30px;
-        height: 30px;
+        width: 1.875rem;
+        height: 1.875rem;
       }
 
       @include mq("tablet") {
-          width: 23px;
-          height: 23px;
+          width: 1.438rem;
+          height: 1.438rem;
       }
       @include mq("phone-wide") {
-        height: 20px;
-        width: 20px;
+        height: 1.25rem;
+        width: 1.25rem;
       }
 
       body.rtl & {

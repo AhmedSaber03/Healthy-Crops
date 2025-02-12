@@ -1,0 +1,36 @@
+<section class="wallet-container">
+  <h1>Wallet</h1>
+  <div class="wallet-balance">
+    <p>Available Balance: <span>{{ balance | currency:'USD' }}</span></p>
+  </div>
+  <form [formGroup]="walletForm" (ngSubmit)="addTransaction()">
+    <div class="form-group">
+      <label for="orderNo">Order No</label>
+      <input id="orderNo" type="text" formControlName="orderNo" placeholder="Enter Order No" />
+    </div>
+    <div class="form-group">
+      <label for="orderDate">Order Date</label>
+      <input id="orderDate" type="date" formControlName="orderDate" />
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input id="amount" type="number" formControlName="amount" placeholder="Enter Amount" />
+    </div>
+    <div class="form-group">
+      <label>Transaction Type</label>
+      <select formControlName="transactionType" title="wallet">
+        <option value="in">In</option>
+        <option value="out">Out</option>
+      </select>
+    </div>
+    <button type="submit">Add Transaction</button>
+  </form>
+  <div class="transaction-history">
+    <h2>Transaction History</h2>
+    <ul>
+      <li *ngFor="let transaction of transactions">
+        <span>{{ transaction.orderNo }} - {{ transaction.orderDate }} - {{ transaction.amount | currency:'USD' }} ({{ transaction.transactionType }})</span>
+      </li>
+    </ul>
+  </div>
+</section>

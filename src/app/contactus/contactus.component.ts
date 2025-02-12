@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { NavbarComponent } from '../home-page/navbar/navbar.component';
 import { CoverpicComponent } from '../coverpic/coverpic.component';
 import { FooterComponent } from "../home-page/footer/footer.component";
@@ -13,12 +13,17 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NgModule } from '@angular/core';
 import { ObservableInput, Subject, takeUntil } from 'rxjs';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { CommonModule } from '@angular/common';
+import emailjs from 'emailjs-com';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-contactus',
   standalone: true,
   imports: [NavbarComponent, CoverpicComponent, FooterComponent, TranslateModule, NzFormModule,
-    FormsModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzSelectModule, NzRadioModule, NzButtonModule
+    FormsModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzSelectModule, NzRadioModule, NzButtonModule, CommonModule,
    ],
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.scss',
@@ -27,28 +32,32 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 })
 export class ContactusComponent {
   selectedCompanyType: string | null = null;
-
-
   validateForm: FormGroup;
+  statusMessage: string = '';
+  statusClass: string = '';
+ 
+  private http = inject(HttpClient);
+
   private destroy$ = new Subject<void>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private translate: TranslateService) {
     this.validateForm = this.fb.group({
-      fullname: ['', [Validators.required, this.nameValidator]],
+      full_name: ['', [Validators.required, this.nameValidator]],
       email: ['', [Validators.required, Validators.email, this.mailtypeValidator]],
-      phone: ['', [Validators.required, this.numericValidator]] ,
-      companyName: ['', [Validators.required]],
-      companyType: ['', [Validators.required]],
+      phone_number: ['', [Validators.required, this.numericValidator]] ,
+      company_name: ['', [Validators.required]],
+      company_type: ['', [Validators.required]],
       subject: ['', [Validators.required]],
-      requestType: ['', [Validators.required]],
+      request_type: ['', [Validators.required]],
       message: ['', [Validators.required]],
       required: [false],
     });
+    emailjs.init('ipYeKgim8SA4592oQ');
   }
 
   nameValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
-    const isValid = /^[a-zA-Z\s]*$/.test(value);
+    const isValid = /^[\u0600-\u06FFa-zA-Z\s]*$/.test(value);
     return isValid ? null : { name: true }; 
   }
 
@@ -78,7 +87,50 @@ export class ContactusComponent {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      const formData = this.validateForm.value;
+      this.http.post('contact', formData).subscribe({
+        next: (res: any) => {
+          if (res.status) {
+            emailjs.send('service_qn7xusq', 'template_zz8arx4', {
+              fullname: formData.full_name,
+              email: formData.email,
+              phone: formData.phone_number,
+              companyName: formData.company_name,
+              companyType: formData.company_type,
+              subject: formData.subject,
+              requestType: formData.request_type,
+              message: formData.message,
+            }).then(
+              (response: any) => {
+                this.translate.get('CONTACTUS.TOAST.EMAIL_SUCCESS').subscribe((translatedMsg) => {
+                  this.toastr.success(translatedMsg);
+                });
+                this.validateForm.reset();
+              },
+              (error: any) => {
+                this.translate.get('CONTACTUS.TOAST.EMAIL_ERROR').subscribe((translatedMsg) => {
+                  this.toastr.error(translatedMsg);
+                });
+                console.error('EmailJS error:', error);
+              }
+            );
+          } else {
+            console.error('API Error:', res);
+            this.translate.get('CONTACTUS.TOAST.API_ERROR').subscribe((translatedMsg) => {
+              this.toastr.error(translatedMsg);
+            });
+          }
+        },
+        error: (error) => {
+          console.error('API Error:', error);
+          if (error?.error) {
+            console.error('Server Response:', error.error);
+          }
+          this.translate.get('CONTACTUS.TOAST.API_ERROR').subscribe((translatedMsg) => {
+            this.toastr.error(translatedMsg);
+          });
+        }
+      });
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
@@ -86,11 +138,15 @@ export class ContactusComponent {
           control.updateValueAndValidity({ onlySelf: true });
         }
       });
+      this.translate.get('CONTACTUS.TOAST.FORM_INVALID').subscribe((translatedMsg) => {
+        this.toastr.warning(translatedMsg);
+      });
     }
-  }
-
+  }  
+  
+  
   requiredChange(required: boolean): void {
-    const fullname = this.validateForm.get('nickname');
+    const fullname = this.validateForm.get('fullname');
     if (!required) {
       fullname?.clearValidators();
       fullname?.markAsPristine();
@@ -100,4 +156,5 @@ export class ContactusComponent {
     }
     fullname?.updateValueAndValidity();
   }
+
 }

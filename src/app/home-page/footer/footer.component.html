@@ -27,7 +27,6 @@
       </div>
     </div>
   </div>
-
   <div class="blackAre mainPadding">
     <div class="footerUpper">
       <div class="left">
@@ -51,6 +50,7 @@
       </div>
       <div class="midRight">
         <h4>{{ 'FOOTER.LINKS.Ourproducts' | translate }}</h4>
+        <p><a routerLink="/profile">Account</a></p>
           <div *ngFor="let tab of tabs">        
           <p><a [routerLink]="['/products', tab.type]">{{ tab.titleKey | translate }}</a></p>
         </div>

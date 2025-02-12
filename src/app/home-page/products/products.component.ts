@@ -1,10 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule, Routes } from '@angular/router';
-
 
 @Component({
   selector: 'app-products',
@@ -15,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class ProductsComponent {
+
   selectedTab = 0;
 
   tabs = [
@@ -76,7 +76,7 @@ export class ProductsComponent {
     },
   };
   
-
+  
   onTabChange(index: number): void {
     this.selectedTab = index;
   }

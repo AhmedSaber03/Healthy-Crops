@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensures space between text and icon */
-  padding: 0 10px; 
+  padding: 0 6px; 
   background-color: $primaryColor; 
   color: $whiteColor; 
   font-family: "Hauora-regular";
@@ -118,7 +118,7 @@
     height: 40px;
     background-color: rgba(255, 255, 255, 0.12); 
     border-radius: 50%; 
-    z-index: 3; 
+    z-index: 99999; 
     transition: background-color 0.4s ease, transform 0.4s ease; 
 
     body.rtl & {

@@ -20,15 +20,18 @@
     @include mq("tablet"){
       top: 0.938rem;
     }
-    .ant-pagination-next:hover .ant-pagination-item-link,
+    .ant-pagination-next .ant-pagination-item-link:hover,
+    .ant-pagination-prev .ng-star-inserted:hover,
     .ant-pagination-item-active:hover,
     .ant-pagination-item-active:hover a,
     .ant-pagination-item:hover,
     .ant-pagination-item:hover a,
     .ant-pagination-item-active,
-    .ant-pagination-item-active a{
-      color: $primaryColor;
+    .ant-pagination-item-active a
+    {
+      color: $whiteColor;
       border-color: $primaryColor;
+      background-color: $primaryColor;
     }
     .ant-pagination-next,
     .ant-pagination-prev,
@@ -38,6 +41,19 @@
       height: 25px;
       line-height: 21px;
      }
+    }
+
+    .ant-pagination-disabled,
+    .ant-pagination-disabled:hover,
+    .ant-pagination-disabled:focus-visible,
+    .ant-pagination-disabled .ant-pagination-item-link:hover,
+    .ant-pagination-disabled .ant-pagination-next .ant-pagination-item-link:hover
+    .ant-pagination-disabled .ant-pagination-prev .ng-star-inserted:hover,
+    .ant-pagination .ant-pagination-item-active a:hover{
+      cursor: not-allowed;
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+      background-color: #d9d9d9;
     }
   }
 
@@ -129,6 +145,14 @@
         border-bottom: none;
         color: $primaryColor;
       }
+
+      .tabsSkelton,
+      .ant-skeleton-active .ant-skeleton-title{
+        width: 458px !important;
+        height: 52px;
+        border-radius: 26px;
+        }
+      
     }
   }
 
@@ -138,7 +162,6 @@
     flex-wrap: wrap;
     gap: 3.75rem;
     width: 100%;
-    justify-content: center;
 
     @include mq("ipad"){
       justify-content: space-between;
@@ -146,20 +169,31 @@
     }
     
     @include mq("tablet-small"){
-      justify-content: center;
       gap: 1.5rem;
       margin-top: 1.75rem;
+      justify-content: center;
     }
 
-    &.flex-start { // Add a modifier class for flex-start
-      justify-content: flex-start; // Align items to flex-start
+    &.flex-start { 
+      justify-content: flex-start;
+    }
+
+    .ant-skeleton-content .ant-skeleton-title {
+      width: 100% !important;
+      height: 450px;
+    }
+
+ 
+    nz-skeleton > div{
+      position: relative;
+      bottom: 20px;
+      width: 100%;
     }
 
     .slideItem {
       cursor: pointer;
       position: relative;
-      flex: 1 1 calc(33.3% - 49px);
-      max-width: calc(33.3% - 49px); 
+      width: calc(33.3% - 49px);; 
       height: 28.797rem; 
       display: flex;
       justify-content: center;
@@ -172,18 +206,9 @@
       }
 
       @include mq("ipad"){
-        max-width: calc(50% - 15px);
+        width: calc(50% - 15px);
         height: 23rem;
         flex: unset;
-      }
-      @include mq("tablet-small"){
-        max-width: 70%; 
-      }
-      @include mq("tablet-small"){
-        max-width: 50%; 
-      }
-      @include mq("phone-wide"){
-        max-width: 70%;
       }
 
       img {
@@ -236,4 +261,49 @@
       }
     }
   }
+  
+  .no-products-gap {
+    gap: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .noProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    padding: 5px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .noProducts img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .noProducts p {
+    font-size: 1.2em;
+    color: $blackColor;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .noProducts p::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: $primaryColor;
+    margin: 10px auto;
+  }
+
 }

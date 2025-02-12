@@ -159,6 +159,8 @@
       "FORM":{
         "FULLNAME": "Full Name",
         "FULLNAMEPLAECHOLDER": "John Doe",
+        "FNAMEPLAECHOLDER": "John",
+        "SNAMEPLAECHOLDER": "Doe",
         "EMAIL": "Email address",
         "PHONENUMBER": "Phone number",
         "COMPANY": "Company name",
@@ -172,8 +174,8 @@
         "RQUESTTYPE2": "Inquiry",
         "MASSAGE": "Message",
         "MASSAGEPLAECHOLDER": "Write something...",
-        "FACTORY": "FACTORY",
-        "TRADER": "TRADER",
+        "FACTORY": "Factory",
+        "TRADER": "Trader",
         "SELECTTYPE": "Select type (Factory/trader)",
         "INVALIDEMAILTYPE": "!Please enter mail only",
         "VALIDEMAIL": "!Please enter your valid mail"
@@ -191,7 +193,12 @@
       "REQUIRED_SUBJECT": "Please enter the subject!",
       "REQUIRED_REQUEST_TYPE": "Please select a request type!",
       "REQUIRED_MESSAGE": "Please input your Message to better assist you!"
-      }
+      },
+      "TOAST": {
+      "EMAIL_SUCCESS": "Email sent successfully!",
+      "EMAIL_ERROR": "Failed to send email. Please try again later.",
+      "FORM_INVALID": "Please fill out the form correctly."
+    }
   },
 
   "SubProducts":{
@@ -217,7 +224,54 @@
     "HibiscusFlowerDSEC": "High quality Affordable price Popular choice",
     "DriedGingerflakesDESC": "High quality Affordable price Popular choice",
     "ChickpeasDESC": "High quality Affordable price Popular choice",
-    "BUTTONBK": "Back to Products"
+    "BUTTONBK": "Back to Products",
+    "NOPRODUCTSAVAILABLE": "NO PRODUCTS AVAILABLE"
+  },
+
+  "layout": {
+    "myProfile": {
+      "myProfile":"My Profile",
+      "fName":"First Name",
+      "sName":"Last Name",
+      "Submit": "Save Changes",
+      "Delete": "Delete Account",
+      "EditProfile": "Edit Profile",
+      "ChangePhoneNumber": "Change Phone Number",
+      "ChangePassword": "Change Password",
+      "PhoneNumber": "Phone Number",
+      "savebutton": "Save Change",
+      "CurrentPassword": "Current Password",
+      "CurrentPasswordPc": "Enter your Password",
+      "NewPass": "New Password",
+      "NewPassPc": "Create a strong Password",
+      "passValidation": {
+        "con1lowcase": "Contain at least 1 lowercase",
+        "con8char": "Contain at least 8 characters",
+        "con1num": "Contain at least 1 number",
+        "con1upper": "Contain at least 1 uppercase"
+      },
+      "ConfirmPassword": "Confirm Password",
+      "ConfirmPasswordPc": "Enter your Password again"
+    },
+    "Wallet": {
+      "wallet": "Wallet",
+      "AvailableBalance": "Available Balance",
+      "OrderNo": "Order No",
+      "enterOrderNo": "Enter Order No",
+      "OrderDate": "Order Date",
+      "Amount": "Amount",
+      "enteramount": "Enter Amount",
+      "TransactionType": "Transaction Type",
+      "Transactionbutton": "Add Transaction",
+      "TransactionHistory": "Transaction History"
+    },
+    "Cart": {
+      "Cart": "Cart"
+    },
+    "Adverts":{ 
+      "MyAdverts": "My Adverts"
+    }
   }
+
 }
 

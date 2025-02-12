@@ -1,0 +1,261 @@
+@import "../../../assets/Css/Mixin.scss";
+@import "../../../assets/Css/common.scss";
+@import "../../../assets/Css/variables.scss";
+
+.ant-collapse {
+  text-align: left;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+}
+
+.myProfileContainer {
+  display: flex;
+  flex-direction: column;
+
+  .myProfileText {
+    margin-bottom: 32px;
+    text-align: left;
+    color: $blackColor;
+    font-family: "Hauora-Bold";
+    font-size: 20px;
+
+    body.rtl & {
+      font-size: 30px;
+      text-align: right;
+      font-family: unset; 
+    }
+  }
+
+  .editIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .inputForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    label {
+      font-family: "Hauora-Bold";
+      font-size: 13px;
+
+      body.rtl & {
+        font-family: unset;
+        
+      }
+    }
+    .ant-input:focus,
+    .ant-input-focused,
+    .ant-input:hover {
+      border-color: $primaryColor;
+      box-shadow: 0px 4px 6px rgba(15, 73, 77, 0.222);
+    }
+  }
+  .btnContainer {
+    place-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      justify-content: center;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $primaryColor;
+    }
+  }
+  // input style 
+
+
+  .ant-input {
+    background-color: #f3f3f7;
+    width: 100%;
+  }
+  .ant-form-item-control {
+    width: 100%;
+    body.rtl & { 
+      text-align: right;
+    }
+  }
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: 1px solid #d9d9d9;
+    background-color: #f3f3f7;
+    height: 44px;
+    align-items: center;
+  }
+  .ant-input {
+    height: 44px;
+    width: 100%;
+  }
+
+  
+  // phone number style
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7.5px;
+
+    label {
+      font-weight: bold;
+      position: relative;
+      right: 11.2%;
+      color: $blackColor;
+
+      body.rtl & {
+        left: 20%;
+        right: unset;
+        font-weight: normal;
+      }
+    }
+    .phoneInputContainer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .phone-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s;
+    }
+    .phone-input:focus,
+    .phone-input:hover {
+      border-color: $primaryColor;
+      box-shadow: 0px 4px 6px rgba(15, 73, 77, 0.222);
+    }
+
+    .primaryButton {
+      margin-top: 32px;
+      justify-content: center;
+    }
+
+    //sprate the country input of the other input
+
+    .iti {
+      body.rtl & {
+        display: flex;
+      }
+    }
+    .iti__country-container {
+      body.rtl & {
+        right: 12rem !important;
+    }
+    }
+
+    .iti input.iti__tel-input,
+    .iti input.iti__tel-input[type="text"],
+    .iti input.iti__tel-input[type="tel"] {
+      margin-left: 100px !important;
+      padding-left: 15px !important;
+
+      body.rtl & {
+        margin-left: 0px !important;
+        left: 6rem;
+      }
+    }
+
+    .iti__selected-country {
+      margin-right: 15px !important;
+      padding-right: 15px !important;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 8px;
+
+      body.rtl & {
+        padding-right: unset !important;
+        flex-direction: row-reverse;
+      }
+    }
+
+    .iti .iti__selected-dial-code {
+      body.rtl & { 
+        margin-right: 6px;
+      }
+    }
+  }
+
+  //Change password section style
+
+  .passwordsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32.5px;
+    justify-content: center;
+    align-items: center;
+
+    >label {
+      body.rtl & {
+        text-align: right;
+      }
+    }
+
+    .new{
+        width: 32%; 
+    }
+
+    .primaryButton {
+        justify-content: center;
+    }
+
+    .passwordRequirements {
+      margin-top: -20px;
+      display: flex;
+      flex-direction: column;
+
+      .half1,
+      .half2{
+        display: flex;
+        gap: 7px;
+      }
+    }
+
+    .passwordRequirements p {
+      font-size: 12px;
+      transition: color 0.3s ease-in-out;
+    }
+    
+    .gray {
+      color: gray; 
+    }
+    
+    .red {
+      color: red; 
+    }
+    
+    .green {
+      color: green; 
+    } 
+  }
+
+  //ant re-style
+
+  .ant-form-item {
+    width: 17.154rem;
+  }
+
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
+  .ant-input-affix-wrapper:focus,
+  .ant-input-affix-wrapper:hover,
+  .ant-input-affix-wrapper-focused,
+  .ant-input:focus  {
+    border-color: $primaryColor;
+    box-shadow: 0px 4px 6px rgba(15, 73, 77, 0.222);
+  }
+
+  .ant-input-affix-wrapper {
+    background-color: unset;
+    padding: 0px 11px;
+  }
+
+}

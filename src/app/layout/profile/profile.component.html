@@ -1,0 +1,187 @@
+<div class="myProfileContainer">
+  <p class="myProfileText">{{ "layout.myProfile.myProfile" | translate }}</p>
+  <nz-collapse [nzBordered]="false" nzAccordion>
+  <nz-collapse-panel
+    *ngFor="let panel of panels; trackBy: trackByFn"
+    [nzHeader]="panel.name | translate"
+    [nzActive]="panel.active"
+    nzShowArrow="false"
+    [nzExtra]="extraTemplate"
+    (nzActiveChange)="onActiveChange(panel, $event)">
+    <ng-template #extraTemplate>
+      <span *ngIf="panel.active" nz-icon nzType="close" nzTheme="outline"></span>
+      <img *ngIf="!panel.active" src="../../../assets/pic/Account/EditIcon.svg" class="editIcon" />
+    </ng-template>
+    <!--Panal 1 - Edit Profile--->
+      <form
+        nz-form
+        [formGroup]="validateForm"
+        nzLayout="vertical"
+        *ngIf="panel.id === 1"
+        (ngSubmit)="nameSubmit()">
+        <div class="inputForm">
+          <nz-form-item>
+            <nz-form-label [nzFor]="'firstName'" [nzNoColon]="true">{{"layout.myProfile.fName" | translate}}</nz-form-label>
+            <nz-form-control
+              [nzHasFeedback]="true"
+              [nzErrorTip]="
+                validateForm.get('firstName')?.hasError('name')
+                  ? ('CONTACTUS.ERRORS.REQUIREDNAMENumbers' | translate)
+                  : ('CONTACTUS.ERRORS.REQUIRED_NAME' | translate)">
+              <input
+                nz-input
+                type="text"
+                [placeholder]="'CONTACTUS.FORM.FNAMEPLAECHOLDER' | translate"
+                aria-describedby="fullNameHelp"
+                formControlName="firstName"
+              />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzFor]="'lastName'" [nzNoColon]="true">{{"layout.myProfile.sName" | translate}}</nz-form-label>
+            <nz-form-control
+              [nzHasFeedback]="true"
+              [nzErrorTip]="
+                validateForm.get('lastName')?.hasError('name')
+                  ? ('CONTACTUS.ERRORS.REQUIREDNAMENumbers' | translate)
+                  : ('CONTACTUS.ERRORS.REQUIRED_NAME' | translate)">
+              <input
+                nz-input
+                type="text"
+                [placeholder]="'CONTACTUS.FORM.SNAMEPLAECHOLDER' | translate"
+                aria-describedby="fullNameHelp"
+                formControlName="lastName"
+              />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="btnContainer">
+          <button class="primaryButton" type="submit">
+            {{ "layout.myProfile.Submit" | translate }}
+          </button>
+          <a herf="#">{{ "layout.myProfile.Delete" | translate }}</a>
+        </div>
+      </form>
+      <!-- Panal 2 - phone number -->
+      <section>
+      <div class="formGroup" *ngIf="panel.id == 2" >
+        <label id="phone">{{'layout.myProfile.PhoneNumber' | translate}}</label>
+        <div class="phoneInputContainer">
+          <input   #phoneInput 
+          id="phoneInput"
+          type="tel" 
+          class="phone-input" 
+          placeholder="1X XXX XXXX"  
+          autocomplete="off"
+          (input)="validatePhone()"/>
+        </div>
+        <div *ngIf="phoneError" class="error">
+          {{ phoneError }}
+        </div>
+        <button class="primaryButton" (click)="onSubmit()">{{'layout.myProfile.savebutton' | translate}}</button>
+      </div>
+    </section>
+    <!-- Panal 3 - Change Password-->
+    <section *ngIf="panel.id == 3" (ngSubmit)="Submit()">
+    <div class="passwordsContainer">  
+      <div class="Current">
+        <label>{{ 'layout.myProfile.CurrentPassword' | translate}}</label>
+      <nz-input-group [nzSuffix]="suffixTemplateCurrent">
+        <input
+          [type]="passwordVisibleCurrent ? 'text' : 'password'"
+          nz-input
+          [placeholder]="'layout.myProfile.CurrentPasswordPc' | translate"
+          [(ngModel)]="currentPassword"
+          (blur)="validateCurrentPassword()"/>
+      </nz-input-group>
+      <ng-template #suffixTemplateCurrent>
+        <span
+          nz-icon
+          class="ant-input-password-icon"
+          [nzType]="passwordVisibleCurrent ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisibleCurrent = !passwordVisibleCurrent"
+        ></span>
+      </ng-template>
+      <div *ngIf="currentPasswordError" class="error-message">
+        {{ currentPasswordError }}
+      </div>
+    </div>
+    <div class="new">
+      <label>{{'layout.myProfile.NewPass' | translate}}</label>
+      <nz-input-group [nzSuffix]="suffixTemplateNew">
+        <input
+          [type]="passwordVisibleNew ? 'text' : 'password'"
+          nz-input
+          [placeholder]="'layout.myProfile.NewPassPc' | translate"
+          [(ngModel)]="newPassword"
+          (input)="validateNewPassword()"
+        />
+      </nz-input-group>
+      <ng-template #suffixTemplateNew>
+        <span
+          nz-icon
+          class="ant-input-password-icon"
+          [nzType]="passwordVisibleNew ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisibleNew = !passwordVisibleNew"
+        ></span>
+      </ng-template>
+      </div>
+      <div class="passwordRequirements">
+        <div class="half1">
+          <p
+          [class.gray]="!passwordTouched || !submitted && !newPassword" 
+          [class.red]="submitted && !passwordValidations.length" 
+          [class.green]="passwordValidations.length">
+          {{'layout.myProfile.passValidation.con8char' | translate}}
+        </p>
+        <p 
+          [class.gray]="!passwordTouched || !submitted && !newPassword" 
+          [class.red]="submitted && !passwordValidations.lowercase" 
+          [class.green]="passwordValidations.lowercase">
+          {{'layout.myProfile.passValidation.con1lowcase' | translate}}
+        </p>
+      </div>
+      <div class="half2">
+        <p 
+          [class.gray]="!passwordTouched || !submitted && !newPassword" 
+          [class.red]="submitted && !passwordValidations.uppercase" 
+          [class.green]="passwordValidations.uppercase">
+          {{'layout.myProfile.passValidation.con1upper' | translate}}
+        </p>
+        <p 
+          [class.gray]="!passwordTouched || !submitted && !newPassword" 
+          [class.red]="submitted && !passwordValidations.number" 
+          [class.green]="passwordValidations.number">
+          {{'layout.myProfile.passValidation.con1num' | translate}}
+        </p>
+      </div>
+    </div>    
+    <div class="confirm">
+      <label>{{'layout.myProfile.ConfirmPassword' | translate}}</label>
+      <nz-input-group [nzSuffix]="suffixTemplateConfirm">
+        <input
+          [type]="passwordVisibleConfirm  ? 'text' : 'password'"
+          nz-input
+          [placeholder]="'layout.myProfile.ConfirmPasswordPc' | translate"
+          [(ngModel)]="confirmPassword"
+          (blur)="validateConfirmPassword()"/>
+      </nz-input-group>
+      <ng-template #suffixTemplateConfirm>
+        <span
+          nz-icon
+          class="ant-input-password-icon"
+          [nzType]="passwordVisibleConfirm ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisibleConfirm = !passwordVisibleConfirm"
+        ></span>
+      </ng-template>
+      <div *ngIf="confirmPasswordError" class="error-message">
+        {{ confirmPasswordError }}
+      </div>
+    </div>
+    <button class="primaryButton" type="submit" (click)="Submit()">{{'layout.myProfile.Submit' | translate }}</button>
+  </div>
+    </section>
+    </nz-collapse-panel>
+  </nz-collapse>
+</div>
+

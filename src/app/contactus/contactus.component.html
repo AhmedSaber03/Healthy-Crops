@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 <app-coverpic
   [bgUrl]="'./assets/pic/contactUsHero.webp'"
-  [pageTitle]="'CONTACTUS.TITLE'"
-></app-coverpic>
+  [pageTitle]="'CONTACTUS.TITLE'"></app-coverpic>
 <div class="pageContant mainPadding globalDivMargin">
   <div class="formContent">
     <div class="textHolder">
@@ -13,37 +12,43 @@
       </div>
     </div>
     <div class="customForm">
-      <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" nzLayout="vertical">
+      <form
+        nz-form
+        [formGroup]="validateForm"
+        (ngSubmit)="submitForm()"
+        nzLayout="vertical">
         <nz-row>
           <nz-col [nzSpan]="12">
             <nz-form-item>
-              <nz-form-label
-                [nzFor]="'fullName'"
-                [nzNoColon]="true"
-                >{{ "CONTACTUS.FORM.FULLNAME" | translate }}</nz-form-label>
+              <nz-form-label [nzFor]="'full_name'" [nzNoColon]="true">{{
+                "CONTACTUS.FORM.FULLNAME" | translate}}</nz-form-label>
               <nz-form-control
                 [nzHasFeedback]="true"
-                [nzErrorTip]="validateForm.get('fullname')?.hasError('name') ? ('CONTACTUS.ERRORS.REQUIREDNAMENumbers' | translate) : ('CONTACTUS.ERRORS.REQUIRED_NAME' | translate)">
-                <input  
+                [nzErrorTip]="
+                  validateForm.get('full_name')?.hasError('name')
+                    ? ('CONTACTUS.ERRORS.REQUIREDNAMENumbers' | translate): ('CONTACTUS.ERRORS.REQUIRED_NAME' | translate)">
+                <input
                   nz-input
                   type="text"
                   [placeholder]="
                     'CONTACTUS.FORM.FULLNAMEPLAECHOLDER' | translate"
                   aria-describedby="fullNameHelp"
-                  formControlName="fullname"/>
+                  formControlName="full_name"/>
               </nz-form-control>
             </nz-form-item>
           </nz-col>
           <nz-col [nzSpan]="12">
             <nz-form-item>
-              <nz-form-label
-                [nzFor]="'email'"
-                [nzNoColon]="true"
-                >{{ "CONTACTUS.FORM.EMAIL" | translate }}</nz-form-label>
+              <nz-form-label [nzFor]="'email'" [nzNoColon]="true">{{
+                "CONTACTUS.FORM.EMAIL" | translate}}</nz-form-label>
               <nz-form-control
                 [nzHasFeedback]="true"
-                [nzErrorTip]="validateForm.get('email')?.hasError('mailtype') ? ('CONTACTUS.ERRORS.INVALID_EMAIL_TYPE' | translate)  : ('CONTACTUS.ERRORS.VALID_EMAIL' | translate)">
-                <input nz-input
+                [nzErrorTip]="
+                  validateForm.get('email')?.hasError('mailtype')
+                    ? ('CONTACTUS.ERRORS.INVALID_EMAIL_TYPE' | translate)
+                    : ('CONTACTUS.ERRORS.VALID_EMAIL' | translate)">
+                <input
+                  nz-input
                   type="email"
                   placeholder="john.doe@example.com"
                   formControlName="email"/>
@@ -54,26 +59,25 @@
         <nz-row>
           <nz-col [nzSpan]="12">
             <nz-form-item>
-              <nz-form-label
-                [nzFor]="'phone'"
-                [nzNoColon]="true"
-                >{{ "CONTACTUS.FORM.PHONENUMBER" | translate }}</nz-form-label>
+              <nz-form-label [nzFor]="'phone'" [nzNoColon]="true">{{
+                "CONTACTUS.FORM.PHONENUMBER" | translate}}</nz-form-label>
               <nz-form-control
                 [nzHasFeedback]="true"
-                [nzErrorTip]="validateForm.get('phone')?.hasError('numeric') ? ('CONTACTUS.ERRORS.INVALID_PHONE' | translate) : ('CONTACTUS.ERRORS.REQUIRED_PHONE' | translate)">
+                [nzErrorTip]="
+                  validateForm.get('phone')?.hasError('numeric')
+                    ? ('CONTACTUS.ERRORS.INVALID_PHONE' | translate)
+                    : ('CONTACTUS.ERRORS.REQUIRED_PHONE' | translate)">
                 <input
                   nz-input
                   placeholder="+(XX) XXX XXX XXXX"
-                  formControlName="phone"/>
+                  formControlName="phone_number"/>
               </nz-form-control>
             </nz-form-item>
           </nz-col>
           <nz-col [nzSpan]="12">
             <nz-form-item>
-              <nz-form-label
-                [nzFor]="'companyName'"
-                [nzNoColon]="true"
-                >{{ "CONTACTUS.FORM.COMPANY" | translate }}</nz-form-label>
+              <nz-form-label [nzFor]="'companyName'" [nzNoColon]="true">{{
+                "CONTACTUS.FORM.COMPANY" | translate}}</nz-form-label>
               <nz-form-control
                 [nzHasFeedback]="true"
                 [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_COMPANY' | translate">
@@ -82,7 +86,7 @@
                   type="companyName"
                   [placeholder]="
                     'CONTACTUS.FORM.COMPANYPLAECHOLDER' | translate"
-                  formControlName="companyName"/>
+                  formControlName="company_name"/>
               </nz-form-control>
             </nz-form-item>
           </nz-col>
@@ -90,26 +94,26 @@
         <nz-row class="companySubjectContainer">
           <nz-col [nzSpan]="12">
             <nz-form-item>
-              <nz-form-label
-                [nzFor]="'companyType'"
-                [nzNoColon]="true"
-                >{{ "CONTACTUS.FORM.COMPANYTYPE" | translate }}</nz-form-label>
+              <nz-form-label [nzFor]="'companyType'" [nzNoColon]="true">{{
+                "CONTACTUS.FORM.COMPANYTYPE" | translate}}</nz-form-label>
               <nz-form-control
                 [nzHasFeedback]="true"
-                [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_COMPANY_TYPE' | translate">
+                [nzErrorTip]="
+                  'CONTACTUS.ERRORS.REQUIRED_COMPANY_TYPE' | translate">
                 <nz-select
                   id="companyType"
-                  [(ngModel)]="selectedCompanyType"
                   [nzPlaceHolder]="
                     'CONTACTUS.FORM.COMPANYTYPEPLAECHOLDER' | translate"
                   [nzAllowClear]="true"
-                  formControlName="companyType">
+                  formControlName="company_type">
                   <nz-option
-                    nzValue="factory"
-                    [nzLabel]="'CONTACTUS.FORM.FACTORY' | translate"></nz-option>
-                  <nz-option
-                    nzValue="trader"
-                    [nzLabel]="'CONTACTUS.FORM.TRADER' | translate"></nz-option>
+                  nzValue="Factory"
+                  [nzLabel]="'CONTACTUS.FORM.FACTORY' | translate"
+                ></nz-option>
+                <nz-option
+                  nzValue="Trader"
+                  [nzLabel]="'CONTACTUS.FORM.TRADER' | translate"
+                ></nz-option>
                 </nz-select>
               </nz-form-control>
             </nz-form-item>
@@ -119,8 +123,7 @@
               <nz-form-label
                 class="subject1"
                 [nzFor]="'subject'"
-                [nzNoColon]="true"
-                >{{ "CONTACTUS.FORM.SUBJECT" | translate }}</nz-form-label>
+                [nzNoColon]="true">{{ "CONTACTUS.FORM.SUBJECT" | translate }}</nz-form-label>
               <nz-form-control
                 [nzHasFeedback]="true"
                 [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_SUBJECT' | translate">
@@ -134,30 +137,27 @@
           </nz-col>
         </nz-row>
         <nz-col class="requestType">
-          <nz-form-label
-            [nzNoColon]="true"
-            formControlName="requestType">{{ "CONTACTUS.FORM.RQUESTTYPE" | translate }}</nz-form-label>
+          <nz-form-label [nzNoColon]="true" formControlName="request_type">{{
+            "CONTACTUS.FORM.RQUESTTYPE" | translate}}</nz-form-label>
           <nz-form-item>
-            <nz-form-control [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_REQUEST_TYPE' | translate">
-              <nz-radio-group formControlName="requestType">
-                <label nz-radio nzValue="requestProduct">{{
-                  "CONTACTUS.FORM.RQUESTTYPE1" | translate}}</label>
-                <label nz-radio nzValue="inquiry">{{
-                  "CONTACTUS.FORM.RQUESTTYPE2" | translate}}</label>
-              </nz-radio-group>
+            <nz-form-control
+              [nzErrorTip]="
+                'CONTACTUS.ERRORS.REQUIRED_REQUEST_TYPE' | translate">
+                <nz-radio-group formControlName="request_type">
+                  <label nz-radio nzValue="Request a product">{{ "CONTACTUS.FORM.RQUESTTYPE1" | translate }}</label>
+                  <label nz-radio nzValue="Inquiry">{{ "CONTACTUS.FORM.RQUESTTYPE2" | translate }}</label>
+                </nz-radio-group>                
             </nz-form-control>
           </nz-form-item>
         </nz-col>
         <nz-row class="massage">
           <nz-form-item>
-            <nz-form-label 
-              [nzFor]="'message'"
-              [nzNoColon]="true"
-              >{{ "CONTACTUS.FORM.MASSAGE" | translate }}</nz-form-label>
+            <nz-form-label [nzFor]="'message'" [nzNoColon]="true">{{
+              "CONTACTUS.FORM.MASSAGE" | translate}}</nz-form-label>
             <nz-form-control
-            [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_MESSAGE' | translate">
+              [nzErrorTip]="'CONTACTUS.ERRORS.REQUIRED_MESSAGE' | translate">
               <textarea
-              formControlName="message"
+                formControlName="message"
                 nz-input
                 rows="4"
                 [placeholder]="'CONTACTUS.FORM.MASSAGEPLAECHOLDER' | translate"></textarea>
@@ -165,7 +165,12 @@
           </nz-form-item>
         </nz-row>
       </form>
-      <button  nz-button nzType="primary" type="submit" class="primaryButton" (click)="submitForm()">
+      <button
+        nz-button
+        nzType="primary"
+        type="submit"
+        class="primaryButton"
+        (click)="submitForm()">
         <span class="textOfBtn">{{ "CONTACTUS.BUTTON" | translate }}</span>
         <div class="icon-container">
           <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
@@ -173,37 +178,44 @@
       </button>
     </div>
   </div>
-  <div class="mapContact">
-    <div class="textHolder">
-      <p class="bkText">{{ "CONTACTUS.TITLE" | translate }}</p>
-      <div class="subTextHolder">
-        <h4>{{ "CONTACTUS.TITLE" | translate }}</h4>
-        <h2>{{ "CONTACTUS.SUBTITLE" | translate }}</h2>
+    <div class="mapContact">
+      <div class="textHolder">
+        <p class="bkText">{{ "CONTACTUS.TITLE" | translate }}</p>
+        <div class="subTextHolder">
+          <h4>{{ "CONTACTUS.TITLE" | translate }}</h4>
+          <h2>{{ "CONTACTUS.SUBTITLE" | translate }}</h2>
+        </div>
       </div>
-    </div>
-    <div class="iconContainer">
-      <div class="mailIcon">
-        <img src="../../assets/pic/ICON/Mail.png" alt="Mail" />
-        <p><a href="mailto:info@healthycrops.com">info&#64;healthycrops.com</a></p>
+      <div class="iconContainer">
+        <div class="mailIcon">
+          <a href="mailto:info@healthycrops.com">
+            <img src="../../assets/pic/ICON/Mail.png" alt="Mail" />
+          </a>
+          <p>
+            <a href="mailto:info@healthycrops.com">info&#64;healthycrops.com</a>
+          </p>
+        </div>
+        <div class="phoneIcon">
+          <a href="tel:+201234567896"><img src="../../assets/pic/ICON/phone.png" alt="Phone"/></a>
+          <p>
+            <a href="tel:+201234567896">{{
+              "FOOTER.LINKS.NUMBER" | translate}}</a>
+          </p>
+        </div>
+        <div class="locationIcon">
+          <a href="https://maps.app.goo.gl/1oWLYyUwpax8Dipg7" target="_blank" rel="noopener">
+            <img id="loc" src="../../assets/pic/ICON/location.png" alt="Location"/></a>
+            <p><a href="https://maps.app.goo.gl/1oWLYyUwpax8Dipg7" target="_blank" rel="noopener">{{ "FOOTER.LINKS.Location" | translate }}</a></p>
+        </div>
       </div>
-      <div class="phoneIcon">
-        <img src="../../assets/pic/ICON/phone.png" alt="Phone" />
-        <p><a href="tel:+201234567896">{{ 'FOOTER.LINKS.NUMBER' | translate }}</a></p>
+      <div class="mapContainer">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1189.9816894590715!2d31.528838510305185!3d30.02100220693967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458199851cd0feb%3A0x4b160c6b121388a5!2sInnovitics%20inc.!5e0!3m2!1sen!2seg!4v1737468201128!5m2!1sen!2seg"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-      <div class="locationIcon">
-        <img src="../../assets/pic/ICON/location.png" alt="Location" />
-        <p>{{ 'FOOTER.LINKS.Location' | translate }}</p>
-      </div>
-    </div>
-    <div class="mapContainer">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1189.9816894590715!2d31.528838510305185!3d30.02100220693967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458199851cd0feb%3A0x4b160c6b121388a5!2sInnovitics%20inc.!5e0!3m2!1sen!2seg!4v1737468201128!5m2!1sen!2seg"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      >
-      </iframe>
     </div>
   </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
