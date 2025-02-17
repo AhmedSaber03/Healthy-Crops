@@ -4,14 +4,10 @@
 
 //DropDown Menu
 
-// .cdk-overlay-pane{
-  
- 
-// }
+
 .ant-dropdown-menu
   {
     width: 168px;
-    right: 8.3rem;
     border-radius: 5px;
     color: #F8F8F9;
   }
@@ -42,6 +38,11 @@
     flex-wrap: wrap; 
     gap: 30px; 
 
+    .no-click {
+      pointer-events: none;
+      cursor: none;
+    }
+
     .itemCard {
         width: calc(33.3% - 20px);
         background: $whiteColor;
@@ -64,6 +65,7 @@
             width: 32px;
             height: 32px;
             justify-content: center;
+            cursor: pointer;
 
             >svg {
               fill: #8F95A6;
@@ -180,15 +182,18 @@
 .markSold {
       display: block;
       color: #9f9fa1;
+      border: none;
+      place-self: center;
       font-size: 14px;
-      text-align: center;
       margin: 10px 0;
+      background-color: transparent;
       text-decoration: underline;
       cursor: pointer;
       }
       //Button Colors
       .gray {
         color: #BBBFC9;
+        cursor: not-allowed;
       }
       
       .green {

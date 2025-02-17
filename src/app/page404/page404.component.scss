@@ -1,0 +1,19 @@
+.pageContainer{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+
+    >img {
+        width: 50%;
+        height: 70%;
+        border-radius: 8%;
+        
+    }
+}
+
+.primaryButton {
+    margin-top: 50px;
+    place-self: center;
+    justify-content: center;
+  }

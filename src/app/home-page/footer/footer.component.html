@@ -50,15 +50,9 @@
       </div>
       <div class="midRight">
         <h4>{{ 'FOOTER.LINKS.Ourproducts' | translate }}</h4>
-        <p><a routerLink="/profile">Account</a></p>
           <div *ngFor="let tab of tabs">        
           <p><a [routerLink]="['/products', tab.type]">{{ tab.titleKey | translate }}</a></p>
         </div>
-          <!-- <p><a [routerLink]="['/product-details', 40]" >{{ 'FOOTER.LINKS.WatermelonSeeds' | translate }}</a></p>
-          <p><a [routerLink]="['/product-details', 41]" >{{ 'FOOTER.LINKS.SesameSeeds' | translate }}</a></p>
-          <p><a [routerLink]="['/product-details', 42]" >{{ 'FOOTER.LINKS.HibiscusFlower' | translate }}</a></p>
-          <p><a [routerLink]="['/product-details', 43]" >{{ 'FOOTER.LINKS.DriedGingerflakes' | translate }}</a></p>
-          <p><a [routerLink]="['/product-details', 44]" >{{ 'FOOTER.LINKS.Chickpeas' | translate }}</a></p> -->
       </div>
         <div class="right">
           <h4>{{ 'FOOTER.LINKS.Contact' | translate }}</h4>

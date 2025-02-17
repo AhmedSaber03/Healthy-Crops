@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { ProductService } from '../../services/shared.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-footer',
@@ -17,16 +15,16 @@ import { Observable } from 'rxjs';
 
 })
 export class FooterComponent {
+  router: any;
+
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute){} 
+
   tabs = [
     { titleKey: 'PRODUCTS.TABS.FROZEN', type: 'FROZEN' },
     { titleKey: 'PRODUCTS.TABS.FRESH', type: 'FRESH' },
     { titleKey: 'PRODUCTS.TABS.DEHYDRATED', type: 'DEHYDRATED' }
   ];
-  router: any;
-
-  constructor(
-    private productService: ProductService,
-    private route: ActivatedRoute) {} 
-
 }
 

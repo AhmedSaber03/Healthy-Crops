@@ -18,6 +18,9 @@
     <li>
       <a routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.CONTACT_US' | translate }}</a>
     </li>
+    <li>
+      <a routerLink="/account/profile" [class.active]="isAccountActive()">{{ 'NAVBAR.Name' | translate }}</a>
+    </li>
     </ul>
     <div class="language-selector">
       <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
@@ -100,6 +103,9 @@
         </li>
         <li>
           <a routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.CONTACT_US' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/Account/profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'NAVBAR.Name' | translate }}</a>
         </li>
       </ul>
       </ng-container>

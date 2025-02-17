@@ -29,13 +29,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Set saved language on app load
     const savedLanguage = localStorage.getItem('language') || 'en';
     this.translate.use(savedLanguage);
     document.documentElement.lang = savedLanguage;
     document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
 
-    // Listen to route change events and scroll to top
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         console.log('NavigationEnd Event:', event.urlAfterRedirects); 
@@ -46,20 +44,17 @@ export class AppComponent implements OnInit {
   }
 
   onActivate(): void {
-    console.log('Route activated');
     setTimeout(() => {
       window.scrollTo({ top: 0});
     }, 0);
   }
 
-  // Detect scroll and show/hide the "scroll to top" button
   @HostListener('window:scroll', [])
   onScroll(): void {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.showScrollToTop = scrollPosition > 1000;
   }
 
-  // Scroll to the top of the page
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

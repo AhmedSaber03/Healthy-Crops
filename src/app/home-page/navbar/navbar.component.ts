@@ -55,6 +55,9 @@ export class NavbarComponent implements OnInit {
       this.router.url.startsWith('/product-details')
     );
   }
+  isAccountActive(): boolean {
+    return this.router.url.startsWith('/account');
+  }
   open(): void {
     this.visible = true;
   }
@@ -70,7 +73,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentLanguage = localStorage.getItem('language') || 'en';
-    console.log('Initial language:', this.currentLanguage)
     document.body.classList.remove('rtl','ltr')
     document.body.classList.add(this.currentLanguage === 'ar' ? 'rtl' : 'ltr')
     }
