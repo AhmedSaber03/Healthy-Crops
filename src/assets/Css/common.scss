@@ -42,6 +42,10 @@
 
 }
 
+.globalPaddingBottom {
+  padding-bottom: 150px;
+}
+
 @mixin globalTextStyles($mainFontSize, $primaryColor) {
     
     .textHolder {

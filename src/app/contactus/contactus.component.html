@@ -2,7 +2,7 @@
 <app-coverpic
   [bgUrl]="'./assets/pic/contactUsHero.webp'"
   [pageTitle]="'CONTACTUS.TITLE'"></app-coverpic>
-<div class="pageContant mainPadding globalDivMargin">
+<div class="pageContant mainPadding globalDivMargin globalPaddingBottom">
   <div class="formContent">
     <div class="textHolder">
       <p class="bkText">{{ "CONTACTUS.TTITLE" | translate }}</p>
@@ -173,7 +173,7 @@
         (click)="submitForm()">
         <span class="textOfBtn">{{ "CONTACTUS.BUTTON" | translate }}</span>
         <div class="icon-container">
-          <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
+          <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" loading="lazy" />
         </div>
       </button>
     </div>
@@ -189,14 +189,14 @@
       <div class="iconContainer">
         <div class="mailIcon">
           <a href="mailto:info@healthycrops.com">
-            <img src="../../assets/pic/ICON/Mail.png" alt="Mail" />
+            <img src="../../assets/pic/ICON/Mail.png" alt="Mail" loading="lazy" />
           </a>
           <p>
             <a href="mailto:info@healthycrops.com">info&#64;healthycrops.com</a>
           </p>
         </div>
         <div class="phoneIcon">
-          <a href="tel:+201234567896"><img src="../../assets/pic/ICON/phone.png" alt="Phone"/></a>
+          <a href="tel:+201234567896"><img src="../../assets/pic/ICON/phone.png" alt="Phone" loading="lazy"/></a>
           <p>
             <a href="tel:+201234567896">{{
               "FOOTER.LINKS.NUMBER" | translate}}</a>
@@ -204,7 +204,7 @@
         </div>
         <div class="locationIcon">
           <a href="https://maps.app.goo.gl/1oWLYyUwpax8Dipg7" target="_blank" rel="noopener">
-            <img id="loc" src="../../assets/pic/ICON/location.png" alt="Location"/></a>
+            <img id="loc" src="../../assets/pic/ICON/location.png" alt="Location" loading="lazy"/></a>
             <p><a href="https://maps.app.goo.gl/1oWLYyUwpax8Dipg7" target="_blank" rel="noopener">{{ "FOOTER.LINKS.Location" | translate }}</a></p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <app-coverpic [bgUrl]="'./assets/pic/Group15412.png'" [pageTitle]="'SUBPRODUCTS.TITLE'"></app-coverpic>
-<div class="productsContainer mainPadding">
+<div class="productsContainer mainPadding globalPaddingBottom">
   <div class="tabsContainer">
     <div class="tabs">
       <ng-container *ngIf="isLoadingTabs; else loadedTabs">
@@ -25,7 +25,7 @@
     </ng-container>
     <ng-template #showProducts>
       <div *ngFor="let product of products" class="slideItem" [routerLink]="['/product-details']" [queryParams]="{ id: product.id }" (click)="logClick(product)">
-        <img [src]="product.image" alt="{{ product.titleKey | translate }}">
+        <img [src]="product.image" alt="{{ product.titleKey | translate }}" loading="lazy">
         <div class="overlay">
           <p>{{ product.name | translate }}</p>
         </div>
@@ -35,7 +35,7 @@
 </div>
 <ng-template #noProductsTemplate>
   <div class="noProducts">
-    <img src="../../assets/pic/NoProductImageAvailable.png" alt="No Products Available">
+    <img src="../../assets/pic/NoProductImageAvailable.png" alt="No Products Available" loading="lazy">
     <p>{{ 'SubProducts.NOPRODUCTSAVAILABLE' | translate }}</p>
   </div>
 </ng-template>

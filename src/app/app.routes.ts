@@ -65,7 +65,12 @@ export const routes: Routes = [
     ],
   },
 
-  // 404 Page
+  {
+    path: 'cardetails',
+    loadComponent: () =>
+      import('./layout/adverts/productdcar/productdcar.component').then((m) => m.ProductdcarComponent),
+  },
+
   {
     path: '**',
     loadComponent: () =>

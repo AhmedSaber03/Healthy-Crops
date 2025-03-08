@@ -4,217 +4,223 @@
 
 //DropDown Menu
 
-
-.ant-dropdown-menu
-  {
-    width: 168px;
-    border-radius: 5px;
-    color: #F8F8F9;
-  }
-
-  
-  
-
-  .ant-dropdown-menu-item {
-
-    .ant-menu-title-content {
-      display: flex;
-      gap: 7px;
-      color: #868C9C;
-    }
-  }
-
-.mainText{
-    margin-bottom: 32px;
-    text-align: left;
-    color: $blackColor;
-    font-family: "Hauora-Bold";
-    font-size: 20px;
+.ant-dropdown-menu {
+  width: 168px;
+  border-radius: 5px;
+  color: #f8f8f9;
 }
 
-.adConatiner{
-    width: 100%;
-    display: flex;  
-    flex-wrap: wrap; 
-    gap: 30px; 
+.ant-dropdown-menu-item {
+  .ant-menu-title-content {
+    display: flex;
+    gap: 7px;
+    color: #868c9c;
+  }
+}
 
-    .no-click {
-      pointer-events: none;
-      cursor: none;
+.mainText {
+  margin-bottom: 32px;
+  text-align: left;
+  color: $blackColor;
+  font-family: "Hauora-Bold";
+  font-size: 20px;
+}
+
+.adConatiner {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-bottom: 150px;
+
+  .no-click {
+    pointer-events: none;
+    cursor: none;
+  }
+
+  .itemCard {
+    width: calc(33.3% - 20px);
+    background: $whiteColor;
+    border: 1px solid #e6e8eb;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: "Hauora-Bold";
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .dropDown {
+      position: absolute;
+      z-index: 3;
+      background-color: $whiteColor;
+      border-radius: 50%;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      cursor: pointer;
+
+      > svg {
+        fill: #8f95a6;
+        font-size: 24px;
+      }
     }
 
-    .itemCard {
-        width: calc(33.3% - 20px);
-        background: $whiteColor;
-        border: 1px solid #E6E8EB;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        font-family: "Hauora-Bold";
-        position: relative;
+    .status {
+      background: #d4d1d1;
+      color: $whiteColor;
+      font-size: 11px;
+      font-family: "Poppins-Regular";
+      padding: 5px 10px;
+      border-radius: 10px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 71px;
+      height: 20px;
+      text-align: center;
+    }
+
+    //Status color
+    .status-pending {
+      background-color: gray;
+    }
+
+    .status-active {
+      background-color: #4bb543;
+    }
+
+    .status-sold {
+      background-color: #f14d7e;
+    }
+
+    .imageContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .cardContent {
+      padding: 10px 10px;
+
+      .titleVerified {
         display: flex;
-        flex-direction: column;
+        gap: 5px;
 
-        .dropDown{
-            position: absolute;
-            z-index: 3;
-            background-color: $whiteColor;
-            border-radius: 50%;
-            top: 10px;
-            right: 10px;
-            width: 32px;
-            height: 32px;
-            justify-content: center;
-            cursor: pointer;
-
-            >svg {
-              fill: #8F95A6;
-              font-size: 24px;
-            }
-
+        .carTitle {
+          font-size: 14px;
+          font-weight: bold;
+          margin-bottom: 8px;
+          line-height: 1.5;
+          color: #222;
         }
-      
-        .status
-         {
-            background: #d4d1d1;
-            color: $whiteColor;
-            font-size: 11px;
-            font-family: "Poppins-Regular";
-            padding: 5px 10px;
-            border-radius: 10px;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 71px;
-            height: 20px;
-            text-align: center;
-          }
 
-          //Status color 
-          .status-pending {
-            background-color: gray;
-          }
-          
-          .status-active {
-            background-color: #4BB543;
-          }
-          
-          .status-sold {
-            background-color: #F14D7E;
-          }
-        
-          .imageContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 100%;
-              height: 100%;
-            }
-          }
-        
-          .cardContent {
-            padding: 10px 10px;
-            
-            .carTitle {
-              font-size: 14px;
-              font-weight: bold;
-              margin-bottom: 8px;
-              line-height: 1.5;
-              color: #222;
-            }
-            
-            .info {
-                display: flex;
-                justify-content: space-between;
-
-            .highestBid {
-              color: grey;
-            }
-            .currency,
-            .amount {
-              color: $primaryColor;
-              font-size: 16px;
-              font-weight: bold;
-              margin-bottom: 10px;
-            }
-
-            .price {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-
-                .amount{
-                    margin-left: 5px;
-
-                }
-            }
-            
-            .infoText{
-              width: 30%;
-              align-items: flex-end;
-            }
-            .infoText,
-            .year
-             {
-              font-size: 12px;
-              color: gray;
-              display: flex;
-              justify-content: space-between;
-              flex-direction: column;
-            }
-
-            .auctionBidder{
-              display: flex;
-              gap: 5px;
-              place-items: center;
-
-              >img {
-                width: 16px;
-                height: 100%;
-              }
-
-
-            }
-
+        .verified {
+          width: 20px;
+          height: 20px;
         }
-        
-.markSold {
-      display: block;
-      color: #9f9fa1;
-      border: none;
-      place-self: center;
-      font-size: 14px;
-      margin: 10px 0;
-      background-color: transparent;
-      text-decoration: underline;
-      cursor: pointer;
+      }
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .highestBid {
+            color: grey;
+          }
+          .currency,
+          .amount {
+            color: $primaryColor;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+
+          .amount {
+            margin-left: 5px;
+          }
+          .year {
+            font-size: 12px;
+            color: gray;
+          }
+        }
+
+        .infoText {
+          width: 30%;
+          align-items: flex-end;
+          gap: 8px;
+        }
+        .infoText{
+          font-size: 12px;
+          color: gray;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .auctionBidder {
+          display: flex;
+          gap: 5px;
+          place-items: center;
+
+          > img {
+            width: 16px;
+            height: 100%;
+          }
+        }
+      }
+
+      .markSold {
+        display: block;
+        color: #9f9fa1;
+        border: none;
+        place-self: center;
+        font-size: 14px;
+        margin: 10px 0;
+        background-color: transparent;
+        text-decoration: underline;
+        cursor: pointer;
       }
       //Button Colors
       .gray {
-        color: #BBBFC9;
+        color: #bbbfc9;
         cursor: not-allowed;
       }
-      
+
       .green {
-        color: #4BB543;
+        color: #4bb543;
 
         &:hover {
-          color: #2B8A24;
+          color: #2b8a24;
         }
       }
       hr {
-          border: 1px solid #E6E8EB;
+        border: 1px solid #e6e8eb;
       }
       .location {
-          font-size: 12px;
-          color: #8F95A6;
-          display: flex;
-          text-align: center;
-          justify-content: center;
-          gap: 10px;
+        font-size: 12px;
+        color: #8f95a6;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
       }
-     }
     }
+  }
+}
 
+.noText {
+  place-items: center;
+  margin-top: 5rem;
 }

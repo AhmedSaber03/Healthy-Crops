@@ -10,7 +10,7 @@
     (nzActiveChange)="onActiveChange(panel, $event)">
     <ng-template #extraTemplate>
       <span *ngIf="panel.active" nz-icon nzType="close" nzTheme="outline"></span>
-      <img *ngIf="!panel.active" src="../../../assets/pic/Account/EditIcon.svg" class="editIcon" />
+      <img *ngIf="!panel.active" src="../../../assets/pic/Account/EditIcon.svg" class="editIcon" loading="lazy" />
     </ng-template>
     <!--Panal 1 - Edit Profile--->
       <form

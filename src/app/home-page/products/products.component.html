@@ -24,7 +24,7 @@
       <ng-template carouselSlide>
         <div class="slide-item">
           <div class="box"></div>
-          <img [src]="slide.image" [alt]="slide.titleKey | translate" />
+          <img [src]="slide.image" [alt]="slide.titleKey | translate"  loading="lazy"/>
           <p>{{ slide.titleKey | translate }}</p>
         </div>
       </ng-template>
@@ -34,7 +34,7 @@
     <a routerLink="/products" class="primaryButton">
       <span>{{ 'PRODUCTS.BUTTON.VIEW_MORE' | translate }}</span>
       <div class="icon-container">
-        <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" />
+        <img src="../../assets/pic/BTN ARROW.svg" alt="Arrow" loading="lazy" />
       </div>
     </a>
   </div>

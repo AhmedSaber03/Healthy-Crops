@@ -43,7 +43,7 @@ export class LayoutComponent implements OnInit {
       name: 'layout.Adverts.MyAdverts',
       route: 'account/adverts',
       children: [
-        { id: 4, name: 'PostedAds', route: 'adverts/posted-ad' },
+        { id: 4, name: 'Posted Ads', route: 'adverts/posted-ad' },
         { id: 5, name: 'Auctions', route: 'adverts/auctions' },
         { id: 6, name: 'Archived', route: 'adverts/archived' },
       ],

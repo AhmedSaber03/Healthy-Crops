@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { NzDropDownModule, NzPlacementType } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { HttpClient } from '@angular/common/http';
+import { filter } from 'rxjs/operators';
+import { da } from 'intl-tel-input/i18n';
 
 
 @Component({
@@ -23,107 +25,109 @@ import { HttpClient } from '@angular/common/http';
   encapsulation: ViewEncapsulation.None,
 })
 export class PostedAdComponent implements OnInit {
-
   @Input() isAuction: boolean = false;
   @Input() isArchived: boolean = false;
 
   products: any[] = [];
+  filterSellingType: string = '';
+
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.filterSellingType = this.isAuction ? 'post-auction' : this.isArchived ? 'Archived' : 'post-ad';
+    
     this.loadProducts();
   }
 
   loadProducts() {
-    // Determine the filter based on isAuction
-    const filterSellingType = this.isAuction ? 'post-auction' : this.isArchived ? 'Archived' : 'post-ad';
-  
     this.http.get<any[]>('assets/mapingQmotors.json').subscribe(
       (data) => {
-        this.products = data
-          .filter(item => item.selling_type_key === filterSellingType)
-          .map(item => ({
-            id: item.id,
-            name: item.title || "____",
-            currency: item.currency,
-            price: item.price ? item.price.toLocaleString() : 'N/A',
-            year: item.year || '0000',
-            km: item.mileage ? `${item.mileage} ${item.mileage_unit}` : '0000 km',
-            adDate: this.formatDate(item.date_posted) || "1-1-2025",
-            adStatus: item.adStatus,
-            sales: `By: ${item.seller}`,
-            location: item.city || "Anywhere",
-            image: item.image || 'assets/pic/products/NoPathCopy (6)@2x.jpg',
-            auctionImage: item.image || 'assets/pic/products/NoPathCopy (6)@2x.jpg',
-            status: this.formatStatus(item.status),
-            type: item.selling_type_key,
-          }));
+        this.products = data;
+        this.products = data.filter(item => item.selling_type_key === this.filterSellingType);        
       },
-      (error) => {
+      (error) => { 
         console.error('Error loading JSON file', error);
       }
     );
   }
-      
-  
-  
-
-  formatDate(dateString: string | null): string {
-    if (!dateString) {
-      return '1-1-2025';
-    }
-  
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
-  }
-  
 
   formatStatus(status: string): string {
     return status.charAt(0).toUpperCase() + status.slice(1);
-  }
-  getProductImage(product: any): string {
-    return this.isAuction ? product.auctionImage : product.image;
-  }
+  } 
 
   logClick(product: any): void {
     const foundProduct = this.products.find((p) => p.id === product.id);
-
     if (foundProduct) {
-      this.router.navigate(['/product-details', product.id]);
+      this.router.navigate(['/cardetails']);
     } else {
       this.router.navigate(['/404']);
     }
   }
 
-  //status & button change
+  //sstatus & button change
   getStatusClass(status: string): string {
-    switch (status) {
-      case 'Pending':
-        return 'status-pending'; // Gray
-      case 'Active':
-        return 'status-active'; // Green
-      case 'Sold':
-        return 'status-sold'; // Pink
+    switch (status.toLowerCase()) {
+      case 'pending':
+        return 'status-pending'; 
+      case 'active':
+        return 'status-active'; 
+      case 'sold':
+        return 'status-sold'; 
       default:
         return '';
     }
   }
-
+  
   getButtonClass(status: string): string {
     switch (status) {
-      case 'Pending':
+      case 'pending':
         return 'gray';
-      case 'Active':
-      case 'Sold':
+      case 'active':
+      case 'sold':
         return 'green';
       default:
         return '';
     }
   }
-  isButtonDisabled(status: string): boolean {
-    return status === 'Pending';
+  
+  isButtonDisabled(status: string): boolean { 
+    return status === 'pending';
   }
+
+
+  
+
+  //acution calculate 
+
+  calculateTimeLeft(expireAt: string): string {
+    if (!expireAt) {
+      return 'Invalid date';
+    }
+  
+    const currentDate = new Date(); // Use current date and time
+    const expireDate = new Date(expireAt);
+  
+    // Ensure the expire date is valid
+    if (isNaN(expireDate.getTime())) {
+      return 'Invalid date';
+    }
+  
+    const timeDiff = expireDate.getTime() - currentDate.getTime();
+  
+    if (timeDiff <= 0) {
+      return 'Expired';
+    }
+  
+    const days = Math.floor(timeDiff / (1000 * 3600 * 24));
+    const hours = Math.floor((timeDiff % (1000 * 3600 * 24)) / (1000 * 3600));
+    const minutes = Math.floor((timeDiff % (1000 * 3600)) / (1000 * 60));
+  
+    return `${days}D : ${hours}H : ${minutes}M`;
+  }
+  
+  
+  
 
   //DropDown menu dissaple cards on click
 
@@ -142,4 +146,10 @@ export class PostedAdComponent implements OnInit {
   onClickOutside(event: Event) {
     this.closeDropdown();
   }
+
+
+  //onError image 
+
+
+  
 }

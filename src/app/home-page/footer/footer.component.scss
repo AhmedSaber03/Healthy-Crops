@@ -6,7 +6,6 @@
 .Footer {
   background: $blackColor;
   position: relative;
-  margin-top: 150px;
   z-index: 10;
 
   @include mq("ipad"){

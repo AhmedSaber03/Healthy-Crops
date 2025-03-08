@@ -14,7 +14,7 @@
   </div>
   </div>
   <div class="picHolder">
-    <img class="pppic" src="../../assets/pic/about-us-section.png" alt="" />
+    <img class="pppic" src="../../assets/pic/about-us-section.png" alt="firstphoto" loading="lazy" />
   </div>
 </div>
 <div class="shadowPic">
@@ -49,6 +49,7 @@
                 [src]="tab.imageUrl"
                 alt="{{ tab.titleKey }}"
                 class="tab-icon"
+                loading="lazy"
               />
             </div>
           </div>
@@ -76,15 +77,15 @@
           *ngFor="let item of slides; let i = index"
           nz-carousel-content
           class="slideItem">
-          <img [src]="item.imgSrc" alt="Slide image" class="carouselImg" />
+          <img [src]="item.imgSrc" alt="Slide image" class="carouselImg" loading="lazy" />
           <p>{{ "SUBPRODUCTS.DESCRIPTION" | translate }}</p>
         </div>
       </nz-carousel>
       <button class="arrow left" (click)="carousel.pre()">
-        <img src="assets/pic/Next1.png" alt="Previous" />
+        <img src="assets/pic/Next1.png" alt="Previous" loading="lazy"/>
       </button>
       <button class="arrow right" (click)="carousel.next()">
-        <img src="assets/pic/Next.png" alt="Next" />
+        <img src="assets/pic/Next.png" alt="Next" loading="lazy"/>
       </button>
   </div>
 </div>
@@ -96,11 +97,11 @@
       <h2>{{ "certificates.Team.subTitle" | translate }}</h2>
     </div>
   </div>
-  <div class="teamPicHolder">
-    <img class="pppic1" src="../../assets/pic/Group15410.png" alt="teamPic" />
+  <div class="teamPicHolder globalPaddingBottom">
+    <img class="pppic1" src="../../assets/pic/Group15410.png" alt="teamPic" loading="lazy" />
   </div>
   <div class="shadow">
-    <img src="../../assets/pic/Mask Group 67.svg" alt="shadow"/>
+    <img src="../../assets/pic/Mask Group 67.svg" alt="shadow" loading="lazy"/>
   </div>
 </div>
 <app-footer></app-footer>

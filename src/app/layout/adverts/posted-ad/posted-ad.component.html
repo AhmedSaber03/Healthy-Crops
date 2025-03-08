@@ -1,59 +1,154 @@
-<section>
-    <p class="mainText">{{ isAuction ? 'Auction' : isArchived ? 'Archived' : 'Posted Ads' }}</p>
+<section *ngIf="products && products.length > 0; else noProductavail">
+  <p class="mainText">
+    {{ isAuction ? "Auction" : isArchived ? "Archived" : "Posted Ads" }}
+  </p>
   <div class="adConatiner">
-        <div class="itemCard"
-        *ngFor="let product of products"
+    <ng-container *ngFor="let product of products">
+      <div
+        class="itemCard"
         (click)="logClick(product)"
-        [class.no-click]="isDropdownOpen">
+        [class.no-click]="isDropdownOpen"
+        *ngIf="
+          product.selling_type_key === filterSellingType &&
+          product.image &&
+          product.price > 0">
+        <div class="status" [class]="getStatusClass(product.status)">
+          {{ formatStatus(product.status) | titlecase }}
+        </div>
 
-        <div class="status" [class]="getStatusClass(product.status)">{{ product.status }}</div>
-
-        <span nz-icon nzType="more" nzTheme="outline" nz-dropdown nzTrigger="click"
-        style="padding:0; margin: 0; line-height: 1;"
-        [nzDropdownMenu]="menu" class="dropDown" *ngIf="!isArchived"  [nzPlacement]="'bottomRight'"
-        (click)="toggleDropdown($event)">
+        <span
+          nz-icon
+          nzType="more"
+          nzTheme="outline"
+          nz-dropdown
+          nzTrigger="click"
+          style="padding: 0; margin: 0; line-height: 1"
+          [nzDropdownMenu]="menu"
+          class="dropDown"
+          *ngIf="!isArchived"
+          [nzPlacement]="'bottomRight'"
+          (click)="toggleDropdown($event)"
+        >
         </span>
 
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul class="dropMenu" nz-menu (click)="$event.stopPropagation()">
-            <li nz-menu-item  (click)="closeDropdown()"><span nz-icon nzType="edit" nzTheme="outline"></span><span>Edit</span></li>
-            <li nz-menu-item  (click)="closeDropdown()"><span nz-icon [nzType]="isAuction ? 'file-add' : 'delete'" nzTheme="outline"></span>
-              <span>{{ isAuction ? 'Add Verification' : 'Delete' }}</span>
+            <li
+              nz-menu-item
+              *ngIf="product.status === 'Active'"
+              (click)="closeDropdown()"
+            >
+              <span nz-icon nzType="edit" nzTheme="outline"></span>
+              <span>Edit</span>
             </li>
-            <li nz-menu-item  (click)="closeDropdown()"><span nz-icon [nzType]="isAuction ? 'delete' : 'up-circle'" nzTheme="outline"></span><span>{{ isAuction ? 'Delete' : 'Upgrade' }}</span></li>
+
+            <li
+              nz-menu-item
+              *ngIf="product.status !== 'Pending'"
+              (click)="closeDropdown()"
+            >
+              <span
+                nz-icon
+                [nzType]="isAuction ? 'file-add' : 'delete'"
+                nzTheme="outline"
+              ></span>
+              <span>{{ isAuction ? "Add Verification" : "Delete" }}</span>
+            </li>
+            <li nz-menu-item (click)="closeDropdown()">
+              <span
+                nz-icon
+                [nzType]="isAuction ? 'delete' : 'up-circle'"
+                nzTheme="outline"
+              ></span>
+              <span>{{ isAuction ? "Delete" : "Upgrade" }}</span>
+            </li>
           </ul>
-          </nz-dropdown-menu>
+        </nz-dropdown-menu>
 
         <div class="imageContainer">
-          <img [src]="getProductImage(product) " alt="Car Image" />
+          <img [src]="product.image" loading="lazy" alt="Car Image" onerror="this.src='assets/pic/products/NoPathCopy(6)@2x.jpg'" />
         </div>
         <div class="cardContent">
-          <h3 class="carTitle">{{ product.name }}</h3>
+          <div class="titleVerified">
+          <h3 class="carTitle">{{ product.title || "____" }}</h3>
+          <img class="verified" src="../../../../assets/pic/products/Group7.svg" alt="verified" *ngIf="product.is_verified"/>
+        </div>
           <div class="info">
-            <div class="price">             
-             <div>
-              <span class="highestBid">{{ isAuction ? 'Highest bid: ' : '' }}</span>
-              <span class="currency">{{ product.currency }}</span><span class="amount">{{ product.price }}</span></div>
-              <p>{{ isAuction ? '03D : 18H : 50M' : '' }}</p>
-              <p class="year">{{ product.year }}</p>
+            <div class="price">
+              <div>
+                <span class="highestBid">
+                  {{ isAuction ? (product.bidder_count === 0 ? "First bid:" : "Highest bid: ") : ""}}
+                </span>                
+                <span class="currency">{{ product.currency || "" }}</span
+                ><span class="amount">{{ product.price | number }}</span>
+              </div>
+              <p>{{ isAuction ? calculateTimeLeft(product.expire_at) : "" }}</p>
+              <p class="year">{{ product.year || "0000" }}</p>
             </div>
+            
             <div class="infoText">
-              <p style="color: black;">{{ product.km }}</p>
-              <p>{{ product.adDate }}</p>
+              <p style="color: black">
+                {{
+                  product.mileage
+                    ? product.mileage + " " + (product.mileage_unit || "")
+                    : "0000 km"
+                }}
+              </p>
+              <p>
+                {{
+                  product.date_posted
+                    ? (product.date_posted | date : "dd-MMM-yyyy")
+                    : "1-1-2025"
+                }}
+              </p>
               <div class="auctionBidder" *ngIf="isAuction">
-                <img src="../../../../assets/pic/products/icons_459499.svg" alt="bidders Icon"> <span>20 Bidders</span>
+                <img
+                  src="../../../../assets/pic/products/icons_459499.svg"
+                  alt="bidders Icon"
+                />
+                <span>{{ product.bidder_count }} Bidders</span>
               </div>
             </div>
           </div>
-          <button class="markSold" [ngClass]="getButtonClass(product.status)"  [disabled]="isButtonDisabled(product.status)">
-            {{ isAuction ? '' : product.adStatus }}
-          </button>             
-          <hr>
+          <button
+            class="markSold"
+            [ngClass]="getButtonClass(product.status)"
+            [disabled]="isButtonDisabled(product.status)"
+          >
+            {{ isAuction ? "" : product.adStatus || "No Status" }}
+          </button>
+
+          <hr />
           <div class="location">
-            <span>{{ product.sales }}</span> |
-            <span>{{ product.location }}</span>
+            <span>{{ product.seller || "By: Unknown" }}</span> |
+            <span>{{ product.city || "Anywhere" }}</span>
           </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+  </div>
 </section>
+
+<ng-template #noProductavail>
+  <p class="mainText">
+    {{ isAuction ? "Auction" : isArchived ? "Archived" : "Posted Ads" }}
+  </p>
+  <div class="noText">
+    <img
+      src="../../assets/pic/products/Screenshot 2025-02-18 102702.png"
+      loading="lazy"
+      alt="Page 404"
+    />
+    <p>
+      No {{ isAuction ? "Auction" : isArchived ? "Archived" : "Posted Ads" }}!
+    </p>
+    <p>
+      Your
+      {{ isAuction ? "Auction" : isArchived ? "Archived" : "Posted Ads" }} will
+      show up here.
+    </p>
+  </div>
+  <button *ngIf="!isArchived" class="primaryButton">
+    {{ isAuction ? "Post Auction" : "Post Ad" }}
+  </button>
+</ng-template>

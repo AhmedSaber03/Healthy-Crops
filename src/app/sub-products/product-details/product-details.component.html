@@ -13,7 +13,7 @@
 <ng-template #loadedProducts>
   <app-coverpic [bgUrl]="productBgUrl" [pageTitle]="pageTitle | translate"></app-coverpic>
   <div class="productDetailsContent mainPadding">
-    <img [src]="product.inner_image" alt="Icon" class="list-icon" />
+    <img [src]="product.inner_image" alt="Icon" class="list-icon" loading="lazy"/>
     <span>{{ product.name | translate }}</span>
     <p *ngFor="let des of descriptions">{{ des | translate }}</p>
     <button class="primaryButton" (click)="backToProducts()">
